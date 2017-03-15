@@ -8,7 +8,8 @@ router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({extended: false}));
 
 router.get('/', function (req, res, next) {
-    res.sendFile(path.join(__dirname + '/../../src/index.html'));
+    console.log("api reached");
+    res.end();
 });
 
 module.exports = router;
