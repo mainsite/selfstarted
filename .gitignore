@@ -19,3 +19,5 @@ npm-debug.log
 
 # PHPStorm
 .idea
+
+src/angularjs
