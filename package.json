@@ -1,0 +1,43 @@
+{
+  "name": "selfstarted",
+  "version": "1.0.0",
+  "description": "Social collaboration app for students looking for like minded individuals to work with.",
+  "main": "server.js",
+  "private": true,
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mainsite/selfstarted.git"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "angularjs",
+    "linkedIn",
+    "socket.io"
+  ],
+  "author": "Team Self Started",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mainsite/selfstarted/issues"
+  },
+  "homepage": "https://github.com/mainsite/selfstarted#readme",
+  "dependencies": {
+    "angular": "1.6.3",
+    "angular-ui-bootstrap": "2.5.0",
+    "angular-ui-router": "0.4.2",
+    "body-parser": "1.17.1",
+    "express": "4.15.2",
+    "mongoose": "4.9.0",
+    "morgan": "1.8.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-angular-filesort": "^1.1.1",
+    "gulp-inject": "^4.2.0",
+    "gulp-util": "^3.0.8"
+  }
+}
