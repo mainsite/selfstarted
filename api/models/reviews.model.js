@@ -17,19 +17,19 @@ var ReviewsSchema = new Schema({
 	// _projectId references the id of the project which when finished will
 	// offer users the ability to leave feedback for one another.
 	_projectId: {
-		type: String,
+		type: Schema.ObjectId,
 		ref: "Projects"
 	},
 
 	// _reviewFromUser references the user who left the review.
 	_reviewFromUser: {
-		type: String,
+		type: Schema.ObjectId,
 		ref: "Users"
 	},
 
 	// _reviewForUser references the user for whom the review has been left.
 	_reviewForUser: {
-		type: String,
+		type: Schema.ObjectId,
 		ref: "Users"
 	},
 

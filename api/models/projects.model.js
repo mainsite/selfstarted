@@ -86,7 +86,7 @@ var ProjectsSchema = new Schema({
 	// if user goes inactive and is removed from the project, and code for that
 	// eventuality.
 	_primaryProjectOwner: {
-		type: String,
+		type: Schema.ObjectId,
 		ref: "Users",
 		required: true
 	},
@@ -94,7 +94,7 @@ var ProjectsSchema = new Schema({
 	// _usersInvited tracks the users who have been invited to the project but
 	// do not belong to it yet.
 	_usersInvited: [{
-		type: String,
+		type: Schema.ObjectId,
 		ref: "Users"
 	}],
 
@@ -102,7 +102,7 @@ var ProjectsSchema = new Schema({
 	// accepted after being invited. Remember to always add the project owner
 	// as in this array.
 	_usersAssigned: [{
-		type: String,
+		type: Schema.ObjectId,
 		ref: "Users"
 	}]
 

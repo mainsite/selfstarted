@@ -31,14 +31,14 @@ var MessagesSchema = new Schema({
 	// _fromUser tracks who sent the message, and for this we
 	// reference the Users collection
 	_fromUser: {
-		type: String,
+		type: Schema.ObjectId,
 		ref: "Users"
 	},
 
 	// _toUser tracks who the message was sent to, and for this
 	// we again reference the Users collection
 	_toUser: {
-		type: String,
+		type: Schema.ObjectId,
 		ref: "Users"
 	},
 
