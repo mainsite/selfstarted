@@ -5,7 +5,7 @@ angular
 function landingPageConfig($stateProvider) {
     $stateProvider.state({
         name: 'home',
-        url: '/home',
+        url: '/',
         templateUrl: 'selfStarted/features/landingPage/landingPage.html',
         controller: LandingPageCtrl,
         controllerAs: 'LandingPageVM'
