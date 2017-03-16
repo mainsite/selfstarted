@@ -1,8 +1,9 @@
 angular
     .module('selfStarted', [
         'ui.router',
-        'ui.bootstrap',
-        'selfStarted.landingPage'
+        'ui.materialize',
+        'selfStarted.landingPage',
+        'selfStarted.dashboard'
     ])
     .config(appConfig);
 
