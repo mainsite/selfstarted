@@ -14,6 +14,13 @@ var Schema = mongoose.Schema;
 // Create article schema
 var MessagesSchema = new Schema({
 
+	// messageSubject is the title/subject field of the message. It
+	// is required.
+	messageSubject: {
+		type: String,
+		required: true
+	},
+
 	// messageText contains the actual body of the message. It is
 	// required so we don't end up having blank messages.
 	messageText: {
