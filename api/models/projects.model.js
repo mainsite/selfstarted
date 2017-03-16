@@ -81,27 +81,27 @@ var ProjectsSchema = new Schema({
 		default: false
 	},
 
-	// primaryProjectOwner is the user who created and maintains the project,
+	// _primaryProjectOwner is the user who created and maintains the project,
 	// and a project must have an owner so it's required. Keep in mind what happens
 	// if user goes inactive and is removed from the project, and code for that
 	// eventuality.
-	primaryProjectOwner: {
+	_primaryProjectOwner: {
 		type: String,
 		ref: "Users",
 		required: true
 	},
 
-	// usersInvited tracks the users who have been invited to the project but
+	// _usersInvited tracks the users who have been invited to the project but
 	// do not belong to it yet.
-	usersInvited: [{
+	_usersInvited: [{
 		type: String,
 		ref: "Users"
 	}],
 
-	// usersAssigned will be an array of users that belong to the project who
+	// _usersAssigned will be an array of users that belong to the project who
 	// accepted after being invited. Remember to always add the project owner
 	// as in this array.
-	usersAssigned: [{
+	_usersAssigned: [{
 		type: String,
 		ref: "Users"
 	}]

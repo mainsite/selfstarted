@@ -14,6 +14,40 @@ var Schema = mongoose.Schema;
 // Create article schema
 var ReviewsSchema = new Schema({
 
+	// _projectId references the id of the project which when finished will
+	// offer users the ability to leave feedback for one another.
+	_projectId: {
+		type: String,
+		ref: "Projects"
+	},
+
+	// _reviewFromUser references the user who left the review.
+	_reviewFromUser: {
+		type: String,
+		ref: "Users"
+	},
+
+	// _reviewForUser references the user for whom the review has been left.
+	_reviewForUser: {
+		type: String,
+		ref: "Users"
+	},
+
+	// reviewText contains the actual review contents / body, and is required
+	// so we don't end up with blank reviews.
+	reviewText: {
+		type: String,
+		required: true
+	},
+
+	// reviewActive is a bool showing whether the review is active or not. Reviewer
+	// who left the review should have the ability to withdraw it. Only display the
+	// review if this flag is true. By default we want the review visible, so true.
+	reviewActive: {
+		type: Boolean,
+		default: true
+	}
+
 });
 
 // Create the Reviews model with the ReviewsSchema
