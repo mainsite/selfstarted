@@ -16,7 +16,7 @@ var MessagesSchema = new Schema({
 
 });
 
-// Create the ToDo model with the ToDoSchema
+// Create the Messages model with the MessagesSchema
 var Messages = mongoose.model("Messages", MessagesSchema);
 
 // Export the model

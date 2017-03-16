@@ -16,7 +16,7 @@ var ReviewsSchema = new Schema({
 
 });
 
-// Create the ToDo model with the ToDoSchema
+// Create the Reviews model with the ReviewsSchema
 var Reviews = mongoose.model("Reviews", ReviewsSchema);
 
 // Export the model

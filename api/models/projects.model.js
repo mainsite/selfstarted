@@ -1,6 +1,6 @@
-// the projects collection model
-// this collection houses all of the projects
-// and their related info
+// The projects collection model.
+// This collection houses all of the projects
+// and their related info.
 
 // Require mongoose
 var mongoose = require("mongoose");
@@ -16,7 +16,7 @@ var ProjectsSchema = new Schema({
 
 });
 
-// Create the ToDo model with the ToDoSchema
+// Create the Projects model with the ProjectsSchema
 var Projects = mongoose.model("Projects", ProjectsSchema);
 
 // Export the model
