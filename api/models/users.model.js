@@ -139,16 +139,22 @@ var UsersSchema = new Schema({
     type: String
   },
 
-  // signUpDate is when the account was first created on selfstarted
+  // signUpDate is when the account was first created on selfstarted,
+  // and it can be set as a default value of current at the time of
+  // account creation
   signUpDate: {
     type: Date,
-    required: true
+    required: true,
+    default: Date.now
   },
 
-  // lastLoginDate tracks when the user last accessed selfstarted
+  // lastLoginDate tracks when the user last accessed selfstarted,
+  // and has a default of current which will get inserted when account
+  // is created reflecting the first login.
   lastLoginDate: {
     type: Date,
-    required: true
+    required: true,
+    default: Date.now
   },
 
   // isActiveUser is a boolean. Perhaps we set the user to inactive
