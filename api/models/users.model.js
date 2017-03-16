@@ -16,7 +16,7 @@ var UsersSchema = new Schema({
 
   // selfStartedUserName is a unique user name on selfstarted. We
   // may want to implement this if we start having users
-  // authenticated from multiple source. 
+  // authenticated from multiple sources. 
   selfStartedUserName: {
     type: String,
     unique: true
@@ -38,7 +38,7 @@ var UsersSchema = new Schema({
 
   // lastLinkedInAPIRefresh shows when we last pulled
   // the user's data from LinkedIn. Use this for checking
-  // when data has been updated and pulling fresh
+  // when data has been updated and pull fresh
   // data accordingly. Verify if LinkedIn API supports
   // showing of last update. If not then maybe just 
   // offer user the option to refresh data by presenting
@@ -101,7 +101,7 @@ var UsersSchema = new Schema({
 
   // Additional skills may be populated either from LinkedIn skills
   // list, or perhaps by user self-entry on their profile page. TBD.
-  // This may need to be broken out into another table. Or perhaps
+  // This may need to be broken out into another collection. Or perhaps
   // we just want this to be a long stringed together list?
   additionalSkills: {
     type: Array
@@ -145,7 +145,7 @@ var UsersSchema = new Schema({
     required: true
   },
 
-  // lastLogin for when the user last accessed selfstarted
+  // lastLoginDate tracks when the user last accessed selfstarted
   lastLoginDate: {
     type: Date,
     required: true
@@ -153,7 +153,8 @@ var UsersSchema = new Schema({
 
   // isActiveUser is a boolean. Perhaps we set the user to inactive
   // if there is no activity in 60 days (?) which causes them to be
-  // removed from any ACTIVE projects automatically? Set it to default
+  // removed from any ACTIVE projects automatically? (But what happens
+  // if the project owner gets dropped!?!?) Set it to default
   // active for when account is first created on selfstarted.
   isActiveUser: {
     type: Boolean,
@@ -162,7 +163,7 @@ var UsersSchema = new Schema({
 
 });
 
-// Create the ToDo model with the ToDoSchema
+// Create the Users model with the UsersSchema
 var Users = mongoose.model("Users", UsersSchema);
 
 // Export the model
