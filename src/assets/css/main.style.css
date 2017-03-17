@@ -24,19 +24,19 @@
     .dashNavbar {
         background-color: #1A1F2B !important;
     }
-
     /*
         I can't beleive I need all this to change a stupid background
         color for the tabs bar
     */
+    
     md-tabs.md-default-theme .md-tab.md-active, md-tabs .md-tab.md-active, md-tabs.md-default-theme .md-tab.md-active md-icon, md-tabs .md-tab.md-active md-icon, md-tabs.md-default-theme .md-tab.md-focused, md-tabs .md-tab.md-focused, md-tabs.md-default-theme .md-tab.md-focused md-icon, md-tabs .md-tab.md-focused md-icon {
         color: white;
-        background-color: #4A6491 !important;
+        background-color: #30395C;
     }
     
     md-tabs.md-default-theme md-ink-bar, md-tabs md-ink-bar {
-        color: #85A5CC !important;
-        background-color: #85A5CC !important;
+        color: #85A5CC;
+        background-color: #85A5CC;
     }
     
     md-sidenav {
