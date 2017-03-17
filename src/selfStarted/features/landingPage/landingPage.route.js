@@ -7,7 +7,7 @@ function landingPageConfig($stateProvider) {
         name: 'home',
         url: '/',
         templateUrl: 'selfStarted/features/landingPage/landingPage.html',
-        controller: LandingPageCtrl,
+        controller: "LandingPageCtrl",
         controllerAs: 'LandingPageVM'
     });
 }
