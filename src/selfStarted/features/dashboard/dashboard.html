@@ -1,13 +1,33 @@
+<style type="text/css">
+  
 
-<div class="dashboard" layout="row" ng-cloak>
+.navBardemoBasicUsage md-content .ext-content {
+  padding: 50px;
+  margin: 20px;
+  background-color: #FFF2E0; }
 
-    <md-sidenav layout="column" class="sidenav1" md-is-locked-open='true'>
-        SideNav this is new content butt is doesnt seem to fill the page
-    </md-sidenav>
 
-    <md-content flex layout="column">
-        <div ui-view>
-            view content
-        </div>
-    </md-content>
+</style>
+
+<div ng-controller="DashboardCtrl" ng-cloak>
+  <md-content class="md-padding">
+    <md-nav-bar
+      md-selected-nav-item="currentNavItem"
+      nav-bar-aria-label="navigation links">
+      <md-nav-item md-nav-click="goto('page1')" name="page1">
+        Search Project
+      </md-nav-item>
+      <md-nav-item md-nav-click="goto('page2')" name="page2">
+        Create Project
+      </md-nav-item>
+    </md-nav-bar>
+
+
+    <div class="ext-content">
+      External content for `<span>{{currentNavItem}}</span>`.
+    </div>
+
+
+
+  </md-content>
 </div>

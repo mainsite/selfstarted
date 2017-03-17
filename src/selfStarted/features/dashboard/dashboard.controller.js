@@ -4,4 +4,6 @@ angular
 
 function DashboardCtrl($scope) {
     var vm = this;
+
+     $scope.currentNavItem = 'page1';
 }
