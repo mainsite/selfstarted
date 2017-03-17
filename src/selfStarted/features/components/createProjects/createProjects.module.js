@@ -1,2 +1,6 @@
 angular
-    .module('selfStarted.component.createProjects', []);
+    .module('selfStarted.component.createProjects', [
+
+    	"ngMaterial"
+
+    	]);
