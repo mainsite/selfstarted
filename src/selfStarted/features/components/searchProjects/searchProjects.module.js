@@ -1,2 +1,2 @@
 angular
-    .module('selfStarted.searchProjects', []);
+    .module('selfStarted.component.searchProjects', []);

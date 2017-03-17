@@ -1,5 +1,5 @@
 angular
-    .module('selfStarted.searchProjects')
+    .module('selfStarted.component.searchProjects')
     .directive('searchProjects', SearchProjects);
 
 function SearchProjects() {
@@ -9,8 +9,16 @@ function SearchProjects() {
             todoData: '='
         },
         templateUrl: 'selfStarted/features/components/searchProjects/searchProjects.html',
-        controller: "SearchProjectsCtrl",
+        controller: SearchProjectsCtrl,
         controllerAS: 'SearchProjectsVM',
         bindToController: true
     };
+}
+
+
+function SearchProjectsCtrl(){
+
+    var vm = this;
+
+
 }
