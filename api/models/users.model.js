@@ -16,19 +16,22 @@ var UsersSchema = new Schema({
 
   // selfStartedUserName is a unique user name on selfstarted. We
   // may want to implement this if we start having users
-  // authenticated from multiple sources. 
+  // authenticated from multiple sources. Remove dead space with trim.
   selfStartedUserName: {
     type: String,
-    unique: true
+    unique: true,
+    trim: true
   },
 
   // userEmail can be had from the LinkedIn API. For other methods
   // of auth to be added later we may need to prompt user for this
   // if it is not included within that particular API. Also this
   // needs to be unique so we don't end up with duplicate accounts.
+  // Remove dead space with trim.
   userEmail: {
     type: String,
-    unique: true
+    unique: true,
+    trim: true
   },
 
   // Since we will be adding other authentication
@@ -116,13 +119,15 @@ var UsersSchema = new Schema({
     type: Array
   },
 
-  // User's first name, and it must be required.
+  // User's first name, and it must be required. For now we will get
+  // this from LinkedIn.
   firstName: {
     type: String,
     required: true
   },
 
-  // User's last name, and it must be required.
+  // User's last name, and it must be required. For now we will get
+  // this from LinkedIn.
   lastName: {
     type: String,
     required: true
@@ -144,8 +149,10 @@ var UsersSchema = new Schema({
   },
 
   // aboutMe allows the user to save a personal description of any kind.
+  // Trim it to remove dead space.
   aboutMe: {
-    type: String
+    type: String,
+    trim: true
   },
 
   // signUpDate is when the account was first created on selfstarted,

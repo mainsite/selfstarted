@@ -15,17 +15,19 @@ var Schema = mongoose.Schema;
 var ProjectsSchema = new Schema({
 
 	// projectName is the name of the title, entered by the project owner,
-	// and it is required.
+	// and it is required. Remove dead space with trim.
 	projectName: {
 		type: String,
-		required: true
+		required: true,
+		trim: true
 	},
 
 	// projectDescription is a text description entered by the project owner,
-	// and it is a required field. 
+	// and it is a required field. Remove dead space with trim.
 	projectDescription: {
 		type: String,
-		required: true
+		required: true,
+		trim: true
 	},
 
 	// projectStartDate is estimated start date per the project owner
