@@ -1,1 +1,3 @@
-angular.module('selfStarted.landingPage', []);
+angular.module('selfStarted.landingPage', [
+	'ngMaterial'
+	]);

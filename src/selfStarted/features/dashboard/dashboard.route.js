@@ -7,7 +7,7 @@ function dashboardConfig($stateProvider) {
         name: 'dashboard',
         url: '/dashboard',
         templateUrl: 'selfStarted/features/dashboard/dashboard.html',
-        controller: DashboardCtrl,
+        controller: 'DashboardCtrl',
         controllerAs: 'DashboardVM'
     });
 }
