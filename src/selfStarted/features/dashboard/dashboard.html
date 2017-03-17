@@ -1,13 +1,22 @@
-
 <div class="dashboard" layout="row" ng-cloak>
-
-    <md-sidenav layout="column" class="sidenav1" md-is-locked-open='true'>
-        SideNav this is new content butt is doesnt seem to fill the page
+    <md-sidenav layout="column" class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('min-width: 960px')">
+        SideNav
     </md-sidenav>
-
+    <button class="smallbtn" ng-click="openLeftMenu()">Menu</button>
     <md-content flex layout="column">
-        <div ui-view>
-            view content
-        </div>
+
+        <md-tabs>
+
+            <md-tab label="Tab #1">
+                <md-content>
+                    <ng-view>
+                    </ng-view>
+                </md-content>
+            </md-tab>
+            <md-tab label="Tab #2"></md-tab>
+            <md-tab label="Tab #3"></md-tab>
+        </md-tabs>
+
     </md-content>
+
 </div>
