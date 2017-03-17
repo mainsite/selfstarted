@@ -15,17 +15,20 @@ var Schema = mongoose.Schema;
 var MessagesSchema = new Schema({
 
 	// messageSubject is the title/subject field of the message. It
-	// is required.
+	// is required. We also want to trim it to get rid of any dead space.
 	messageSubject: {
 		type: String,
-		required: true
+		required: true,
+		trim: true
 	},
 
 	// messageText contains the actual body of the message. It is
-	// required so we don't end up having blank messages.
+	// required so we don't end up having blank messages. We also want
+	// to trim it to remove dead space.
 	messageText: {
 		type: String,
-		required: true
+		required: true,
+		trim: true
 	},
 
 	// _fromUser tracks who sent the message, and for this we

@@ -34,10 +34,11 @@ var ReviewsSchema = new Schema({
 	},
 
 	// reviewText contains the actual review contents / body, and is required
-	// so we don't end up with blank reviews.
+	// so we don't end up with blank reviews. Remove dead space with trim.
 	reviewText: {
 		type: String,
-		required: true
+		required: true,
+		trim: true
 	},
 
 	// reviewActive is a bool showing whether the review is active or not. Reviewer
