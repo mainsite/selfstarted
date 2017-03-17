@@ -1,0 +1,36 @@
+    /*
+        color pallete for site
+        #1A1F2B darkest color for title bars and main features
+        #30395C secondary color for navbar and such
+        #4A6491 third color for minor features and highlights
+        #85A5CC accent color dark
+        #D0E4F2 accent color light
+        black and white for text throughout
+        darkgrey for body text
+        lightgrey for body background
+        white for widget backgrounds
+    */
+    
+    html, body {
+        height: 100% !important;
+        background-color: #EDEDED;
+        color: darkgray;
+    }
+    
+    .dashboard {
+        height: 100%;
+    }
+    
+    md-sidenav {
+        width: 20%;
+        height: 100%;
+        padding: 20px;
+        background-color: #30395C;
+        color: white;
+    }
+    
+    md-content {
+        background-color: #EDEDED;
+        height: 100%;
+        padding: 20px;
+    }
