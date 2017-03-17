@@ -16,7 +16,7 @@ function CreateProjects() {
 }
 
 
-function CreateProjectsCtrl($scope, $mdThemingProvider){
+function CreateProjectsCtrl($scope){
 
     var vm = this;
 
