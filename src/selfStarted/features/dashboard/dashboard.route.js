@@ -2,7 +2,7 @@ angular
     .module('selfStarted.dashboard')
     .config(dashboardConfig);
 
-function dashboardConfig($stateProvider) {
+function dashboardConfig($stateProvider, $mdThemingProvider) {
     $stateProvider.state({
         name: 'dashboard',
         url: '/dashboard',
@@ -10,4 +10,6 @@ function dashboardConfig($stateProvider) {
         controller: DashboardCtrl,
         controllerAs: 'DashboardVM'
     });
+
+    $mdThemingProvider.theme('docs-dark');
 }
