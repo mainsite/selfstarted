@@ -1,6 +1,2 @@
 angular
-    .module('selfStarted.dashboard', [
-
-    	"ngMaterial"
-
-    	]);
+    .module('selfStarted.dashboard', []);

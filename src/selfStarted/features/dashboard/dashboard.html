@@ -1,33 +1,26 @@
-<style type="text/css">
-  
+<md-toolbar layout="row" class="md-toolbar-tools dashNavbar">
+    <md-button class="menu md-icon-button" ng-click="DashboardVM.openLeftMenu()" aria-label="Show User List">
+       <i class="fa fa-bars" aria-hidden="true"></i>
+    </md-button>
+</md-toolbar><!-- end of top toolbar -->
 
-.navBardemoBasicUsage md-content .ext-content {
-  padding: 50px;
-  margin: 20px;
-  background-color: #FFF2E0; }
+<div class="dashboard" layout="row" ng-cloak>
+    <md-sidenav layout="column" class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('min-width: 960px')">
+        SideNav
+    </md-sidenav><!-- end of side nav -->
 
+    <md-content flex layout="column">
+        <md-tabs>
+            <md-tab label="Start a Project">
+                <md-content>
+                    inside 1
+                </md-content>
+            </md-tab>
+            <md-tab label="Find a Project">inside 2</md-tab>
+            <md-tab label="Join a Project">inside 3</md-tab>
+            <md-tab label="Add a member">inside 4</md-tab>
+            <md-tab label="View Profile">inside 5</md-tab>
+        </md-tabs>
+    </md-content><!-- end of main dash content -->
 
-</style>
-
-<div ng-controller="DashboardCtrl" ng-cloak>
-  <md-content class="md-padding">
-    <md-nav-bar
-      md-selected-nav-item="currentNavItem"
-      nav-bar-aria-label="navigation links">
-      <md-nav-item md-nav-click="goto('page1')" name="page1">
-        Search Project
-      </md-nav-item>
-      <md-nav-item md-nav-click="goto('page2')" name="page2">
-        Create Project
-      </md-nav-item>
-    </md-nav-bar>
-
-
-    <div class="ext-content">
-      External content for `<span>{{currentNavItem}}</span>`.
-    </div>
-
-
-
-  </md-content>
 </div>

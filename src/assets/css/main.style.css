@@ -1,7 +1,7 @@
     /*
         color pallete for site
         #1A1F2B darkest color for title bars and main features
-        #30395C secondary color for navbar and such
+        #30395C secondary color for secondary features and menu items
         #4A6491 third color for minor features and highlights
         #85A5CC accent color dark
         #D0E4F2 accent color light
@@ -21,16 +21,34 @@
         height: 100%;
     }
     
+    .dashNavbar {
+        background-color: #1A1F2B !important;
+    }
+
+    /*
+        I can't beleive I need all this to change a stupid background
+        color for the tabs bar
+    */
+    md-tabs.md-default-theme .md-tab.md-active, md-tabs .md-tab.md-active, md-tabs.md-default-theme .md-tab.md-active md-icon, md-tabs .md-tab.md-active md-icon, md-tabs.md-default-theme .md-tab.md-focused, md-tabs .md-tab.md-focused, md-tabs.md-default-theme .md-tab.md-focused md-icon, md-tabs .md-tab.md-focused md-icon {
+        color: white;
+        background-color: #4A6491 !important;
+    }
+    
+    md-tabs.md-default-theme md-ink-bar, md-tabs md-ink-bar {
+        color: #85A5CC !important;
+        background-color: #85A5CC !important;
+    }
+    
     md-sidenav {
-        width: 20%;
+        width: 10em;
         height: 100%;
         padding: 20px;
-        background-color: #30395C;
+        background-color: #1A1F2B;
         color: white;
     }
     
     md-content {
         background-color: #EDEDED;
         height: 100%;
-        padding: 20px;
+        padding: 0px 20px;
     }
