@@ -39,6 +39,7 @@
     "gulp": "^3.9.1",
     "gulp-angular-filesort": "^1.1.1",
     "gulp-inject": "^4.2.0",
+    "gulp-nodemon": "^2.2.1",
     "gulp-util": "^3.0.8"
   }
 }
