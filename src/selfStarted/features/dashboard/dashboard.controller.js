@@ -5,7 +5,7 @@ angular
 function DashboardCtrl($scope, $mdSidenav) {
     var vm = this;
 
-    $scope.openLeftMenu = function () {
+    vm.openLeftMenu = function () {
         $mdSidenav('left').toggle();
     };
 }
