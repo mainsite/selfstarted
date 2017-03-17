@@ -22,6 +22,15 @@ var UsersSchema = new Schema({
     unique: true
   },
 
+  // userEmail can be had from the LinkedIn API. For other methods
+  // of auth to be added later we may need to prompt user for this
+  // if it is not included within that particular API. Also this
+  // needs to be unique so we don't end up with duplicate accounts.
+  userEmail: {
+    type: String,
+    unique: true
+  },
+
   // Since we will be adding other authentication
   // methods later, do not set the linkedInUserName
   // to required: true
