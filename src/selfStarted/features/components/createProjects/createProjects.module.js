@@ -1,2 +1,2 @@
 angular
-    .module('selfStarted.createProjects', []);
+    .module('selfStarted.component.createProjects', []);
