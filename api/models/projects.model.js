@@ -15,11 +15,13 @@ var Schema = mongoose.Schema;
 var ProjectsSchema = new Schema({
 
 	// projectName is the name of the title, entered by the project owner,
-	// and it is required. Remove dead space with trim.
+	// and it is required. Remove dead space with trim. Make it unique so we
+	// don't end up with identically named projects
 	projectName: {
 		type: String,
 		required: true,
-		trim: true
+		trim: true,
+		unique: true
 	},
 
 	// projectDescription is a text description entered by the project owner,
@@ -83,14 +85,12 @@ var ProjectsSchema = new Schema({
 		default: false
 	},
 
-	// _primaryProjectOwner is the user who created and maintains the project,
-	// and a project must have an owner so it's required. Keep in mind what happens
-	// if user goes inactive and is removed from the project, and code for that
-	// eventuality.
+	// _primaryProjectOwner is the user who created and maintains the 
+	// project. Keep in mind what happensif the user goes inactive and
+	// is removed from the project, and code for that eventuality.
 	_primaryProjectOwner: {
 		type: Schema.ObjectId,
-		ref: "Users",
-		required: true
+		ref: "Users"
 	},
 
 	// _usersInvited tracks the users who have been invited to the project but
