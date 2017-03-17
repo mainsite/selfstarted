@@ -4,6 +4,6 @@ angular
 
 function LandingPageCtrl($scope) {
     var vm = this;
-    $scope.currentNavItem = 'page1';
+
 
 }
