@@ -6,7 +6,7 @@
 var mongoose = require("mongoose");
 
 // require the connection
-var db = require("../config/connection");
+var db = require("../config/connection.config");
 
 // Create Schema class
 var Schema = mongoose.Schema;
