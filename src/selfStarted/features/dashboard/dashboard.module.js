@@ -1,6 +1,8 @@
 angular
     .module('selfStarted.dashboard', [
 
-    	"selfStarted.component.createProjects"
+    	"selfStarted.component.createProjects",
+    	"ngMaterial",
+    	"ngMessages"
 
     	]);

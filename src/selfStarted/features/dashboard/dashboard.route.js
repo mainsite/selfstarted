@@ -11,5 +11,7 @@ function dashboardConfig($stateProvider, $mdThemingProvider) {
         controllerAs: 'DashboardVM'
     });
 
-    $mdThemingProvider.theme('docs-dark');
+    $mdThemingProvider.theme('docs-dark')
+    .primaryPalette('yellow')
+    .dark();
 }

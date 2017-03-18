@@ -1,6 +1,7 @@
 angular
     .module('selfStarted.component.createProjects', [
 
-    	"ngMaterial"
+    	"ngMaterial",
+    	"ngMessages"
 
     	]);
