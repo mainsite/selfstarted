@@ -8,4 +8,6 @@ function DashboardCtrl($scope, $mdSidenav) {
     vm.openLeftMenu = function () {
         $mdSidenav('left').toggle();
     };
+
+     $scope.currentNavItem = 'page1';
 }
