@@ -19,15 +19,34 @@
 
         <div layout-gt-xs="row">
           <md-input-container class="md-block" flex-gt-xs>
-            <label>Company (Disabled)</label>
-            <input ng-model="user.company" disabled>
+          <label>College</label>
+                 <md-select ng-model="selectedCollege" md-selected-text="getSelectedText()">
+                   <md-optgroup label="colleges">
+                     <md-option ng-value="college" ng-repeat="college in colleges">{{college}}</md-option>
+                   </md-optgroup>
+                 </md-select>
           </md-input-container>
 
-          <md-input-container>
-            <label>Enter date</label>
-            <md-datepicker ng-model="user.submissionDate"></md-datepicker>
-          </md-input-container>
+          <div layout="row">
+            <md-input-container>
+              <label>Sub</label>
+              <md-select ng-model="selectedItem" md-selected-text="getSelectedText()">
+                <md-optgroup label="items">
+                  <md-option ng-value="item" ng-repeat="item in items">{{item}}</md-option>
+                </md-optgroup>
+              </md-select>
+            </md-input-container>
+          </div>
+   
         </div>
+
+
+        <md-input-container>
+          <label>Enter date</label>
+          <md-datepicker ng-model="user.submissionDate"></md-datepicker>
+        </md-input-container>
+     
+        
 
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm>
