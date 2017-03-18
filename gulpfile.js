@@ -12,7 +12,7 @@ gulp.task('index', function () {
     var sources = gulp.src([
         './src/selfStarted/*.js',
         './src/selfStarted/features/**/*.js',
-        './src/selfStarted/features/components/**/*.html'
+        './src/selfStarted/features/components/**/*.js'
     ]).pipe(angularFilesort());
 
     return target.pipe(inject(sources, { ignorePath: 'src/', addRootSlash: false }))
@@ -39,6 +39,6 @@ gulp.task('nodemon', function (cb) {
 
 gulp.task('start', ['browser-sync'], function () {
     gulp.watch("./src/selfStarted/features/**/*.html").on('change', bs.reload);
-    gulp.watch("./src/selfStarted/features/components/**/*.html");
+    gulp.watch("./src/selfStarted/features/components/**/*.html").on('change', bs.reload);
     gulp.watch("./src/assets/css/*.css").on('change', bs.reload);
 });
