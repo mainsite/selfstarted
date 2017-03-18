@@ -1,8 +1,8 @@
 angular
     .module('selfStarted', [
         'ui.router',
-        'ngMaterial',
-        'ngMessages',
+        'ui.bootstrap',
+        'ngAnimate',
         'selfStarted.landingPage',
         'selfStarted.dashboard'
     ])

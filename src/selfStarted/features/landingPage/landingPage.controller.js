@@ -5,5 +5,4 @@ angular
 function LandingPageCtrl($scope) {
     var vm = this;
 
-
 }

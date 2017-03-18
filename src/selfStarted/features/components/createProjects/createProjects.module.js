@@ -1,7 +1,2 @@
 angular
-    .module('selfStarted.component.createProjects', [
-
-    	"ngMaterial",
-    	"ngMessages"
-
-    	]);
+	.module('selfStarted.component.createProjects', []);
