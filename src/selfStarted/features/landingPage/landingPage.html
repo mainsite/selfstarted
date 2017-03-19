@@ -1,13 +1,42 @@
-<div layout="column">
-    <md-nav-bar aria-label="Nav bar" class="dashNavbar" layout="row" layout-align="end">
-        <md-nav-item navBarAriaLabel="Sign in"  md-nav-sref="dashboard">
-            Sign in
-        </md-nav-item>
-    </md-nav-bar>
-    <div layout="row">
-        <img style="width:100%;" src="https://images.pexels.com/photos/7097/people-coffee-tea-meeting.jpg?w=940&h=650&auto=compress&cs=tinysrgb" alt="">
+<!-- Fixed navbar -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" ng-click="isCollapsed = !isCollapsed" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <i class="fa fa-arrow-circle-up" aria-hidden="true"></i> 
+                Self<span id="selfLogo">Started</span>
+            </a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse navbar-right" uib-collapse="isCollapsed">
+            <ul class="nav navbar-nav">
+                <li class="active"><a ui-sref="dashboard">Login</a></li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
     </div>
-    <footer class="landingFooter">
-        This is some place holder text for now
-    </footer>
+</nav>
+
+<!-- Begin page content -->
+<div class="container-fluid">
+    <div class="row landingCarousel">
+        <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+            <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
+                <img ng-src="{{slide.image}}">
+                <div class="carousel-caption">
+                    <h4>Slide {{slide.id}}</h4>
+                    <p>{{slide.text}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+<footer class="landingFooter">
+    <p class="text-muted">Place sticky footer content here.</p>
+</footer>

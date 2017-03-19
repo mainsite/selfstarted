@@ -1,69 +1,118 @@
-<md-toolbar layout="row" class="md-toolbar-tools dashNavbar">
-    <md-button class="menu md-icon-button" ng-click="DashboardVM.openLeftMenu()" aria-label="Show User List">
-       <i class="fa fa-bars" aria-hidden="true"></i>
-    </md-button>
-</md-toolbar><!-- end of top toolbar -->
-
-<div class="dashboard" layout="row" ng-cloak >
-    <md-sidenav layout="column" class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('min-width: 960px')">
-        SideNav
-    </md-sidenav><!-- end of side nav -->
-
-    <div ng-cloak>
-    <md-content layout="column">
-        <md-tabs md-dynamic-height md-border-bottom>
-        <md-tab label="Start a Project">
-            <md-content class="md-padding">
-                <create-projects></create-projects>
-            </md-content>
-        </md-tab>
-        <md-tab label="Find a Project">
-            <md-content class="md-padding">
-            <h1 class="md-display-2">Tab Two</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor, orci enim rutrum enim, vel tempor sapien arcu a tellus. Vivamus convallis sodales ante varius gravida. Curabitur a purus vel augue ultrices ultricies id a nisl. Nullam malesuada consequat diam, a facilisis tortor volutpat et. Sed urna dolor, aliquet vitae posuere vulputate, euismod ac lorem. Sed felis risus, pulvinar at interdum quis, vehicula sed odio. Phasellus in enim venenatis, iaculis tortor eu, bibendum ante. Donec ac tellus dictum neque volutpat blandit. Praesent efficitur faucibus risus, ac auctor purus porttitor vitae. Phasellus ornare dui nec orci posuere, nec luctus mauris semper.</p>
-            </md-content>
-        </md-tab>
-        <md-tab label="Add a Member">
-            <md-content class="md-padding">
-            <h1 class="md-display-2">Tab Three</h1>
-            <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
-            </md-content>
-        </md-tab>
-        </md-tabs>
-    </md-content>
+<!-- Top Nav bar with a hamburger menu for mobile views -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" ng-click="isCollapsed = !isCollapsed">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+                Self<span id="selfLogo">Started</span>
+            </a>
+        </div>
     </div>
+</nav>
 
+<!-- bottom section with side bar and main content -->
+<div class="container-fluid">
+    <div class="row">
+        <!-- Side bar content -->
+        <div class="col-sm-3 col-md-2 sidebar" uib-collapse="isCollapsed">
+            <ul class="nav nav-sidebar">
+                <li class="active"><a href="#">Dashboard<span class="sr-only">(current)</span></a></li>
+                <li><a href="#">Reports</a></li>
+                <li><a href="#">Analytics</a></li>
+                <li><a href="#">Export</a></li>
+            </ul>
+        </div>
+        <!-- end of side bar -->
 
-    <md-checkbox ng-model="disableInkBar">Disable Ink Bar</md-checkbox>
+        <!-- Main page content -->
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <h1 class="page-header">Dashboard</h1>
 
-
-
-
-<div ng-cloak>
-  <md-content>
-    <md-tabs md-dynamic-height  md-border-bottom>
-      <md-tab label="one">
-        <md-content class="md-padding">
-            <create-projects></create-projects>
-        </md-content>
-      </md-tab>
-      <md-tab label="two">
-        <md-content class="md-padding">
-          <h1 class="md-display-2">Tab Two</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor, orci enim rutrum enim, vel tempor sapien arcu a tellus. Vivamus convallis sodales ante varius gravida. Curabitur a purus vel augue ultrices ultricies id a nisl. Nullam malesuada consequat diam, a facilisis tortor volutpat et. Sed urna dolor, aliquet vitae posuere vulputate, euismod ac lorem. Sed felis risus, pulvinar at interdum quis, vehicula sed odio. Phasellus in enim venenatis, iaculis tortor eu, bibendum ante. Donec ac tellus dictum neque volutpat blandit. Praesent efficitur faucibus risus, ac auctor purus porttitor vitae. Phasellus ornare dui nec orci posuere, nec luctus mauris semper.</p>
-          <p>Morbi viverra, ante vel aliquet tincidunt, leo dolor pharetra quam, at semper massa orci nec magna. Donec posuere nec sapien sed laoreet. Etiam cursus nunc in condimentum facilisis. Etiam in tempor tortor. Vivamus faucibus egestas enim, at convallis diam pulvinar vel. Cras ac orci eget nisi maximus cursus. Nunc urna libero, viverra sit amet nisl at, hendrerit tempor turpis. Maecenas facilisis convallis mi vel tempor. Nullam vitae nunc leo. Cras sed nisl consectetur, rhoncus sapien sit amet, tempus sapien.</p>
-          <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
-        </md-content>
-      </md-tab>
-      <md-tab label="three">
-        <md-content class="md-padding">
-          <h1 class="md-display-2">Tab Three</h1>
-          <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
-        </md-content>
-      </md-tab>
-    </md-tabs>
-  </md-content>
-</div>
-
-
+            <div class="row">
+                <!-- Tabs for inner content -->
+                <uib-tabset>
+                    <uib-tab class="tabBar" index="0" heading="Create a Project">
+                        <!-- we will put our form directives here-->
+                        <ng-form name="nestedForm">
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" required ng-model="model.name" />
+                            </div>
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" required ng-model="model.name" />
+                            </div>
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" required ng-model="model.name" />
+                            </div>
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" required ng-model="model.name" />
+                            </div>
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" required ng-model="model.name" />
+                            </div>
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" required ng-model="model.name" />
+                            </div>
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" required ng-model="model.name" />
+                            </div>
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" required ng-model="model.name" />
+                            </div>
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" required ng-model="model.name" />
+                            </div>
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" required ng-model="model.name" />
+                            </div>
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" required ng-model="model.name" />
+                            </div>
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" required ng-model="model.name" />
+                            </div>
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" required ng-model="model.name" />
+                            </div>
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" required ng-model="model.name" />
+                            </div>
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" required ng-model="model.name" />
+                            </div>
+                        </ng-form>
+                    </uib-tab>
+                    <uib-tab class="tabBar" index="1" heading="Join a Project">
+                        <!-- we will put our form directives here-->
+                        Some Tab Content
+                    </uib-tab>
+                    <uib-tab class="tabBar" index="2" heading="Add a Member">
+                        <!-- we will put our form directives here-->
+                        More Tab Content
+                    </uib-tab>
+                </uib-tabset>
+                <!-- end of tabs content -->
+            </div>
+        </div>
+    </div>
 </div>

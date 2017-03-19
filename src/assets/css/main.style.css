@@ -13,54 +13,116 @@
     
     html, body {
         height: 100% !important;
-        background-color: #EDEDED;
         color: darkgray;
     }
-    /* landing page css */
-    
-    md-nav-bar.md-default-theme .md-button._md-nav-button.md-unselected, md-nav-bar .md-button._md-nav-button.md-unselected {
-        color: white;
+    /* landing page CSS */
+    /* ----------------------------------------------- */
+    .landingCarousel {
+        margin-top: 8%;
     }
-    
+
     .landingFooter {
-        padding: 10px;
-        background-color: #1A1F2B;
-    }
-    /* dashboard css */
-    
-    .dashboard {
-        height: 100%;
-    }
-    
-    .dashNavbar {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        /* Set the fixed height of the footer here */
+        height: 60px;
         background-color: #1A1F2B !important;
+        padding-top: 20px;
+        padding-left: 80px;
     }
-    /*
-        I can't beleive I need all this to change a stupid background
-        color for the tabs bar
-    */
-    
-    md-tabs.md-default-theme .md-tab.md-active, md-tabs .md-tab.md-active, md-tabs.md-default-theme .md-tab.md-active md-icon, md-tabs .md-tab.md-active md-icon, md-tabs.md-default-theme .md-tab.md-focused, md-tabs .md-tab.md-focused, md-tabs.md-default-theme .md-tab.md-focused md-icon, md-tabs .md-tab.md-focused md-icon {
+
+    .text-muted {
         color: white;
-        background-color: #30395C;
+    }
+    /* Dashboard top nav bar */
+    /* ----------------------------------------------- */
+    
+    .navbar-inverse .navbar-brand {
+        color: white;
+        font-size: 2em;
+        padding-bottom: 40px;
     }
     
-    md-tabs.md-default-theme md-ink-bar, md-tabs md-ink-bar {
-        color: #85A5CC;
-        background-color: #85A5CC;
-    }
-    
-    md-sidenav {
-        min-width: 10em;
-        max-width: 10em;
-        height: 100%;
-        padding: 20px;
+    .navbar-fixed-top {
+        border: 0;
         background-color: #1A1F2B;
+    }
+    
+    #selfLogo {
+        color: #85A5CC;
+    }
+    /* Dashboard Sidebar css */
+    /* ----------------------------------------------- */
+    /* Hide for mobile, show later */
+    
+    .sidebar {
+        display: none;
+    }
+    
+    @media (min-width: 768px) {
+        .sidebar {
+            position: fixed;
+            top: 50px;
+            bottom: 0;
+            left: 0;
+            z-index: 1000;
+            display: block;
+            padding: 20px;
+            overflow-x: hidden;
+            overflow-y: auto;
+            /* Scrollable contents if viewport is shorter than content. */
+            background-color: #1A1F2B;
+            border-right: 1px solid #eee;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .sidebar {
+            background-color: #1A1F2B;
+            border-right: 1px solid #eee;
+            margin-top: 50px;
+        }
+    }
+    /* Sidebar navigation */
+    
+    .nav-sidebar {
+        margin-right: -21px;
+        /* 20px padding + 1px border */
+        margin-bottom: 20px;
+        margin-left: -20px;
+    }
+    
+    .nav-sidebar > li > a {
+        padding-right: 20px;
+        padding-left: 20px;
+        color: lightgray;
+    }
+    
+    .nav-sidebar > .active > a, .nav-sidebar > .active > a:hover, .nav-sidebar > .active > a:focus {
+        color: #fff;
+        background-color: #4A6491;
+    }
+    
+    .nav-sidebar > li > a:hover {
+        background-color: #D0E4F2;
+        color: black;
+    }
+    /* Dashboard Main content */
+    /* ----------------------------------------------- */
+    
+    .main {
+        padding: 20px;
+    }
+    
+    .tabBar a {
+        background-color: #30395C;
         color: white;
     }
     
-    md-content {
-        background-color: #EDEDED;
-        height: 100%;
-        padding: 0px 20px;
+    @media (min-width: 768px) {
+        .main {
+            padding-right: 40px;
+            padding-left: 40px;
+        }
     }

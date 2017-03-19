@@ -2,12 +2,8 @@ angular
     .module('selfStarted.dashboard')
     .controller('DashboardCtrl', DashboardCtrl);
 
-function DashboardCtrl($scope, $mdSidenav) {
+function DashboardCtrl($scope) {
     var vm = this;
 
-    vm.openLeftMenu = function () {
-        $mdSidenav('left').toggle();
-    };
-
-     $scope.currentNavItem = 'page1';
+    vm.isCollapsed = false;
 }
