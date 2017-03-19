@@ -1,0 +1,119 @@
+<!-- Top Nav bar with a hamburger menu for mobile views -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" ng-click="isCollapsed = !isCollapsed">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+            <a class="navbar-brand" href="#">
+                Self<span id="selfLogo">Started</span>
+            </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+        </div>
+    </div>
+</nav>
+
+<!-- bottom section with side bar and main content -->
+<div class="container-fluid">
+    <div class="row">
+        <!-- Side bar content -->
+        <div class="col-sm-3 col-md-2 sidebar" uib-collapse="isCollapsed">
+            <ul class="nav nav-sidebar">
+                <li class="active"><a href="#">Dashboard<span class="sr-only">(current)</span></a></li>
+                <li><a href="#">Reports</a></li>
+                <li><a href="#">Analytics</a></li>
+                <li><a href="#">Export</a></li>
+            </ul>
+        </div>
+        <!-- end of side bar -->
+
+        <!-- Main page content -->
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <h1 class="page-header">Dashboard Heading</h1>
+
+            <div class="row">
+                <!-- Tabs for inner content -->
+                <uib-tabset>
+                    <uib-tab class="tabBar" index="0" heading="Create a Project">
+                        <!-- we will put our form directives here-->
+                        <ng-form name="nestedForm">
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" required ng-model="model.name" />
+                            </div>
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" required ng-model="model.name" />
+                            </div>
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" required ng-model="model.name" />
+                            </div>
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" required ng-model="model.name" />
+                            </div>
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" required ng-model="model.name" />
+                            </div>
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" required ng-model="model.name" />
+                            </div>
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" required ng-model="model.name" />
+                            </div>
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" required ng-model="model.name" />
+                            </div>
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" required ng-model="model.name" />
+                            </div>
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" required ng-model="model.name" />
+                            </div>
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" required ng-model="model.name" />
+                            </div>
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" required ng-model="model.name" />
+                            </div>
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" required ng-model="model.name" />
+                            </div>
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" required ng-model="model.name" />
+                            </div>
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" required ng-model="model.name" />
+                            </div>
+                        </ng-form>
+                    </uib-tab>
+                    <uib-tab class="tabBar" index="1" heading="Join a Project">
+                        <!-- we will put our form directives here-->
+                        Some Tab Content
+                    </uib-tab>
+                    <uib-tab class="tabBar" index="2" heading="Add a Member">
+                        <!-- we will put our form directives here-->
+                        More Tab Content
+                    </uib-tab>
+                </uib-tabset>
+                <!-- end of tabs content -->
+            </div>
+        </div>
+    </div>
+</div>

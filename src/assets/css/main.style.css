@@ -13,54 +13,82 @@
     
     html, body {
         height: 100% !important;
-        background-color: #EDEDED;
         color: darkgray;
     }
-    /* landing page css */
+    /* top nav bar */
+    /* ----------------------------------------------- */
     
-    md-nav-bar.md-default-theme .md-button._md-nav-button.md-unselected, md-nav-bar .md-button._md-nav-button.md-unselected {
+    .navbar-inverse .navbar-brand {
         color: white;
+        font-size: 2em;
     }
     
-    .landingFooter {
-        padding: 10px;
+    .navbar-fixed-top {
+        border: 0;
         background-color: #1A1F2B;
     }
-    /* dashboard css */
     
-    .dashboard {
-        height: 100%;
-    }
-    
-    .dashNavbar {
-        background-color: #1A1F2B !important;
-    }
-    /*
-        I can't beleive I need all this to change a stupid background
-        color for the tabs bar
-    */
-    
-    md-tabs.md-default-theme .md-tab.md-active, md-tabs .md-tab.md-active, md-tabs.md-default-theme .md-tab.md-active md-icon, md-tabs .md-tab.md-active md-icon, md-tabs.md-default-theme .md-tab.md-focused, md-tabs .md-tab.md-focused, md-tabs.md-default-theme .md-tab.md-focused md-icon, md-tabs .md-tab.md-focused md-icon {
-        color: white;
-        background-color: #30395C;
-    }
-    
-    md-tabs.md-default-theme md-ink-bar, md-tabs md-ink-bar {
+    #selfLogo {
         color: #85A5CC;
-        background-color: #85A5CC;
+    }
+    /* Sidebar css */
+    /* ----------------------------------------------- */
+    /* Hide for mobile, show later */
+    
+    .sidebar {
+        display: none;
     }
     
-    md-sidenav {
-        min-width: 10em;
-        max-width: 10em;
-        height: 100%;
+    @media (min-width: 768px) {
+        .sidebar {
+            position: fixed;
+            top: 50px;
+            bottom: 0;
+            left: 0;
+            z-index: 1000;
+            display: block;
+            padding: 20px;
+            overflow-x: hidden;
+            overflow-y: auto;
+            /* Scrollable contents if viewport is shorter than content. */
+            background-color: #1A1F2B;
+            border-right: 1px solid #eee;
+        }
+    }
+    /* Sidebar navigation */
+    
+    .nav-sidebar {
+        margin-right: -21px;
+        /* 20px padding + 1px border */
+        margin-bottom: 20px;
+        margin-left: -20px;
+    }
+    
+    .nav-sidebar > li > a {
+        padding-right: 20px;
+        padding-left: 20px;
+        color: lightgray;
+    }
+    /* commenting out for use for later maybe */
+    /*.nav-sidebar > .active > a, .nav-sidebar > .active > a:hover, .nav-sidebar > .active > a:focus {
+        color: #fff;
+        background-color: #428bca;
+    }*/
+    /* Main content */
+    /* ----------------------------------------------- */
+    
+    .main {
         padding: 20px;
-        background-color: #1A1F2B;
+    }
+    
+    .tabBar a {
+        background-color: #30395C;
         color: white;
     }
     
-    md-content {
-        background-color: #EDEDED;
-        height: 100%;
-        padding: 0px 20px;
+    @media (min-width: 768px) {
+        .main {
+            padding-right: 40px;
+            padding-left: 40px;
+        }
     }

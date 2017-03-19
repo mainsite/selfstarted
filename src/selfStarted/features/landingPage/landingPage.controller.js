@@ -5,4 +5,5 @@ angular
 function LandingPageCtrl($scope) {
     var vm = this;
 
+    $scope.isCollapsed = false;
 }
