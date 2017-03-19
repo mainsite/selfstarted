@@ -9,10 +9,15 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="#">
-                <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
-                Self<span id="selfLogo">Started</span>
+                <i class="fa fa-arrow-circle-up" aria-hidden="true"></i> Self
+                <span id="selfLogo">Started</span>
             </a>
         </div>
+        <!--<div id="navbar" class="collapse navbar-collapse navbar-right" uib-collapse="isCollapsed">
+            <ul class="nav navbar-nav">
+                <li><a href="/auth/logout">Logout</a></li>
+            </ul>
+        </div>-->
     </div>
 </nav>
 
@@ -23,7 +28,7 @@
         <div class="col-sm-3 col-md-2 sidebar" uib-collapse="isCollapsed">
             <ul class="nav nav-sidebar">
                 <li class="active"><a href="">Dashboard<span class="sr-only">(current)</span></a></li>
-                <li><a href="">Reports</a></li>
+                <li><a href=""><img class="img-circle" src="{{DashboardVM.userImg}}" alt=""></a></li>
                 <li><a href="">Analytics</a></li>
                 <li><a href="">Export</a></li>
             </ul>
@@ -32,7 +37,7 @@
 
         <!-- Main page content -->
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <h1 class="page-header">Dashboard</h1>
+            <h1 class="page-header">Welcome {{DashboardVM.userName}}</h1>
 
             <div class="row">
                 <!-- Tabs for inner content -->

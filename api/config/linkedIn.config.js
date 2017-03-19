@@ -1,5 +1,9 @@
-//jshint esversion:6
-const linkedInKeys = require('./linkedInKeys');
+var linkedInKeys;
+try {
+    linkedInKeys = require('./linkedInKeys');
+} catch (e){
+    console.log("using env keys in production");
+}
 
 var linkedInConfig = {
     LINKEDIN_API_KEY: linkedInKeys.clientID,
