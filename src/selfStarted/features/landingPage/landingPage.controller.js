@@ -5,6 +5,10 @@ angular
 function LandingPageCtrl($scope) {
     var vm = this;
 
+    vm.login = function () {
+        window.location.href = "/auth/linkedin";
+    };
+
     $scope.myInterval = 5000;
     $scope.noWrapSlides = false;
     $scope.active = 0;
