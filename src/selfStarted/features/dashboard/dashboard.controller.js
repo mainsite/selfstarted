@@ -11,7 +11,6 @@ function DashboardCtrl($scope, $http) {
     //need to move this out to a service later
     $http.get('/auth/userdata')
         .then(function (res) {
-            console.log(res.data);
             console.log(res.data._json.pictureUrl);
             vm.userName = res.data._json.firstName;
             vm.userImg = res.data._json.pictureUrl;

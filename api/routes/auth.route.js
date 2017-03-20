@@ -12,6 +12,7 @@ const linkedInConfig = require('../config/linkedIn.config');
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: false }));
 
+router.use(cookieParser());
 router.use(session({
     secret: linkedInConfig.SESSION_KEY,
     resave: false,
@@ -21,13 +22,6 @@ router.use(session({
 router.use(passport.initialize());
 router.use(passport.session());
 
-// Passport session setup.
-//   To support persistent login sessions, Passport needs to be able to
-//   serialize users into and deserialize users out of the session.  Typically,
-//   this will be as simple as storing the user ID when serializing, and finding
-//   the user by ID when deserializing.  However, since this example does not
-//   have a database of user records, the complete LinkedIn profile is
-//   serialized and deserialized.
 passport.serializeUser(function (user, done) {
     console.log(user.id);
     done(null, user);
@@ -70,13 +64,18 @@ router.get('/linkedin/callback',
 
 //test if user data is retreivable client side
 router.get('/userdata', ensureAuthenticated, function (req, res) {
+    //console.log(req.user);
     res.json(req.user);
 });
 
 function ensureAuthenticated(req, res, next) {
     console.log(req.isAuthenticated());
-    if (req.isAuthenticated()) { return next(); }
-    res.redirect('/');
+
+    if (req.isAuthenticated()) {
+        return next();
+    } else {
+        res.send('error');
+    }
 }
 
 module.exports = router;
