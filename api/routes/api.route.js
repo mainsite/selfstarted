@@ -18,6 +18,43 @@ router.get('/', function (req, res, next) {
     res.end();
 });
 
+router.post('/newProject', function(req, res, next) {
+	console.log('saving new project');
+
+	console.log(req.body);
+	
+	// received remotePermitted as string - convert it to boolean
+	var remotePermittedConverted = (req.body.remotePermitted === "true") ? true : false;
+
+	// build the constructor
+	var newProject = new Projects({
+		projectName: req.body.projectName,
+		projectDescription: req.body.projectDescription,
+		projectStartDate: req.body.projectStartDate,
+		projectEndDate: req.body.projectEndDate,
+		projectLocation: req.body.projectLocation,
+		projectCategoryByCollege: req.body.projectCategoryByCollege,
+		projectCategoryByProgram: req.body.projectCategoryByProgram,
+		otherSkillsDesired: req.body.otherSkillsDesired,
+		remotePermitted: remotePermittedConverted,
+		_primaryProjectOwner: null,
+		_usersInvited: null,
+		_usersAssigned: null
+	});
+
+	newProject.save(function (err, newProject) {
+		if (err) {
+			console.log("error saving project");
+			console.log(err);
+			res.send("posting error");
+		} else {
+			console.log('posted project');
+			res.send('posted project');
+		}
+	});
+
+})
+
 // ======================= TEST ROUTES BELOW ====================
 // test route for posting dummy user data
 router.post('/testpost', function(req, res, next) {
@@ -88,12 +125,12 @@ router.post('/testprojectpost', function(req, res, next) {
 		if (err) {
 			console.log("error saving project");
 			console.log(err);
+			res.send("posting project error");
 		} else {
 			console.log('posted project');
 			res.send('posted project');
 		}
 	});
-	res.send("could not post - project exists?");
 }); // end of the /testprojectpost post route
 
 
