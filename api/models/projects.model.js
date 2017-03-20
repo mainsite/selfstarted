@@ -70,9 +70,11 @@ var ProjectsSchema = new Schema({
 	// otherSkillsDesired tracks other skills that the project owner is looking
 	// for. Do we want to keep this open ended (hard to match with others then) or
 	// do we want this to be drop-down type option to select other College/Program
-	// combinations?
+	// combinations? Do we want it as a general string for other users to read only
+	// and not use for any other purpose than to just get a feel for the project?
 	otherSkillsDesired: {
-		type: Array
+		type: String,
+		trim: true
 	},
 
 	// remotePermitted tracks whether project allows for remote work for distant
