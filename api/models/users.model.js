@@ -58,8 +58,7 @@ var UsersSchema = new Schema({
   // it automatically every 30 days or every login, whichever
   // comes later? TBD
   lastLinkedInAPIRefresh: {
-    type: Date,
-    required: true
+    type: Date
   },
 
   // userLocation is required in order to list projects
