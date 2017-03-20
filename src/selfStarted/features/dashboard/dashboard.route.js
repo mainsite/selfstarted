@@ -8,6 +8,26 @@ function dashboardConfig($stateProvider) {
         url: '/dashboard',
         templateUrl: 'selfStarted/features/dashboard/dashboard.html',
         controller: DashboardCtrl,
-        controllerAs: 'DashboardVM'
+        controllerAs: 'DashboardVM',
+        resolve: {
+            loggedIn: checkLogin
+        }
     });
+}
+
+function checkLogin($q, $http, $location) {
+    var defer = $q.defer();
+    $http.get('/auth/userdata')
+        .then(function (res) {
+            if(res.data !== 'error') {
+                console.log("user is logged in");
+                defer.resolve();
+            }
+            else {
+                defer.reject();
+                $location.url('/');
+            }
+        });
+
+    return defer.promise;
 }
