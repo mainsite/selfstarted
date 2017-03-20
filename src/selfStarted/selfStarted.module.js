@@ -8,6 +8,6 @@ angular
     ])
     .config(appConfig);
 
-function appConfig($urlRouterProvider) {
+function appConfig($urlRouterProvider, $locationProvider) {
     $urlRouterProvider.otherwise('/');
 }
