@@ -6,4 +6,6 @@ function DashboardCtrl($scope) {
     var vm = this;
 
     vm.isCollapsed = false;
+
+    
 }
