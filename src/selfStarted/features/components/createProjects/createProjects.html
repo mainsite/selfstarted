@@ -1,4 +1,4 @@
-<ng-form name="nestedForm">
+<form ng-submit="submit()" name="nestedForm">
     <div class="form-group">
         <label>Title of Project</label>
         <input type="text" class="form-control" required ng-model="title" />
@@ -26,7 +26,7 @@
 
           <h4>Start Date</h4>
           <div style="display:inline-block; min-height:290px;">
-            <div uib-datepicker ng-model="startDate" class="well well-sm" datepicker-options="options"></div>
+            <div uib-datepicker ng-model="startDate" class="well well-sm"></div>
           </div>
 
           <hr />
@@ -36,7 +36,7 @@
 
           <h4>End Date</h4>
           <div style="display:inline-block; min-height:290px;">
-            <div uib-datepicker ng-model="endDate" class="well well-sm" datepicker-options="options"></div>
+            <div uib-datepicker ng-model="endDate" class="well well-sm"></div>
           </div>
 
           <hr />
@@ -70,10 +70,10 @@
     </div>
 
 
-    <button type="button" class="btn btn-primary" ng-click="submit()" >
+    <button type="submit" class="btn btn-primary">
             Single Toggle
-        </button>
+    </button>
 
 
 
-</ng-form>
+</form>

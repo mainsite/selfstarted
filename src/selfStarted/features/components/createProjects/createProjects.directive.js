@@ -51,9 +51,9 @@ function CreateProjectsCtrl($scope) {
   };
   $scope.today();
 
-  $scope.setDate = function(year, month, day) {
-    $scope.startDate = new Date(year, month, day);
-    $scope.endDate = new Date(year, month, day);
+  $scope.setDate = function() {
+    $scope.startDate = new Date();
+    $scope.endDate = new Date();
   };
 
   function submit(){
@@ -62,8 +62,8 @@ function CreateProjectsCtrl($scope) {
 
       projectName: $scope.title,
       projectDescription: $scope.description,
-      projectStartDate: $scope.startDate,
-      projectEndDate: $scope.endDate,
+      projectStartDate: $scope.startDate.toISOString(),
+      projectEndDate: $scope.endDate.toISOString(),
       projectLocation: $scope.location,
       projectCategoryByCollege: $scope.mainCollege,
       projectCategoryByProgram : $scope.subCollege,
