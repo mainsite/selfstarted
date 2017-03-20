@@ -8,6 +8,7 @@ function DashboardCtrl($scope, $http) {
 
     vm.isCollapsed = false;
 
+
     //need to move this out to a service later
     $http.get('/auth/userdata')
         .then(function (res) {
@@ -17,4 +18,5 @@ function DashboardCtrl($scope, $http) {
         }, function(err) {
             console.log(err);
         });
+
 }

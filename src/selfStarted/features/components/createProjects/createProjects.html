@@ -1,0 +1,79 @@
+<ng-form name="nestedForm">
+    <div class="form-group">
+        <label>Title of Project</label>
+        <input type="text" class="form-control" required ng-model="title" />
+
+
+      <label>Description</label>
+      <input type="text" class="form-control" required ng-model="description" />
+
+      <br>
+      <br>
+
+        <select data-ng-model="mainCollege" data-ng-change="changeSubCollege()" data-ng-options="college as college for college  in colleges">
+      
+
+        </select>
+        
+      
+
+      <select data-ng-model="subCollege" data-ng-options="subcollege for subcollege in subcolleges">
+        
+      
+
+      </select>
+
+
+          <h4>Start Date</h4>
+          <div style="display:inline-block; min-height:290px;">
+            <div uib-datepicker ng-model="startDate" class="well well-sm" datepicker-options="options"></div>
+          </div>
+
+          <hr />
+          <pre>Selected date is: <em>{{startDate | date:'fullDate' }}</em></pre>
+
+
+
+          <h4>End Date</h4>
+          <div style="display:inline-block; min-height:290px;">
+            <div uib-datepicker ng-model="endDate" class="well well-sm" datepicker-options="options"></div>
+          </div>
+
+          <hr />
+ 
+          <pre>Selected date is: <em>{{endDate | date:'fullDate' }}</em></pre>
+
+          <label>Location</label>
+          <input type="text" class="form-control" required ng-model="location" />
+
+          <br>
+          <br>
+
+          <div class="btn-group">
+              <h4>Willing for Remote Work</h4>
+              <label class="btn btn-primary" ng-model="radioModel" uib-btn-radio="'true'">True</label>
+              <label class="btn btn-primary" ng-model="radioModel" uib-btn-radio="'false'">False</label>
+          </div>
+
+          <br>
+           <br>
+
+
+           <label>Skills</label>
+           <input type="text" class="form-control" required ng-model="skills" />
+
+
+           <br>
+            <br>
+
+
+    </div>
+
+
+    <button type="button" class="btn btn-primary" ng-click="submit()" >
+            Single Toggle
+        </button>
+
+
+
+</ng-form>
