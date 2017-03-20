@@ -48,6 +48,12 @@ var UsersSchema = new Schema({
     type: String
   },
 
+  // User's LinkedIn profile URL
+  linkedInURL: {
+    type: String,
+    trim: true
+  },
+
   // lastLinkedInAPIRefresh shows when we last pulled
   // the user's data from LinkedIn. Use this for checking
   // when data has been updated and pull fresh
