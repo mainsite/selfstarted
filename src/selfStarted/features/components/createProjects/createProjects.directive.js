@@ -26,24 +26,16 @@ function CreateProjectsCtrl($scope, localStorageService, $http) {
 
   $scope.colleges = mainCollegeField;
 
-
   $scope.subcolleges = [];
 
-  
   $scope.changeSubCollege = function (){
 
     var key = $scope.mainCollege;
 
     var userSub = college[key];
 
-    $scope.subcolleges = userSub
-
-    console.log($scope.subcolleges);
-
-  } 
-
-
-
+    $scope.subcolleges = userSub;
+  };
 
   $scope.today = function() {
     $scope.startDate = new Date();
@@ -74,7 +66,7 @@ function CreateProjectsCtrl($scope, localStorageService, $http) {
       _primaryProjectOwner: userDBid
 
 
-    }
+    };
 
     $http.post('/api/newProject', createProjectInfo)
       .then(function(res) {
@@ -84,14 +76,20 @@ function CreateProjectsCtrl($scope, localStorageService, $http) {
       });
 
     console.log(createProjectInfo);
+    resetForm();
+  }
 
+  function resetForm() {
+    $scope.title = '';
+    $scope.description = '';
+    $scope.location = '';
+    $scope.skills = '';
+    $scope.radioModel = false;
   }
 
   function getItem(key) {
     return localStorageService.get(key);
   }
-
-
 
 }
 
@@ -389,4 +387,4 @@ var projectAreas = [
       "Interdisciplinary Studies - Women's Studies"
     ]
   }
-]
+];

@@ -17,10 +17,11 @@
     }
     /* landing page CSS */
     /* ----------------------------------------------- */
+    
     .landingCarousel {
         margin-top: 8%;
     }
-
+    
     .landingFooter {
         position: absolute;
         bottom: 0;
@@ -31,7 +32,7 @@
         padding-top: 20px;
         padding-left: 80px;
     }
-
+    
     .text-muted {
         color: white;
     }
@@ -85,12 +86,13 @@
         }
     }
     /* Sidebar navigation */
+    
     .img-circle {
         border-radius: 100%;
         width: 40px;
         height: 40px;
     }
-
+    
     .nav-sidebar {
         margin-right: -21px;
         /* 20px padding + 1px border */
@@ -131,3 +133,85 @@
             padding-left: 40px;
         }
     }
+    /* create a project form */
+    /* ----------------------------------------------- */
+    
+    .projectForm {
+        padding-left: 2.5em !important;
+        padding-bottom: 1.5em !important;
+        border-top: 4px solid white;
+        background-color: #24323d;
+    }
+    
+    .projectForm form {
+        margin-top: 20px;
+    }
+    
+    .projectForm input {
+        border: 2px solid lightgray;
+        background-color: transparent;
+        border-radius: 0;
+        color: white;
+        padding: 1.5em;
+    }
+    /*  select drop down box styles */
+    
+    .styled-select {
+        height: 2.5em;
+    }
+    
+    .styled-select select {
+        background: transparent;
+        border: none;
+    }
+    
+    .dropBoxClear {
+        background-color: transparent;
+    }
+    
+    .semi-square {
+        -webkit-border-radius: 0px;
+        -moz-border-radius: 0px;
+        border-radius: 0px;
+    }
+    /* end of select drop down*/
+    /* buttons and date picker styles */
+    
+    .projectForm .btn-primary {
+        border-radius: 0 !important;
+        background-color: #1ab188;
+        color: white;
+    }
+    
+    .projectForm .btn-primary:hover {
+        color: #fff;
+        background-color: #85A5CC;
+        border-color: #2e6da4;
+    }
+    
+    .projectForm .btn-primary.active {
+        color: #fff;
+        background-color: #30395C;
+        border-color: #D0E4F2;
+    }
+    
+    .projectForm button {
+        border-radius: 0 !important;
+        background-color: #1ab188;
+    }
+    
+    .formButton {
+        margin-top: 20px;
+    }
+    
+    .projectForm .btn-info.active, .btn-info:active, .open>.dropdown-toggle.btn-info {
+        background-color: lightgray;
+    }
+    
+    .projectForm pre {
+        background-color: #1ab188;
+        color: white;
+    }
+    /* end of buttons and date picker */
+    /* end of create a project */
+    /* ----------------------------------------------- */
