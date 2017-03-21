@@ -28,6 +28,7 @@
   "dependencies": {
     "angular": "1.6.3",
     "angular-animate": "^1.6.3",
+    "angular-local-storage": "0.5.2",
     "angular-ui-bootstrap": "2.5.0",
     "angular-ui-router": "0.4.2",
     "body-parser": "1.17.1",
@@ -35,6 +36,7 @@
     "express": "4.15.2",
     "express-session": "1.15.1",
     "mongoose": "4.9.0",
+    "mongoose-find-one-or-create": "^0.2.0",
     "morgan": "1.8.1",
     "passport": "0.3.2",
     "passport-linkedin-oauth2": "1.5.0"

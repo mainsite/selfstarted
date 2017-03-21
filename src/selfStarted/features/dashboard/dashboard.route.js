@@ -2,7 +2,7 @@ angular
     .module('selfStarted.dashboard')
     .config(dashboardConfig);
 
-function dashboardConfig($stateProvider) {
+function dashboardConfig($stateProvider, localStorageServiceProvider) {
     $stateProvider.state({
         name: 'dashboard',
         url: '/dashboard',
@@ -13,6 +13,8 @@ function dashboardConfig($stateProvider) {
             loggedIn: checkLogin
         }
     });
+
+    localStorageServiceProvider.setStorageType('localStorage');
 }
 
 function checkLogin($q, $http, $location) {

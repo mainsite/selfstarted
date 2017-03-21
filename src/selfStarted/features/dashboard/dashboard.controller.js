@@ -2,7 +2,7 @@ angular
     .module('selfStarted.dashboard')
     .controller('DashboardCtrl', DashboardCtrl);
 
-function DashboardCtrl($scope, $http) {
+function DashboardCtrl($scope, $http, localStorageService) {
     var vm = this;
     vm.userImg = '/assets/images/defaultuser.jpg';
 
@@ -12,11 +12,13 @@ function DashboardCtrl($scope, $http) {
     //need to move this out to a service later
     $http.get('/auth/userdata')
         .then(function (res) {
-            console.log(res.data._json.pictureUrl);
-            vm.userName = res.data._json.firstName;
-            vm.userImg = res.data._json.pictureUrl;
+            console.log(res.data);
+            setStorage('userDBid', res.data);
         }, function(err) {
             console.log(err);
         });
 
+    function setStorage(key, val) {
+        return localStorageService.set(key, val);
+    }
 }

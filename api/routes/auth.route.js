@@ -8,6 +8,7 @@ const session = require('express-session');
 const passport = require('passport');
 const LinkedInStrategy = require('passport-linkedin-oauth2').Strategy;
 const linkedInConfig = require('../config/linkedIn.config');
+const UserModel = require('../models/users.model');
 
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: false }));
@@ -34,15 +35,29 @@ passport.use(new LinkedInStrategy({
     clientID: linkedInConfig.LINKEDIN_API_KEY,
     clientSecret: linkedInConfig.LINKEDIN_SECRET_KEY,
     callbackURL: "http://localhost:4000/auth/linkedin/callback",
+    scope: ['r_emailaddress', 'r_basicprofile', 'r_emailaddress'],
     profileFields: ['id', 'first-name', 'last-name', 'email-address', 'headline', "location", "positions", "picture-url", "public-profile-url", ""]
 },
     function (token, tokenSecret, profile, done) {
         //console.log("profile", profile._json);
-        process.nextTick(function () {
-            return done(null, profile);
+        UserModel.findOneOrCreate({ linkedInUniqueId: profile.id}, {
+                selfStartedUserName: profile.id,
+                linkedInUniqueId: profile.id,
+                linkedInURL: profile._json.publicProfileUrl,
+                firstName: profile._json.firstName,
+                lastName: profile._json.lastName,
+                userEmail: profile._json.emailAddress,
+                userLocation: profile._json.location.name,
+                aboutMe: profile._json.headline,
+                userPhotoLink: profile._json.pictureUrl
+             }, function (err, user) {
+                 if(err) {
+                     console.log("error", err);
+                     return done(err, false);
+                 }
+                return done(null, user._id);
         });
-    }
-));
+    }));
 
 router.get('/', function (req, res) {
     console.log("auth reached");
@@ -50,7 +65,7 @@ router.get('/', function (req, res) {
 });
 
 //this route goes to linkedIn and therefore doesn't need a respnse handled
-router.get('/linkedin', passport.authenticate('linkedin'), function (req, res) {
+router.get('/linkedin', passport.authenticate('linkedin', {state: linkedInConfig.SESSION_KEY}), function (req, res) {
 });
 
 //if authentication succeeds we redirect to the dashboard

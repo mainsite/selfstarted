@@ -3,6 +3,7 @@ angular
         'ui.router',
         'ui.bootstrap',
         'ngAnimate',
+        'LocalStorageModule',
         'selfStarted.landingPage',
         'selfStarted.dashboard'
     ])

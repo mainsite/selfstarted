@@ -1,7 +1,7 @@
 // The users collection model.
 // This collection houses the master users list
 // and info owned by the user.
-
+var findOneOrCreate = require('mongoose-find-one-or-create');
 // Require mongoose
 var mongoose = require("mongoose");
 
@@ -189,6 +189,8 @@ var UsersSchema = new Schema({
   }
 
 });
+
+UsersSchema.plugin(findOneOrCreate);
 
 // Create the Users model with the UsersSchema
 var Users = mongoose.model("Users", UsersSchema);
