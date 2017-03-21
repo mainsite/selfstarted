@@ -16,7 +16,7 @@ function CreateProjects() {
 }
 
 
-function CreateProjectsCtrl($scope) {
+function CreateProjectsCtrl($scope, localStorageService, $http) {
 
   var vm = this;
 
@@ -58,6 +58,8 @@ function CreateProjectsCtrl($scope) {
 
   function submit(){
 
+    var userDBid = getItem('userDBid');
+
     var createProjectInfo = {
 
       projectName: $scope.title,
@@ -68,16 +70,26 @@ function CreateProjectsCtrl($scope) {
       projectCategoryByCollege: $scope.mainCollege,
       projectCategoryByProgram : $scope.subCollege,
       remotePermitted: $scope.radioModel,
-      otherSkillsDesired: $scope.skills
+      otherSkillsDesired: $scope.skills,
+      _primaryProjectOwner: userDBid
 
 
     }
+
+    $http.post('/api/newProject', createProjectInfo)
+      .then(function(res) {
+        console.log('post success');
+      }, function(err) {
+        console.log(err);
+      });
 
     console.log(createProjectInfo);
 
   }
 
-
+  function getItem(key) {
+    return localStorageService.get(key);
+  }
 
 
 
