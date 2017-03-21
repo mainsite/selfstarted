@@ -6,7 +6,7 @@ const auth = require('./api/routes/auth.route');
 const logger = require('morgan');
 const port = process.env.PORT || 3000;
 
-//app.use(logger('dev'));
+app.use(logger('dev'));
 app.use(express.static(__dirname + '/src'));
 
 app.use('/api', api);
