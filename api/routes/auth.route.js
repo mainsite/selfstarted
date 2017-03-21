@@ -39,7 +39,7 @@ passport.use(new LinkedInStrategy({
     profileFields: ['id', 'first-name', 'last-name', 'email-address', 'headline', "location", "positions", "picture-url", "public-profile-url", ""]
 },
     function (token, tokenSecret, profile, done) {
-        console.log("profile", profile._json);
+        //console.log("profile", profile._json);
         UserModel.findOneOrCreate({ linkedInUniqueId: profile.id}, {
                 selfStartedUserName: profile.id,
                 linkedInUniqueId: profile.id,
