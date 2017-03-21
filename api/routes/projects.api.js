@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 const Projects = require('../models/projects.model');
 
-router.post('/newProject', function (req, res, next) {
+router.post('/projects/newProject', function (req, res, next) {
     console.log('saving new project');
 
     console.log(req.body);
@@ -14,10 +14,12 @@ router.post('/newProject', function (req, res, next) {
     // build the constructor
     var newProject = new Projects({
         projectName: req.body.projectName,
+        projectNameLowerCase: req.body.projectNameLowerCase,
         projectDescription: req.body.projectDescription,
         projectStartDate: req.body.projectStartDate,
         projectEndDate: req.body.projectEndDate,
         projectLocation: req.body.projectLocation,
+        projectLocationLowerCase: req.body.projectLocationLowerCase,
         projectCategoryByCollege: req.body.projectCategoryByCollege,
         projectCategoryByProgram: req.body.projectCategoryByProgram,
         otherSkillsDesired: req.body.otherSkillsDesired,
@@ -38,6 +40,18 @@ router.post('/newProject', function (req, res, next) {
         }
     });
 
+});
+
+router.get('/projects/searchProjects', function(req, res, next) {
+
+    console.log(req.params);
+
+    Projects.find(req.params)
+        .populate('_primaryProjectOwner')
+        .populate('_usersAssigned')
+        .exec(function(error, projectsData) {
+            res.json(projectsData);
+        });
 });
 
 module.exports = router;
