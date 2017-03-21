@@ -9,16 +9,13 @@ function DashboardCtrl($scope, $http, localStorageService) {
     vm.isCollapsed = false;
 
 
-    //need to move this out to a service later
-    $http.get('/auth/userdata')
-        .then(function (res) {
-            console.log(res.data);
-            setStorage('userDBid', res.data);
-        }, function(err) {
-            console.log(err);
-        });
+    // need to move this out to a service later
+    // $http.get('/auth/userdata')
+    //     .then(function (res) {
+    //         console.log(res.data);
+            
+    //     }, function(err) {
+    //         console.log(err);
+    //     });
 
-    function setStorage(key, val) {
-        return localStorageService.set(key, val);
-    }
 }
