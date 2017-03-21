@@ -78,7 +78,7 @@ router.get('/linkedin/callback',
     }));
 
 //test if user data is retreivable client side
-router.get('/userdata', ensureAuthenticated, function (req, res) {
+router.get('/userdataid', ensureAuthenticated, function (req, res) {
     //console.log(req.user);
     res.json(req.user);
 });
@@ -89,7 +89,7 @@ function ensureAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
         return next();
     } else {
-        res.send('error');
+        res.send(false);
     }
 }
 

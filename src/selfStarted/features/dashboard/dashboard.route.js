@@ -3,6 +3,8 @@ angular
     .config(dashboardConfig);
 
 function dashboardConfig($stateProvider, localStorageServiceProvider) {
+    localStorageServiceProvider.setStorageType('localStorage');
+    
     $stateProvider.state({
         name: 'dashboard',
         url: '/dashboard',
@@ -13,16 +15,15 @@ function dashboardConfig($stateProvider, localStorageServiceProvider) {
             loggedIn: checkLogin
         }
     });
-
-    localStorageServiceProvider.setStorageType('localStorage');
 }
 
-function checkLogin($q, $http, $location) {
+function checkLogin($q, $http, $location, localStorageService) {
     var defer = $q.defer();
-    $http.get('/auth/userdata')
+    $http.get('/auth/userdataid')
         .then(function (res) {
-            if(res.data !== 'error') {
+            if(res.data) {
                 console.log("user is logged in");
+                setStorage('userDBid', res.data);
                 defer.resolve();
             }
             else {
@@ -32,4 +33,8 @@ function checkLogin($q, $http, $location) {
         });
 
     return defer.promise;
+
+    function setStorage(key, val) {
+        return localStorageService.set(key, val);
+    }
 }
