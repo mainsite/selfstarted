@@ -95,8 +95,17 @@ router.get('/projects/searchProjects?', function(req, res, next) {
 // searchPersonalProjects route for user to get their own projects
 // for their dashboard. Do not include isDeleted flag so they
 // receive both active and deleted projects. Parse on the front
-// end. Also, remember to search by user ID in _primaryProjectOwner
+// end. req.query needs to send _primaryProjectOwner 
+// objectID from the front end
 router.get('/projects/searchPersonalProjects?', function(req, res, next) {
+
+    Projects.find(req.query)
+        .populate('_primaryProjectOwner')
+        .populate('_usersAssigned')
+        .exec(function(error, personalProjectsData) {
+            if (error) return error;
+            res.json(personalProjectsData);
+        });
 
 });
 
