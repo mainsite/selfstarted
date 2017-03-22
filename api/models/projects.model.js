@@ -24,6 +24,17 @@ var ProjectsSchema = new Schema({
 		unique: true
 	},
 
+	// Save a lowercase version of the project name. Needed for when we search
+	// for projects. Need a lower case version because regex-ing or doing a
+	// case insensitive search in the database doesn't use indexing and causes
+	// a performance hit.
+	projectNameLowerCase: {
+		type: String,
+		required: true,
+		trim: true,
+		unique: true
+	}
+
 	// projectDescription is a text description entered by the project owner,
 	// and it is a required field. Remove dead space with trim.
 	projectDescription: {
@@ -49,8 +60,17 @@ var ProjectsSchema = new Schema({
 	// location?
 	projectLocation: {
 		type: String,
-		required: true
+		required: true,
+		trim: true
 	},
+
+	// lowercase version of the projectLocation. See notes on projectNameLowerCase
+	// above for explanation as to why we need this.
+	projectLocationLowerCase: {
+		type: String,
+		required: true,
+		trim: true
+	}
 
 	// projectCategoryByCollege references projectAreas.js by which we store
 	// the main category by college, and subsequently in projectCategoryByProgram
