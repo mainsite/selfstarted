@@ -6,7 +6,7 @@ function SearchProjects() {
     return {
         restrict: 'E',
         scope: {
-            todoData: '='
+            projectData: '='
         },
         templateUrl: 'selfStarted/features/components/searchProjects/searchProjects.html',
         controller: SearchProjectsCtrl,
@@ -60,6 +60,31 @@ function SearchProjectsCtrl($scope, ProjectsService) {
     }
 
 }
+
+
+function format_time(time){
+        //console.log(time);
+        var date = new Date(time);
+        var formatOptions = { 
+               day:    '2-digit', 
+               month:  '2-digit', 
+               year:   'numeric',
+               hour:   '2-digit', 
+               minute: '2-digit',
+               hour12: true 
+        };
+        var dateString = date.toLocaleDateString('en-US', formatOptions);
+        // => "02/17/2017, 11:32 PM"
+
+        dateString = dateString.replace(',', '')
+                               .replace('PM', 'p.m.')
+                               .replace('AM', 'a.m.');
+        // => "02/17/2017 11:32 p.m."
+
+        return dateString;
+
+
+    } // End of Format time functon
 // end of controller
 
 var college =
