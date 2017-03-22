@@ -107,6 +107,13 @@ var ProjectsSchema = new Schema({
 		default: false
 	},
 
+	// isDeleted is to allow for project owner to delete a project. Projects with isDeleted flag
+	// should not show up when searching for projects.
+	isDeleted: {
+		type: Boolean,
+		default: false
+	},
+
 	// _primaryProjectOwner is the user who created and maintains the 
 	// project. Keep in mind what happensif the user goes inactive and
 	// is removed from the project, and code for that eventuality.
