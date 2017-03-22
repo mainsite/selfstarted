@@ -15,12 +15,11 @@ function SearchProjects() {
     };
 }
 
-//TODO inject ProjectsService
-function SearchProjectsCtrl($scope) {
+function SearchProjectsCtrl($scope, ProjectsService) {
 
     var vm = this;
     var mainCollegeField = Object.keys(college);
-    //var projects = ProjectsService;
+    var projects = ProjectsService;
 
     $scope.submit = submit;
     $scope.colleges = mainCollegeField;
@@ -51,19 +50,15 @@ function SearchProjectsCtrl($scope) {
             projectCategoryByProgram: $scope.subCollege
         };
 
-        //TODO search projects call here
-        // projects.getAllProjects(searchProjectInfo, function (err, res) {
-        //   if(err) console.log(err);
-        //   $scope.projects = res.data;
-        // });
-
-        console.log(searchProjectInfo);
-
+        projects.getAllProjects(searchProjectInfo, function (err, res) {
+          if(err) console.log(err);
+          $scope.projects = res.data;
+          console.log($scope.projects);
+        });
     }
 
-
 }
-
+// end of controller
 
 var college =
 

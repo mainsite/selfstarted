@@ -1,6 +1,6 @@
 angular
     .module('selfStarted.service.projects')
-    .service('projects', ProjectsService);
+    .service('ProjectsService', ProjectsService);
 
 function ProjectsService($http) {
     return {
@@ -18,7 +18,7 @@ function ProjectsService($http) {
             });
         },
         addNewProject: function (newProject) {
-            $http.post('/api/newProject', newProject)
+            $http.post('/api/projects/newProject', newProject)
                 .then(function (res) {
                     console.log('new project added');
                 }, function (err) {

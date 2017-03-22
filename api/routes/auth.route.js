@@ -20,6 +20,7 @@ router.use(session({
     saveUninitialized: true,
     cookie: { secure: false }
 }));
+
 router.use(passport.initialize());
 router.use(passport.session());
 
@@ -36,7 +37,7 @@ passport.use(new LinkedInStrategy({
     clientSecret: linkedInConfig.LINKEDIN_SECRET_KEY,
     callbackURL: "http://localhost:4000/auth/linkedin/callback",
     scope: ['r_emailaddress', 'r_basicprofile', 'r_emailaddress'],
-    profileFields: ['id', 'first-name', 'last-name', 'email-address', 'headline', "location", "positions", "picture-url", "public-profile-url", "picture-url::(original)"]
+    profileFields: ['id', 'first-name', 'last-name', 'email-address', 'headline', "location", "positions", "picture-url", "public-profile-url"]
 },
     function (token, tokenSecret, profile, done) {
         console.log("profile", profile._json);
@@ -91,10 +92,11 @@ function newUser(profile) {
         linkedInURL: profile._json.publicProfileUrl,
         firstName: profile._json.firstName,
         lastName: profile._json.lastName,
-        firstNameLowerCase: project._json.firstName.toLowerCase(),
-        lastNameLowerCase: project._json.lastName.toLowerCase(),
+        firstNameLowerCase: profile._json.firstName.toLowerCase(),
+        lastNameLowerCase: profile._json.lastName.toLowerCase(),
         userEmail: profile._json.emailAddress,
         userLocation: profile._json.location.name,
+        userLocationLowerCase: profile._json.location.name.toLowerCase(),
         aboutMe: profile._json.headline,
         userPhotoLink: profile._json.pictureUrl
     };
