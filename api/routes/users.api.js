@@ -7,11 +7,16 @@ router.post('/users/updateUser', function(req, res) {
 
 	console.log(req.body);
 
-	Users.findByIdAndUpdate(req.body._id, {willDoRemoteProjects: req.body.willDoRemoteProjects, willDoLocalProjects: req.body.willDoLocalProjects, userSchoolName: req.body.userSchoolName, additionalSkills: req.body.additionalSkills})
+	Users.findByIdAndUpdate(req.body._id, {
+			willDoRemoteProjects: req.body.willDoRemoteProjects, 
+			willDoLocalProjects: req.body.willDoLocalProjects, 
+			userSchoolName: req.body.userSchoolName, 
+			additionalSkills: req.body.additionalSkills
+		})
 		.exec(function(err, userData) {
 			if (err) {
 				console.log(err);
-				res.send(err)
+				res.send(err);
 			} else {
 				res.send(userData);
 			}

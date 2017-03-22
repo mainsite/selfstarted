@@ -42,6 +42,40 @@ router.post('/projects/newProject', function (req, res, next) {
 
 });
 
+// updateProject is a post route for user to update the project they own
+// or to delete it by setting the isDeleted key to true
+router.post('/projects/updateProject', function(req, res, next) {
+    console.log('updating project')
+    console.log(req.body);
+
+    Projects.findByIdAndUpdate(req.body._id, {
+        projectName: req.body.projectName,
+        projectNameLowerCase: req.body.projectNameLowerCase,
+        projectDescription: req.body.projectDescription,
+        projectStartDate: req.body.projectStartDate,
+        projectEndDate: req.body.projectEndDate,
+        projectLocation: req.body.projectLocation,
+        projectLocationLowerCase: req.body.projectLocationLowerCase,
+        projectCategoryByCollege: req.body.projectCategoryByCollege,
+        projectCategoryByProgram: req.body.projectCategoryByProgram,
+        otherSkillsDesired: req.body.otherSkillsDesired,
+        remotePermitted: req.body.remotePermitted,
+        isDeleted: req.body.isDeleted
+    })
+    .exec(function(err, projectData) {
+        if (err) {
+            console.log(err);
+            res.send(err);
+        } else {
+            res.send(projectData);
+        }
+    });
+
+});
+
+// searchProjects is used to get projects that match
+// criteria user enters on the front end form
+// NOTE: Need to add isDeleted false
 router.get('/projects/searchProjects?', function(req, res, next) {
 
     console.log(req.query);
@@ -53,6 +87,14 @@ router.get('/projects/searchProjects?', function(req, res, next) {
             if (error) return error;
             res.json(projectsData);
         });
+});
+
+// searchPersonalProjects route for user to get their own projects
+// for their dashboard. Do not include isDeleted flag so they
+// receive both active and deleted projects. Parse on the front
+// end. Also, remember to search by user ID in _primaryProjectOwner
+router.get('/projects/searchPersonalProjects?', function(req, res, next) {
+
 });
 
 module.exports = router;
