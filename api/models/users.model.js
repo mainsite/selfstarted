@@ -104,10 +104,11 @@ var UsersSchema = new Schema({
   // is willing to work on nearby projects (under 50mi?). If
   // they are then this will be used for showing them available
   // on talent search local results. Default initial setting is
-  // false until they opt in to be listed as available.
+  // true so they show up in talent search unless they opt out
+  // from their profile view.
   willDoLocalProjects: {
     type: Boolean,
-    default: false
+    default: true
   },
 
   // For now this refers to projectAreas.js for classification
