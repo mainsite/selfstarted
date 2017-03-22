@@ -14,10 +14,16 @@ function UserProfile() {
     };
 }
 
-function UserProfileCtrl($scope, $uibModalInstance) {
-    vm = this;
+function UserProfileCtrl($scope, $uibModalInstance, UsersService, localeStorageService) {
+    var vm = this;
+    var users = UsersService;
+    var userID = getItem('userDBid');
 
-    
+    users.getUsers(userID, function (err, response) {
+        if (err) console.error(err);
+
+        console.log(response);
+    });
 
     $scope.ok = function () {
         console.log("you clicked ok");
@@ -28,4 +34,8 @@ function UserProfileCtrl($scope, $uibModalInstance) {
         console.log("you clicked cancel");
         $uibModalInstance.close();
     };
+
+    function getItem(key) {
+        return localStorageService.get(key);
+    }
 }
