@@ -80,6 +80,15 @@ var UsersSchema = new Schema({
     required: true
   },
 
+  // lower case version of the userLocation for searching
+  // case insensitive. Faster approach than doing a case
+  // insensitive approach which ignores indexing and causes
+  // performance hit
+  userLocationLowerCase: {
+    type: String,
+    required: true
+  },
+
   // willDoRemoteProjects is a boolean for whether the user
   // is willing to work on projects remotely. If they are
   // then this will be used for showing them available on
@@ -131,9 +140,21 @@ var UsersSchema = new Schema({
     required: true
   },
 
+  // first name lower case version for better searching by user name.
+  firstNameLowerCase: {
+    type: String,
+    required: true
+  },
+
   // User's last name, and it must be required. For now we will get
   // this from LinkedIn.
   lastName: {
+    type: String,
+    required: true
+  },
+
+  // last name lower case version for better searching by user name.
+  lastNameLowerCase: {
     type: String,
     required: true
   },
