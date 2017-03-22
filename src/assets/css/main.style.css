@@ -154,6 +154,13 @@
         color: white;
         padding: 1.5em;
     }
+    
+    .projectForm textarea {
+        border: 2px solid lightgray;
+        background-color: transparent;
+        border-radius: 0;
+        color: white;
+    }
     /*  select drop down box styles */
     
     .styled-select {
