@@ -1,28 +1,18 @@
 <form class="navbar-form navbar-left" role="search">
 
-	<input type="text" class="form-control" required ng-model="user" placeholder="User Name" />
+  <!-- will add user search later -->
+  <!--<input type="text" class="form-control" required ng-model="user" placeholder="User Name" />-->
 
   <input type="text" class="form-control" required ng-model="title" placeholder="Title" />
 
   <input type="text" class="form-control" required ng-model="location" placeholder="location" />
 
-  <select data-ng-model="mainCollege" data-ng-change="changeSubCollege()" data-ng-options="college as college for college  in colleges">
+  <select data-ng-model="mainCollege" data-ng-change="changeSubCollege()" data-ng-options="college as college for college  in colleges"></select>
 
+  <select data-ng-model="subCollege" data-ng-options="subcollege for subcollege in subcolleges"></select>
 
-  </select>
-  
-
-
-<select data-ng-model="subCollege" data-ng-options="subcollege for subcollege in subcolleges">
-  
-
-
-</select>
-
-<button type="button" class="btn btn-primary" ng-click="submit()" >
+  <button type="button" class="btn btn-primary" ng-click="submit()">
         Search
-    </button>
+  </button>
 
 </form>
-
-

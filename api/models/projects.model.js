@@ -33,7 +33,7 @@ var ProjectsSchema = new Schema({
 		required: true,
 		trim: true,
 		unique: true
-	}
+	},
 
 	// projectDescription is a text description entered by the project owner,
 	// and it is a required field. Remove dead space with trim.
@@ -70,7 +70,7 @@ var ProjectsSchema = new Schema({
 		type: String,
 		required: true,
 		trim: true
-	}
+	},
 
 	// projectCategoryByCollege references projectAreas.js by which we store
 	// the main category by college, and subsequently in projectCategoryByProgram
