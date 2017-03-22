@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 const Messages = require('../models/messages.model');
 
-router.get('/projects/searchMessages?', function(req, res, next) {
+router.get('/messages/searchMessages?', function(req, res, next) {
 
     console.log(req.query);
 

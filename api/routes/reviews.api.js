@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 const Reviews = require('../models/reviews.model');
 
-router.get('/projects/searchReviews?', function(req, res, next) {
+router.get('/reviews/searchReviews?', function(req, res, next) {
 
     console.log(req.query);
 
