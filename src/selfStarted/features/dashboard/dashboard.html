@@ -22,8 +22,11 @@
         <!-- Side bar content -->
         <div class="col-sm-3 col-md-2 sidebar" uib-collapse="isCollapsed">
             <ul class="nav nav-sidebar">
-                <li class="active"><a href="">Dashboard<span class="sr-only">(current)</span></a></li>
                 <li><a href=""><img class="img-circle" src="{{DashboardVM.userImg}}" alt=""></a></li>
+                <li class="active"><a href="">Dashboard<span class="sr-only">(current)</span></a></li>
+
+                <li><a href="">Messages</a></li>
+                <li><a href="">Projects</a></li>
                 <li><a href="">Analytics</a></li>
                 <li><a href="">Export</a></li>
             </ul>
@@ -41,12 +44,12 @@
                         <!-- we will put our form directives here-->
                        <create-projects></create-projects>
                     </uib-tab>
-                    <uib-tab class="tabBar" index="1" heading="Join a Project">
+                    <uib-tab class="tabBar" index="1" heading="Search Projects">
                         <!-- we will put our form directives here-->
                         <search-projects></search-projects>
                         <view-project></view-project>
                     </uib-tab>
-                    <uib-tab class="tabBar" index="2" heading="Add a Member">
+                    <uib-tab class="tabBar" index="2" heading="Find Talent">
                         <!-- we will put our form directives here-->
                         More Tab Content
                     </uib-tab>
