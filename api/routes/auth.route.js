@@ -36,28 +36,20 @@ passport.use(new LinkedInStrategy({
     clientSecret: linkedInConfig.LINKEDIN_SECRET_KEY,
     callbackURL: "http://localhost:4000/auth/linkedin/callback",
     scope: ['r_emailaddress', 'r_basicprofile', 'r_emailaddress'],
-    profileFields: ['id', 'first-name', 'last-name', 'email-address', 'headline', "location", "positions", "picture-url", "public-profile-url", ""]
+    profileFields: ['id', 'first-name', 'last-name', 'email-address', 'headline', "location", "positions", "picture-url", "public-profile-url", "picture-url::(original)"]
 },
     function (token, tokenSecret, profile, done) {
-        //console.log("profile", profile._json);
-        UserModel.findOneOrCreate({ linkedInUniqueId: profile.id}, {
-                selfStartedUserName: profile.id,
-                linkedInUniqueId: profile.id,
-                linkedInURL: profile._json.publicProfileUrl,
-                firstName: profile._json.firstName,
-                lastName: profile._json.lastName,
-                userEmail: profile._json.emailAddress,
-                userLocation: profile._json.location.name,
-                aboutMe: profile._json.headline,
-                userPhotoLink: profile._json.pictureUrl
-             }, function (err, user) {
-                 if(err) {
-                     console.log("error", err);
-                     return done(err, false);
-                 }
+        console.log("profile", profile._json);
+        UserModel.findOneOrCreate({ linkedInUniqueId: profile.id }, newUser(profile),
+            function (err, user) {
+                if (err) {
+                    console.log("error", err);
+                    return done(err, false);
+                }
                 return done(null, user._id);
-        });
-    }));
+            });
+    })
+);
 
 router.get('/', function (req, res) {
     console.log("auth reached");
@@ -65,17 +57,16 @@ router.get('/', function (req, res) {
 });
 
 //this route goes to linkedIn and therefore doesn't need a respnse handled
-router.get('/linkedin', passport.authenticate('linkedin', {state: linkedInConfig.SESSION_KEY}), function (req, res) {
+router.get('/linkedin', passport.authenticate('linkedin', { state: linkedInConfig.SESSION_KEY }), function (req, res) {
 });
 
 //if authentication succeeds we redirect to the dashboard
 //if failure user goes back to login page
 //TODO make a login page
-router.get('/linkedin/callback',
-    passport.authenticate('linkedin', {
-        successRedirect: '/#!/dashboard',
-        failureRedirect: '/#!/login'
-    }));
+router.get('/linkedin/callback', passport.authenticate('linkedin', {
+    successRedirect: '/#!/dashboard',
+    failureRedirect: '/#!/login'
+}));
 
 //test if user data is retreivable client side
 router.get('/userdataid', ensureAuthenticated, function (req, res) {
@@ -91,6 +82,22 @@ function ensureAuthenticated(req, res, next) {
     } else {
         res.send(false);
     }
+}
+
+function newUser(profile) {
+    return {
+        selfStartedUserName: profile.id,
+        linkedInUniqueId: profile.id,
+        linkedInURL: profile._json.publicProfileUrl,
+        firstName: profile._json.firstName,
+        lastName: profile._json.lastName,
+        firstNameLowerCase: project._json.firstName.toLowerCase(),
+        lastNameLowerCase: project._json.lastName.toLowerCase(),
+        userEmail: profile._json.emailAddress,
+        userLocation: profile._json.location.name,
+        aboutMe: profile._json.headline,
+        userPhotoLink: profile._json.pictureUrl
+    };
 }
 
 module.exports = router;

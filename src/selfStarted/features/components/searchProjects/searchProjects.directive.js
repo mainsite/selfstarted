@@ -15,47 +15,49 @@ function SearchProjects() {
     };
 }
 
-
-function SearchProjectsCtrl($scope){
+//TODO inject ProjectsService
+function SearchProjectsCtrl($scope) {
 
     var vm = this;
+    var mainCollegeField = Object.keys(college);
+    //var projects = ProjectsService;
 
     $scope.submit = submit;
-
-    var mainCollegeField = Object.keys(college);
-
     $scope.colleges = mainCollegeField;
-
-
     $scope.subcolleges = [];
-
-    
-    $scope.changeSubCollege = function (){
-
-      var key = $scope.mainCollege;
-
-      var userSub = college[key];
-
-      $scope.subcolleges = userSub
-
-      console.log($scope.subcolleges);
-
-    } 
+    $scope.changeSubCollege = changeSubCollege;
 
 
-    function submit(){
 
-      var searchProjectInfo = {
+    function changeSubCollege() {
 
-        projectUser: $scope.user,
-        projectName: $scope.title,
-        projectLocation: $scope.location,
-        projectCategoryByCollege: $scope.mainCollege,
-        projectCategoryByProgram : $scope.subCollege
+        var key = $scope.mainCollege;
 
-      }
+        var userSub = college[key];
 
-      console.log(searchProjectInfo);
+        $scope.subcolleges = userSub;
+
+        console.log($scope.subcolleges);
+
+    }
+
+
+    function submit() {
+
+        var searchProjectInfo = {
+            projectNameLowerCase: $scope.title.trim().toLowerCase(),
+            projectLocationLowerCase: $scope.location.trim().toLowerCase(),
+            projectCategoryByCollege: $scope.mainCollege,
+            projectCategoryByProgram: $scope.subCollege
+        };
+
+        //TODO search projects call here
+        // projects.getAllProjects(searchProjectInfo, function (err, res) {
+        //   if(err) console.log(err);
+        //   $scope.projects = res.data;
+        // });
+
+        console.log(searchProjectInfo);
 
     }
 
@@ -63,152 +65,138 @@ function SearchProjectsCtrl($scope){
 }
 
 
-var college = 
+var college =
 
     {
-      "Arts & Humanities": 
+        "Arts & Humanities":
 
         [
-          "Architecture",
-          "Art",
-          "Digital Media",
-          "English",
-          "Film",
-          "French",
-          "History",
-          "Humanities and Cultural Studies",
-          "Latin American Studies",
-          "Music",
-          "Philosophy",
-          "Photography",
-          "Religion and Cultural Studies",
-          "Spanish",
-          "Theatre",
-          "Writing and Rhetoric"
-        ],
-    
-    
-      "Business Administration" : 
-        [
-          "Accounting",
-          "Economics",
-          "Finance",
-          "Integrated Business",
-          "Management",
-          "Marketing",
-          "Real Estate"
+            "Architecture",
+            "Art",
+            "Digital Media",
+            "English",
+            "Film",
+            "French",
+            "History",
+            "Humanities and Cultural Studies",
+            "Latin American Studies",
+            "Music",
+            "Philosophy",
+            "Photography",
+            "Religion and Cultural Studies",
+            "Spanish",
+            "Theatre",
+            "Writing and Rhetoric"
         ],
 
-     "Education & Human Performance" : 
+
+        "Business Administration":
         [
-          "Art Education",
-          "Early Childhood Development",
-          "Elementary Education",
-          "English Language Arts Education",
-          "Mathematics Education",
-          "Science Education",
-          "Social Science Education",
-          "Sport and Exercise Education",
-          "Sport and Exercise Science",
-          "Technical Education and Industry Training",
-          "World Languages Education"
+            "Accounting",
+            "Economics",
+            "Finance",
+            "Integrated Business",
+            "Management",
+            "Marketing",
+            "Real Estate"
         ],
 
-      "Engineering & Computer Science" :
+        "Education & Human Performance":
         [
-          "Aerospace Engineering",
-          "Civil Engineering",
-          "Computer Engineering",
-          "Computer Science",
-          "Construction Engineering",
-          "Electrical Engineering",
-          "Environmental Engineering",
-          "Industrial Engineering",
-          "Information Technology",
-          "Mechanical Engineering"
+            "Art Education",
+            "Early Childhood Development",
+            "Elementary Education",
+            "English Language Arts Education",
+            "Mathematics Education",
+            "Science Education",
+            "Social Science Education",
+            "Sport and Exercise Education",
+            "Sport and Exercise Science",
+            "Technical Education and Industry Training",
+            "World Languages Education"
         ],
 
-      "Engineering & Computer Science" :
+        "Engineering & Computer Science":
         [
-          "Aerospace Engineering",
-          "Civil Engineering",
-          "Computer Engineering",
-          "Computer Science",
-          "Construction Engineering",
-          "Electrical Engineering",
-          "Environmental Engineering",
-          "Industrial Engineering",
-          "Information Technology",
-          "Mechanical Engineering"
+            "Aerospace Engineering",
+            "Civil Engineering",
+            "Computer Engineering",
+            "Computer Science",
+            "Construction Engineering",
+            "Electrical Engineering",
+            "Environmental Engineering",
+            "Industrial Engineering",
+            "Information Technology",
+            "Mechanical Engineering"
         ],
 
-      "Health & Public Affairs":
+        "Health & Public Affairs":
         [
-          "Athletic Training",
-          "Communication Sciences and Disorders",
-          "Criminal Justice",
-          "Health Informatics and Information Management",
-          "Health Sciences Pre-Clinical",
-          "Health Services Administration",
-          "Legal Studies",
-          "Public Administration",
-          "Social Work"
+            "Athletic Training",
+            "Communication Sciences and Disorders",
+            "Criminal Justice",
+            "Health Informatics and Information Management",
+            "Health Sciences Pre-Clinical",
+            "Health Services Administration",
+            "Legal Studies",
+            "Public Administration",
+            "Social Work"
         ],
 
-      "Hospitality Management":
+        "Hospitality Management":
         [
-          "Entertainment Management",
-          "Event Management",
-          "Hospitality Management",
-          "Restaurant and Foodservice Management"
+            "Entertainment Management",
+            "Event Management",
+            "Hospitality Management",
+            "Restaurant and Foodservice Management"
         ],
 
-      "Medicine":
+        "Medicine":
         [
-          "Biomedical Sciences",
-          "Biotechnology",
-          "Medical Laboratory Sciences"
+            "Biomedical Sciences",
+            "Biotechnology",
+            "Medical Laboratory Sciences"
         ],
 
-      "Nursing":
+        "Nursing":
         [
-          "Nursing"
+            "Nursing"
         ],
 
-      "Optics & Photonics":
+        "Optics & Photonics":
         [
-          "Photonic Science and Engineering"
+            "Photonic Science and Engineering"
         ],
 
-      "Sciences":
+        "Sciences":
         [
-          "Advertising-Public Relations",
-          "Anthropology",
-          "Biology",
-          "Chemistry",
-          "Chemistry - Biochemistry",
-          "Communication & Conflict",
-          "Forensic Science - Analysis",
-          "Forensic Science - Biochemistry",
-          "Human Communication",
-          "International and Global Studies",
-          "Journalism",
-          "Mathematics",
-          "Physics",
-          "Political Science",
-          "Political Science - Prelaw",
-          "Psychology",
-          "Radio - Television",
-          "Social Sciences",
-          "Sociology",
-          "Statistics"
+            "Advertising-Public Relations",
+            "Anthropology",
+            "Biology",
+            "Chemistry",
+            "Chemistry - Biochemistry",
+            "Communication & Conflict",
+            "Forensic Science - Analysis",
+            "Forensic Science - Biochemistry",
+            "Human Communication",
+            "International and Global Studies",
+            "Journalism",
+            "Mathematics",
+            "Physics",
+            "Political Science",
+            "Political Science - Prelaw",
+            "Psychology",
+            "Radio - Television",
+            "Social Sciences",
+            "Sociology",
+            "Statistics"
         ],
 
-      "Undergraduate Studies":
+        "Undergraduate Studies":
         [
-          "Interdisciplinary Studies",
-          "Interdisciplinary Studies - Environmental Studies",
-          "Interdisciplinary Studies - Women's Studies"
+            "Interdisciplinary Studies",
+            "Interdisciplinary Studies - Environmental Studies",
+            "Interdisciplinary Studies - Women's Studies"
         ]
 
-    }
+    };

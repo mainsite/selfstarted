@@ -16,39 +16,38 @@ function CreateProjects() {
 }
 
 
-function CreateProjectsCtrl($scope, localStorageService, $http) {
+function CreateProjectsCtrl($scope, localStorageService) {
 
   var vm = this;
+  var mainCollegeField = Object.keys(college);
+  //var projects = ProjectServices;
 
   $scope.submit = submit;
-
-  var mainCollegeField = Object.keys(college);
-
   $scope.colleges = mainCollegeField;
-
   $scope.subcolleges = [];
+  $scope.changeSubCollege = changeSubCollege;
 
-  $scope.changeSubCollege = function (){
 
-    var key = $scope.mainCollege;
-
-    var userSub = college[key];
-
-    $scope.subcolleges = userSub;
-  };
-
-  $scope.today = function() {
+  $scope.today = function () {
     $scope.startDate = new Date();
     $scope.endDate = new Date();
   };
   $scope.today();
 
-  $scope.setDate = function() {
+  $scope.setDate = function () {
     $scope.startDate = new Date();
     $scope.endDate = new Date();
   };
 
-  function submit(){
+  function changeSubCollege() {
+    var key = $scope.mainCollege;
+
+    var userSub = college[key];
+
+    $scope.subcolleges = userSub;
+  }
+
+  function submit() {
 
     var userDBid = getItem('userDBid');
 
@@ -60,7 +59,7 @@ function CreateProjectsCtrl($scope, localStorageService, $http) {
       projectEndDate: $scope.endDate.toISOString(),
       projectLocation: $scope.location,
       projectCategoryByCollege: $scope.mainCollege,
-      projectCategoryByProgram : $scope.subCollege,
+      projectCategoryByProgram: $scope.subCollege,
       remotePermitted: $scope.radioModel,
       otherSkillsDesired: $scope.skills,
       _primaryProjectOwner: userDBid
@@ -68,12 +67,8 @@ function CreateProjectsCtrl($scope, localStorageService, $http) {
 
     };
 
-    $http.post('/api/newProject', createProjectInfo)
-      .then(function(res) {
-        console.log('post success');
-      }, function(err) {
-        console.log(err);
-      });
+    //TODO addNewProject service all here
+    //projects.addNewProject(createProjectInfo);
 
     console.log(createProjectInfo);
     resetForm();
@@ -95,155 +90,141 @@ function CreateProjectsCtrl($scope, localStorageService, $http) {
 
 
 
-var college = 
+var college =
 
-    {
-      "Arts & Humanities": 
+  {
+    "Arts & Humanities":
 
-        [
-          "Architecture",
-          "Art",
-          "Digital Media",
-          "English",
-          "Film",
-          "French",
-          "History",
-          "Humanities and Cultural Studies",
-          "Latin American Studies",
-          "Music",
-          "Philosophy",
-          "Photography",
-          "Religion and Cultural Studies",
-          "Spanish",
-          "Theatre",
-          "Writing and Rhetoric"
-        ],
-    
-    
-      "Business Administration" : 
-        [
-          "Accounting",
-          "Economics",
-          "Finance",
-          "Integrated Business",
-          "Management",
-          "Marketing",
-          "Real Estate"
-        ],
+    [
+      "Architecture",
+      "Art",
+      "Digital Media",
+      "English",
+      "Film",
+      "French",
+      "History",
+      "Humanities and Cultural Studies",
+      "Latin American Studies",
+      "Music",
+      "Philosophy",
+      "Photography",
+      "Religion and Cultural Studies",
+      "Spanish",
+      "Theatre",
+      "Writing and Rhetoric"
+    ],
 
-     "Education & Human Performance" : 
-        [
-          "Art Education",
-          "Early Childhood Development",
-          "Elementary Education",
-          "English Language Arts Education",
-          "Mathematics Education",
-          "Science Education",
-          "Social Science Education",
-          "Sport and Exercise Education",
-          "Sport and Exercise Science",
-          "Technical Education and Industry Training",
-          "World Languages Education"
-        ],
 
-      "Engineering & Computer Science" :
-        [
-          "Aerospace Engineering",
-          "Civil Engineering",
-          "Computer Engineering",
-          "Computer Science",
-          "Construction Engineering",
-          "Electrical Engineering",
-          "Environmental Engineering",
-          "Industrial Engineering",
-          "Information Technology",
-          "Mechanical Engineering"
-        ],
+    "Business Administration":
+    [
+      "Accounting",
+      "Economics",
+      "Finance",
+      "Integrated Business",
+      "Management",
+      "Marketing",
+      "Real Estate"
+    ],
 
-      "Engineering & Computer Science" :
-        [
-          "Aerospace Engineering",
-          "Civil Engineering",
-          "Computer Engineering",
-          "Computer Science",
-          "Construction Engineering",
-          "Electrical Engineering",
-          "Environmental Engineering",
-          "Industrial Engineering",
-          "Information Technology",
-          "Mechanical Engineering"
-        ],
+    "Education & Human Performance":
+    [
+      "Art Education",
+      "Early Childhood Development",
+      "Elementary Education",
+      "English Language Arts Education",
+      "Mathematics Education",
+      "Science Education",
+      "Social Science Education",
+      "Sport and Exercise Education",
+      "Sport and Exercise Science",
+      "Technical Education and Industry Training",
+      "World Languages Education"
+    ],
 
-      "Health & Public Affairs":
-        [
-          "Athletic Training",
-          "Communication Sciences and Disorders",
-          "Criminal Justice",
-          "Health Informatics and Information Management",
-          "Health Sciences Pre-Clinical",
-          "Health Services Administration",
-          "Legal Studies",
-          "Public Administration",
-          "Social Work"
-        ],
+    "Engineering & Computer Science":
+    [
+      "Aerospace Engineering",
+      "Civil Engineering",
+      "Computer Engineering",
+      "Computer Science",
+      "Construction Engineering",
+      "Electrical Engineering",
+      "Environmental Engineering",
+      "Industrial Engineering",
+      "Information Technology",
+      "Mechanical Engineering"
+    ],
 
-      "Hospitality Management":
-        [
-          "Entertainment Management",
-          "Event Management",
-          "Hospitality Management",
-          "Restaurant and Foodservice Management"
-        ],
+    "Health & Public Affairs":
+    [
+      "Athletic Training",
+      "Communication Sciences and Disorders",
+      "Criminal Justice",
+      "Health Informatics and Information Management",
+      "Health Sciences Pre-Clinical",
+      "Health Services Administration",
+      "Legal Studies",
+      "Public Administration",
+      "Social Work"
+    ],
 
-      "Medicine":
-        [
-          "Biomedical Sciences",
-          "Biotechnology",
-          "Medical Laboratory Sciences"
-        ],
+    "Hospitality Management":
+    [
+      "Entertainment Management",
+      "Event Management",
+      "Hospitality Management",
+      "Restaurant and Foodservice Management"
+    ],
 
-      "Nursing":
-        [
-          "Nursing"
-        ],
+    "Medicine":
+    [
+      "Biomedical Sciences",
+      "Biotechnology",
+      "Medical Laboratory Sciences"
+    ],
 
-      "Optics & Photonics":
-        [
-          "Photonic Science and Engineering"
-        ],
+    "Nursing":
+    [
+      "Nursing"
+    ],
 
-      "Sciences":
-        [
-          "Advertising-Public Relations",
-          "Anthropology",
-          "Biology",
-          "Chemistry",
-          "Chemistry - Biochemistry",
-          "Communication & Conflict",
-          "Forensic Science - Analysis",
-          "Forensic Science - Biochemistry",
-          "Human Communication",
-          "International and Global Studies",
-          "Journalism",
-          "Mathematics",
-          "Physics",
-          "Political Science",
-          "Political Science - Prelaw",
-          "Psychology",
-          "Radio - Television",
-          "Social Sciences",
-          "Sociology",
-          "Statistics"
-        ],
+    "Optics & Photonics":
+    [
+      "Photonic Science and Engineering"
+    ],
 
-      "Undergraduate Studies":
-        [
-          "Interdisciplinary Studies",
-          "Interdisciplinary Studies - Environmental Studies",
-          "Interdisciplinary Studies - Women's Studies"
-        ]
+    "Sciences":
+    [
+      "Advertising-Public Relations",
+      "Anthropology",
+      "Biology",
+      "Chemistry",
+      "Chemistry - Biochemistry",
+      "Communication & Conflict",
+      "Forensic Science - Analysis",
+      "Forensic Science - Biochemistry",
+      "Human Communication",
+      "International and Global Studies",
+      "Journalism",
+      "Mathematics",
+      "Physics",
+      "Political Science",
+      "Political Science - Prelaw",
+      "Psychology",
+      "Radio - Television",
+      "Social Sciences",
+      "Sociology",
+      "Statistics"
+    ],
 
-    }
+    "Undergraduate Studies":
+    [
+      "Interdisciplinary Studies",
+      "Interdisciplinary Studies - Environmental Studies",
+      "Interdisciplinary Studies - Women's Studies"
+    ]
+
+  };
 
 
 var projectAreas = [
