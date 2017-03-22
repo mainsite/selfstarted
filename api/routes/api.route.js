@@ -5,10 +5,9 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const testRoute = require('./test.api');
 const projectsRoute = require('./projects.api');
-
-// dependencies for database
-const Messages = require('../models/messages.model');
-const Reviews = require('../models/reviews.model');
+const usersRoute = require('./users.api');
+const reviewsRoute = require('./reviews.api');
+const messagesRoute = require('./messages.api');
 
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({extended: false}));
