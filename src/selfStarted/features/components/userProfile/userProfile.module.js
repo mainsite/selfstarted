@@ -1,3 +1,1 @@
-angular.module('selfStarted.component.userProfile', [
-    'selftStarted.service.usersService'
-]);
+angular.module('selfStarted.component.userProfile', []);

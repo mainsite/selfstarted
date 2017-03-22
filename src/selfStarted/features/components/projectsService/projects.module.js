@@ -1,2 +1,1 @@
-angular
-    .module('selfStarted.service.projects', []);
+angular.module('selfStarted.service.projects', []);

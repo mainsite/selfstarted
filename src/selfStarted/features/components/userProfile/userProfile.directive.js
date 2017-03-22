@@ -14,10 +14,14 @@ function UserProfile() {
     };
 }
 
-function UserProfileCtrl($scope, $uibModalInstance, UsersService, localeStorageService) {
+function UserProfileCtrl($scope, $uibModalInstance, localStorageService, UsersService) {
     var vm = this;
     var users = UsersService;
-    var userID = getItem('userDBid');
+    var userID = {
+        _id: getItem('userDBid')
+    };
+
+    console.log(userID);
 
     users.getUsers(userID, function (err, response) {
         if (err) console.error(err);
