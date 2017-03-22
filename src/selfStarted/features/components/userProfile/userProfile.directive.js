@@ -1,6 +1,6 @@
 angular
     .module('selfStarted.component.userProfile')
-    .directive('UserProfile', UserProfile);
+    .directive('userProfile', UserProfile);
 
 function UserProfile() {
     return {
@@ -14,8 +14,18 @@ function UserProfile() {
     };
 }
 
-function UserProfileCtrl() {
-    var vm = this;
+function UserProfileCtrl($scope, $uibModalInstance) {
+    vm = this;
 
     
+
+    $scope.ok = function () {
+        console.log("you clicked ok");
+        $uibModalInstance.close();
+    };
+
+    $scope.cancel = function () {
+        console.log("you clicked cancel");
+        $uibModalInstance.close();
+    };
 }
