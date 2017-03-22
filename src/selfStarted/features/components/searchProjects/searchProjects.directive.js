@@ -42,16 +42,18 @@ function SearchProjectsCtrl($scope, ProjectsService) {
 
 
     function submit() {
+        var title = $scope.title ? $scope.title.trim().toLowerCase() : undefined;
+        var location = $scope.location ? $scope.location.trim().toLowerCase() : undefined;
 
         var searchProjectInfo = {
-            projectNameLowerCase: $scope.title.trim().toLowerCase(),
-            projectLocationLowerCase: $scope.location.trim().toLowerCase(),
+            projectNameLowerCase: title,
+            projectLocationLowerCase: location,
             projectCategoryByCollege: $scope.mainCollege,
             projectCategoryByProgram: $scope.subCollege
         };
 
         projects.getAllProjects(searchProjectInfo, function (err, res) {
-          if(err) console.log(err);
+          if(err) return console.log(err);
           $scope.projects = res.data;
           console.log($scope.projects);
         });

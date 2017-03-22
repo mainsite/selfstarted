@@ -42,14 +42,15 @@ router.post('/projects/newProject', function (req, res, next) {
 
 });
 
-router.get('/projects/searchProjects', function(req, res, next) {
+router.get('/projects/searchProjects?', function(req, res, next) {
 
-    console.log(req.params);
+    console.log(req.query);
 
-    Projects.find(req.params)
+    Projects.find(req.query)
         .populate('_primaryProjectOwner')
         .populate('_usersAssigned')
         .exec(function(error, projectsData) {
+            if (error) return error;
             res.json(projectsData);
         });
 });
