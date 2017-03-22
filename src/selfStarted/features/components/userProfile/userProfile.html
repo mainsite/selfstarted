@@ -1,9 +1,32 @@
 <div modal="showModal" close="cancel()">
     <div class="modal-header">
-        <h4>Modal Dialog</h4>
+        <h4>{{user.firstName}} {{user.lastName}}'s Profile</h4>
     </div>
     <div class="modal-body">
-        <p>Example paragraph with some text.</p>
+        <div class="row container-fluid">
+            <div class="col-sm-4">
+                <a href="{{user.url}}" target="_blank"><img ng-src="{{user.photo}}" alt="user photo"></a>
+            </div>
+            <div class="col-sm-4">
+                <h2>About Me</h2>
+                <p>{{user.description}}</p>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-sm-4">
+                <h4>Location:</h4>
+                <p>{{user.location}}</p>
+            </div>
+            <div class="col-sm-4">
+                <h4>Work Locally:</h4>
+                <p>{{user.local}}</p>
+            </div>
+            <div class="col-sm-4">
+                <h4>Work Remotely:</h4>
+                <p>{{user.remote}}</p>
+            </div>
+        </div>
     </div>
     <div class="modal-footer">
         <button class="btn btn-success" ng-click="ok()">Okay</button>
