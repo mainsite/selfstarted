@@ -16,3 +16,27 @@
   </button>
 
 </form>
+<br>
+<br>
+<br>
+<div ng-repeat="project in projects">
+    <br>
+   
+    <uib-accordion close-others="oneAtATime">
+      <div uib-accordion-group class="panel-default" is-open="status.open">
+        <uib-accordion-heading>
+         {{project.projectName}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+        </uib-accordion-heading>
+        
+        <p>Project Description: {{project.projectDescription}}</p>
+        <p>Project Start: {{project.projectStartDate |  date:"MM/dd/yyyy"}}</p>
+        <p>Project Description: {{project.projectEndDate |s date:"MM/dd/yyyy"}}</p>
+        <p>Project Description: {{project.projectLocation}}</p>
+        <p>Project Description: {{project.projectCategoryByCollege}}</p>
+        <p>Project Description: {{project.projectCategoryByProgram}}</p>
+        <p>Project Skills: {{project.otherSkillsDesired}}</p>
+
+
+      </div>
+    </uib-accordion>
+</div>

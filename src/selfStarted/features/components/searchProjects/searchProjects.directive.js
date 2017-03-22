@@ -6,7 +6,7 @@ function SearchProjects() {
     return {
         restrict: 'E',
         scope: {
-            todoData: '='
+            projectData: '='
         },
         templateUrl: 'selfStarted/features/components/searchProjects/searchProjects.html',
         controller: SearchProjectsCtrl,
@@ -60,6 +60,8 @@ function SearchProjectsCtrl($scope, ProjectsService) {
     }
 
 }
+
+
 // end of controller
 
 var college =

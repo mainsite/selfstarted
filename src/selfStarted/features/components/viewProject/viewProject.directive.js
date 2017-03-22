@@ -6,20 +6,19 @@ function ViewProject() {
   return {
     restrict: 'E',
     scope: {
-      todoData: '='
+      projectDat: '='
     },
     templateUrl: 'selfStarted/features/components/viewProject/viewProject.html',
     controller: ViewProjectCtrl,
-    controllerAS: 'viewProjectVM',
+    controllerAS: 'ViewProjectVM',
     bindToController: true
   };
 }
 
 
-function ViewProjectCtrl() {
+function ViewProjectCtrl($scope) {
 
   var vm = this;
-
 
 }
 
