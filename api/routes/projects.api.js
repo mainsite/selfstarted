@@ -78,6 +78,9 @@ router.post('/projects/updateProject', function(req, res, next) {
 // NOTE: Need to add isDeleted false
 router.get('/projects/searchProjects?', function(req, res, next) {
 
+    // we want to only return projects that are not deleted so add that value
+    req.query.isDeleted = false;
+    
     console.log(req.query);
 
     Projects.find(req.query)
