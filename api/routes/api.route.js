@@ -13,6 +13,9 @@ router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({extended: false}));
 router.use('/', testRoute);
 router.use('/', projectsRoute);
+router.use('/', usersRoute);
+router.use('/', reviewsRoute);
+router.use('/', messagesRoute);
 
 router.get('/', function (req, res, next) {
     console.log("api reached");

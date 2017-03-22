@@ -5,7 +5,8 @@ angular
         'ngAnimate',
         'LocalStorageModule',
         'selfStarted.landingPage',
-        'selfStarted.dashboard'
+        'selfStarted.dashboard',
+        'selfStarted.service.users'
     ])
     .config(appConfig);
 
