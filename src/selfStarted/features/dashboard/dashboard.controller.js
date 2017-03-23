@@ -20,13 +20,13 @@ function DashboardCtrl($scope, UsersService, localStorageService, $uibModal) {
         vm.userImg = response[0].userPhotoLink;
     });
     
-    function open() {
-        console.log("open modal");
-        var modalInstance = $uibModal.open({
-            templateUrl: 'selfStarted/features/components/userProfile/userProfile.html',
-            controller: UserProfileCtrl
-        });
-    }
+    // function open() {
+    //     console.log("open modal");
+    //     var modalInstance = $uibModal.open({
+    //         templateUrl: 'selfStarted/features/components/userProfile/userProfile.html',
+    //         controller: UserProfileCtrl
+    //     });
+    // }
 
     function getUserID(key) {
         return localStorageService.get(key);

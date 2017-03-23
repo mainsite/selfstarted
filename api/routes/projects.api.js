@@ -45,7 +45,7 @@ router.post('/projects/newProject', function (req, res, next) {
 // updateProject is a post route for user to update the project they own
 // or to delete it by setting the isDeleted key to true
 router.post('/projects/updateProject', function(req, res, next) {
-    console.log('updating project')
+    console.log('updating project');
     console.log(req.body);
 
     Projects.findByIdAndUpdate(req.body._id, {
