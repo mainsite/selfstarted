@@ -8,7 +8,8 @@ angular
         'selfStarted.dashboard',
         'selfStarted.service.users',
         'selfStarted.profilePage',
-        'selfStarted.projectsPage'
+        'selfStarted.projectsPage',
+        'selfStarted.service.college'
     ])
     .config(appConfig);
 
