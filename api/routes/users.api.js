@@ -8,19 +8,20 @@ const Users = require('../models/users.model');
 // The items needed (and listed in the route below) are not
 // available from linked in and must be manually updated by user
 // in their profile view.
-router.post('/users/updateUser', function(req, res) {
+router.post('/users/updateUser', function (req, res) {
 
 	console.log(req.body);
 
 	Users.findByIdAndUpdate(req.body._id, {
-			willDoRemoteProjects: req.body.willDoRemoteProjects, 
-			willDoLocalProjects: req.body.willDoLocalProjects, 
-			userSchoolName: req.body.userSchoolName, 
-			additionalSkills: req.body.additionalSkills,
-			defaultSkillByCollege: req.body.defaultSkillByCollege,
-			defaultSkillByProgram: req.body.defaultSkillByProgram
-		})
-		.exec(function(err, userData) {
+		willDoRemoteProjects: req.body.willDoRemoteProjects,
+		willDoLocalProjects: req.body.willDoLocalProjects,
+		userSchoolName: req.body.userSchoolName,
+		additionalSkills: req.body.additionalSkills,
+		defaultSkillByCollege: req.body.defaultSkillByCollege,
+		defaultSkillByProgram: req.body.defaultSkillByProgram,
+		aboutMe: req.body.aboutMe
+	})
+		.exec(function (err, userData) {
 			if (err) {
 				console.log(err);
 				res.send(err);
@@ -32,15 +33,15 @@ router.post('/users/updateUser', function(req, res) {
 
 // route for finding talent based on find talent form on front end and 
 // using the parameters being passed within the query
-router.get('/users/searchUsers?', function(req, res, next) {
+router.get('/users/searchUsers?', function (req, res, next) {
 
-    console.log(req.query);
+	console.log(req.query);
 
-    Users.find(req.query)
-        .exec(function(error, usersData) {
-            if (error) return error;
-            res.json(usersData);
-        });
+	Users.find(req.query)
+		.exec(function (error, usersData) {
+			if (error) return error;
+			res.json(usersData);
+		});
 });
 
 module.exports = router;
