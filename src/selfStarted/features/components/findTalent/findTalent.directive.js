@@ -16,11 +16,11 @@ function FindTalent() {
 }
 
 
-function FindTalentCtrl($scope) {
+function FindTalentCtrl($scope , UsersService) {
 
     var vm = this;
     var mainCollegeField = Object.keys(college);
-    var projects = ProjectsService;
+    var users = UsersService;
 
     $scope.submit = submit;
     $scope.colleges = mainCollegeField;
@@ -41,23 +41,23 @@ function FindTalentCtrl($scope) {
     }
 
     function submit() {
-        var title = $scope.title ? $scope.title.trim().toLowerCase() : undefined;
-        var location = $scope.location ? $scope.location.trim().toLowerCase() : undefined;
+        var firstName = $scope.firstName ? $scope.firstName.trim().toLowerCase() : undefined;
+        var lastName = $scope.lastName ? $scope.lastName.trim().toLowerCase() : undefined;
 
-        var searchProjectInfo = {
-            projectNameLowerCase: title,
-            projectLocationLowerCase: location,
-            projectCategoryByCollege: $scope.mainCollege,
-            projectCategoryByProgram: $scope.subCollege
+        var searchUsersInfo = {
+            firstNameLowerCase: firstName,
+            lastNameLowerCase: lastName,
+            defaultSkillByCollege: $scope.mainCollege,
+            defaultSkillByProgram: $scope.subCollege
         };
 
-        console.log(searchProjectInfo);
+        console.log(searchUsersInfo);
 
-/*        projects.getAllProjects(searchProjectInfo, function (err, res) {
+        users.getUsers(searchUsersInfo, function (err, res) {
           if(err) return console.log(err);
-          $scope.projects = res.data;
+          $scope.projects = res;
           console.log($scope.projects);
-        });*/
+        });
         
     }
 
