@@ -19,8 +19,8 @@
       <div class="row">
         <div class="col-sm-12">
           <label for="mainCollege">Select your college of study</label><br>
-          <select class="styled-select dropBoxClear semi-square" data-ng-model="mainCollege" data-ng-change="changeSubCollege()" data-ng-options="college as college for college  in colleges"></select>
-          <select class="styled-select dropBoxClear semi-square" data-ng-model="subCollege" data-ng-options="subcollege for subcollege in subcolleges"></select>
+          <select class="styled-select dropBoxClear semi-square" data-ng-model="mainCollege" data-ng-change="changeSubCollege()" data-ng-options="college as college for college  in colleges"></select><i class="fa fa-question-circle   fa-lg" aria-hidden="true"></i>  
+          <select class="styled-select dropBoxClear semi-square" data-ng-model="subCollege" data-ng-options="subcollege for subcollege in subcolleges"></select> <i class="fa fa-question-circle  fa-lg" aria-hidden="true"></i>
         </div>
       </div>
 
@@ -60,9 +60,9 @@
 
       <div class="row">
         <div class="col-sm-12 btn-group">
-          <h4>Willing to allow Remote Work</h4>
-          <label class="btn btn-primary" ng-model="radioModel" uib-btn-radio="'true'">True</label>
-          <label class="btn btn-primary" ng-model="radioModel" uib-btn-radio="'false'">False</label>
+          <h4>Willing to allow Remote Work</h4>  <i class="fa fa-question-circle  fa-lg" aria-hidden="true"></i>
+          <label class="btn btn-primary" ng-model="radioModel" uib-btn-radio="'true'">Yes</label>
+          <label class="btn btn-primary" ng-model="radioModel" uib-btn-radio="'false'">No</label>
         </div>
       </div>
 
@@ -70,8 +70,9 @@
 
       <div class="row">
         <div class="col-sm-12">
-          <input placeholder="Skills needed" aria-placeholder="Skills needed" type="text" class="form-control" required ng-model="skills" />
+         <input placeholder="Skills needed" aria-placeholder="Skills needed" type="text" class="form-control" required ng-model="skills" />  
         </div>
+        <i class="fa fa-question-circle  fa-lg" aria-hidden="true"></i>
       </div>
 
       <br>
