@@ -1,0 +1,18 @@
+<form class="navbar-form navbar-left" role="search">
+
+  <!-- will add user search later -->
+  <!--<input type="text" class="form-control" required ng-model="user" placeholder="User Name" />-->
+
+  <input type="text" class="form-control" required ng-model="firstName" placeholder="User First Name" />
+
+  <input type="text" class="form-control" required ng-model="lastName" placeholder="User Last Name" />
+
+  <select data-ng-model="mainCollege" data-ng-change="changeSubCollege()" data-ng-options="college as college for college  in colleges"></select>
+
+  <select data-ng-model="subCollege" data-ng-options="subcollege for subcollege in subcolleges"></select>
+
+  <button type="button" class="btn btn-primary" ng-click="submit()">
+        Search
+  </button>
+
+</form>
