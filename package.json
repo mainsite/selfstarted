@@ -39,8 +39,7 @@
     "mongoose-find-one-or-create": "^0.2.0",
     "morgan": "1.8.1",
     "passport": "0.3.2",
-    "passport-linkedin-oauth2": "1.5.0",
-    "serve-favicon": "^2.4.1"
+    "passport-linkedin-oauth2": "1.5.0"
   },
   "devDependencies": {
     "browser-sync": "^2.18.8",
