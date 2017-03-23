@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid main">
 <form class="navbar-form navbar-left" role="search">
 
   <!-- will add user search later -->
@@ -70,13 +70,21 @@
 	                            </div>
 	                        </div>
 	                    </div>
-	                    <div class="panel-footer">
-	                            <button class="btn btn-danger" type="button"
-	                                    data-toggle="tooltip"
-	                                    data-original-title="Remove this user"><i class="icon-remove icon-white"></i>
+	                    <div class="panel-footer foot">
 
+	                            <button 
 
-	                            Recruit </button>
+                            		class="btn btn-danger recruit" type="button"
+                                    data-toggle="tooltip"
+                                    data-original-title="Remove this user"
+                                    data-index="{{user._id}}">
+                                    <i class="icon-remove icon-white"></i>
+									
+									Recruit
+
+	                             </button>
+
+									<select data-ng-model="userProjects" data-ng-options="project for project in userProjects"></select>
 	                        
 	                    </div>
 	                </div>

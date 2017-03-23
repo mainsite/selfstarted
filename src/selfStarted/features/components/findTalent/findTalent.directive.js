@@ -37,15 +37,13 @@ function FindTalentCtrl($scope , UsersService, localStorageService, ProjectsServ
 
         $scope.subcolleges = userSub;
 
-        console.log($scope.subcolleges);
-
     }
 
     function submit() {
 
         var userDBid = getItem('userDBid');
 
-        console.log(userDBid);
+      
 
         var firstName = $scope.firstName ? $scope.firstName.trim().toLowerCase() : undefined;
         var lastName = $scope.lastName ? $scope.lastName.trim().toLowerCase() : undefined;
@@ -57,12 +55,12 @@ function FindTalentCtrl($scope , UsersService, localStorageService, ProjectsServ
             defaultSkillByProgram: $scope.subCollege
         };
 
-        console.log(searchUsersInfo);
+       
 
         users.getUsers(searchUsersInfo, function (err, res) {
           if(err) return console.log(err);
           $scope.theUsers = res;
-          console.log($scope.theUsers);
+         
         });
 
         function getItem(key) {
@@ -77,9 +75,19 @@ function FindTalentCtrl($scope , UsersService, localStorageService, ProjectsServ
 
         projects.getAllProjects(theProjects, function (err, res) {
           if(err) return console.log(err);
+         
+            var holder = [];
 
-          $scope.userProjects = res.data;
-          console.log($scope.userProjects);
+          for (var i = 0; i < res.data.length; i++) {
+              
+            holder.push(res.data[i].projectName);
+
+          }
+
+          console.log(holder);
+
+          $scope.userProjects = holder;
+         
         });
         
     }
@@ -113,12 +121,14 @@ function FindTalentCtrl($scope , UsersService, localStorageService, ProjectsServ
 
 
       
-/*
-        angular.element('button').click(function(e) {
+
+        angular.element(".main").on("click",".recruit" ,function(e) {
             e.preventDefault();
-            alert("This is a demo.\n :-)");
+            var userChoosen = angular.element(this).data("index");
+            console.log(userChoosen);
+
         });
-  */
+  
 
 
 }
