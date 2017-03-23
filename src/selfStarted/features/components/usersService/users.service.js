@@ -16,6 +16,14 @@ function UsersService($http) {
                 console.log("error getting users", error);
                 return callback(error);
             });
+        },
+        updateUser: function (user) {
+            $http.post('/api/users/updateUser',user)
+                .then(function (res) {
+                    console.log(res);
+                }, function (err) {
+                    console.log(err);
+                }); 
         }
     };
 }

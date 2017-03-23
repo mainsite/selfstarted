@@ -9,8 +9,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a ui-sref="home" class="navbar-brand">
-                <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
-                Self<span id="selfLogo">Started</span>
+                <i class="fa fa-arrow-circle-up" aria-hidden="true"></i> Self<span id="selfLogo">Started</span>
             </a>
         </div>
         <div id="navbar" class="collapse navbar-collapse navbar-right" uib-collapse="isCollapsed">
@@ -24,86 +23,83 @@
 
 <div class="container">
     <div class="row">
-        <div class="toppad">
-
-
+        <div class="toppad col-sm-12">
+            <form ng-submit="ProfilePageVM.saveChanges()">
             <div class="panel panel-info">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Sheena Shrestha</h3>
+                    <h3 class="panel-title">{{ProfilePageVM.user.firstName}} {{ProfilePageVM.user.lastName}}</h3>
                 </div>
                 <div class="panel-body">
                     <div class="row">
-                        <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png"
-                                class="img-circle img-responsive"> </div>
-
-                        <!--<div class="col-xs-10 col-sm-10 hidden-md hidden-lg"> <br>
-                  <dl>
-                    <dt>DEPARTMENT:</dt>
-                    <dd>Administrator</dd>
-                    <dt>HIRE DATE</dt>
-                    <dd>11/12/2013</dd>
-                    <dt>DATE OF BIRTH</dt>
-                       <dd>11/12/2013</dd>
-                    <dt>GENDER</dt>
-                    <dd>Male</dd>
-                  </dl>
-                </div>-->
+                        <div class="col-md-3 col-lg-3 " align="center">
+                            <img alt="User Pic" ng-src="{{ProfilePageVM.user.photo}}">
+                        </div>
                         <div class=" col-md-9 col-lg-9 ">
                             <table class="table table-user-information">
                                 <tbody>
                                     <tr>
-                                        <td>Department:</td>
-                                        <td>Programming</td>
+                                        <td>Joined:</td>
+                                        <td>{{ProfilePageVM.user.signUpDate | date}}</td>
                                     </tr>
                                     <tr>
-                                        <td>Hire date:</td>
-                                        <td>06/23/2013</td>
+                                        <tr>
+                                            <td>Location:</td>
+                                            <td>{{ProfilePageVM.user.location}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>LinkedIn Profile:</td>
+                                            <td><a ng-href="{{ProfilePageVM.user.url}}">{{ProfilePageVM.user.url}}</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>About Me:</td>
+                                            <td>
+                                                {{ProfilePageVM.user.description}}
+                                            </td>
+                                        </tr>
+                                        <tr ng-if="ProfilePageVM.edit">
+                                            <td>About Me:</td>
+                                            <td>
+                                                <textarea ng-model="ProfilePageVM.user.description" ng-value="ProfilePageVM.user.description" name="aboutMe" cols="60" rows="4"></textarea>
+                                            </td>
+                                        </tr>
                                     </tr>
                                     <tr>
-                                        <td>Date of Birth</td>
-                                        <td>01/24/1988</td>
-                                    </tr>
-
-                                    <tr>
-                                        <tr>
-                                            <td>Gender</td>
-                                            <td>Female</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Home Address</td>
-                                            <td>Kathmandu,Nepal</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Email</td>
-                                            <td><a href="mailto:info@support.com">info@support.com</a></td>
-                                        </tr>
-                                        <td>Phone Number</td>
-                                        <td>123-4567-890(Landline)<br><br>555-4567-890(Mobile)
+                                        <th>Work Preference</th>
+                                        <td>
+                                            <h5>Work locally</h5>
+                                            <span ng-if="ProfilePageVM.edit">
+                                            <span ng-if="ProfilePageVM.user.local">Yes</span><span ng-if="!ProfilePageVM.user.local">No</span>
+                                            <label ng-model="ProfilePageVM.user.local" class="btn btn-primary btn-sm" uib-btn-radio="true">Yes</label>
+                                            <label ng-model="ProfilePageVM.user.local" class="btn btn-primary btn-sm" uib-btn-radio="false">No </label>
+                                            </span>
+                                            <h5>Work Remote</h5>
+                                            <span ng-if="ProfilePageVM.edit">
+                                            <span ng-if="ProfilePageVM.user.remote">Yes</span><span ng-if="!ProfilePageVM.user.remote">No</span>
+                                            <label ng-model="ProfilePageVM.user.remote" class="btn btn-primary btn-sm"  uib-btn-radio="true">Yes</label>
+                                            <label ng-model="ProfilePageVM.user.remote" class="btn btn-primary btn-sm"  uib-btn-radio="false">No </label>
+                                            </span>
                                         </td>
 
                                     </tr>
 
                                 </tbody>
                             </table>
-
-                            <a href="#" class="btn btn-primary">My Sales Performance</a>
-                            <a href="#" class="btn btn-primary">Team Sales Performance</a>
                         </div>
                     </div>
                 </div>
                 <div class="panel-footer">
-                    <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
+                    <a ng-click="ProfilePageVM.toggleEdit()" type="button" class="btn btn-sm btn-warning">
+                        <i class="glyphicon glyphicon-check"></i> Edit Profile</a>
                     <span class="pull-right">
-                            <a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
-                            <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
-                        </span>
+                        <button type="submit" class="btn btn-sm btn-success">
+                            <i class="glyphicon glyphicon-edit"></i> Save Changes
+                        </button>
+                    </span>
                 </div>
+            </div>
+            </form>
 
             </div>
         </div>
     </div>
 </div>
-
-<footer class="landingFooter">
-    <p class="text-muted">Place sticky footer content here.</p>
-</footer>
