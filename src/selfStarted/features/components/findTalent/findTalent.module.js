@@ -1,2 +1,6 @@
 angular
-	.module('selfStarted.component.findTalent', []);
+	.module('selfStarted.component.findTalent', [
+
+		'selfStarted.service.projects'
+
+	]);

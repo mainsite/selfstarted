@@ -16,11 +16,12 @@ function FindTalent() {
 }
 
 
-function FindTalentCtrl($scope , UsersService) {
+function FindTalentCtrl($scope , UsersService, localStorageService, ProjectsService ) {
 
     var vm = this;
     var mainCollegeField = Object.keys(college);
     var users = UsersService;
+    var projects = ProjectsService;
 
     $scope.submit = submit;
     $scope.colleges = mainCollegeField;
@@ -41,6 +42,11 @@ function FindTalentCtrl($scope , UsersService) {
     }
 
     function submit() {
+
+        var userDBid = getItem('userDBid');
+
+        console.log(userDBid);
+
         var firstName = $scope.firstName ? $scope.firstName.trim().toLowerCase() : undefined;
         var lastName = $scope.lastName ? $scope.lastName.trim().toLowerCase() : undefined;
 
@@ -58,8 +64,62 @@ function FindTalentCtrl($scope , UsersService) {
           $scope.projects = res;
           console.log($scope.projects);
         });
+
+        function getItem(key) {
+            return localStorageService.get(key);
+        }
+
+        var theProjects = {
+
+            _primaryProjectOwner: userDBid
+
+        }
+
+        projects.getAllProjects(theProjects, function (err, res) {
+          if(err) return console.log(err);
+
+          $scope.userProjects = res.data;
+          console.log($scope.userProjects);
+        });
         
     }
+
+
+   
+        var panels = angular.element('.user-infos');
+        var panelsButton = angular.element('.dropdown-user');
+        panels.hide();
+
+        //Click dropdown
+        panelsButton.click(function() {
+            //get data-for attribute
+            var dataFor = angular.element(this).attr('data-for');
+            var idFor = angular.element(dataFor);
+
+            //current button
+            var currentButton = angular.element(this);
+            idFor.slideToggle(400, function() {
+                //Completed slidetoggle
+                if(idFor.is(':visible'))
+                {
+                    currentButton.html('<i class="icon-chevron-up text-muted"></i>');
+                }
+                else
+                {
+                    currentButton.html('<i class="icon-chevron-down text-muted"></i>');
+                }
+            })
+        });
+
+
+      
+
+        angular.element('button').click(function(e) {
+            e.preventDefault();
+            alert("This is a demo.\n :-)");
+        });
+  
+
 
 }
 
