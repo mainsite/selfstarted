@@ -6,7 +6,7 @@ function FindTalent() {
     return {
         restrict: 'E',
         scope: {
-            todoData: '='
+            userData: '='
         },
         templateUrl: 'selfStarted/features/components/findTalent/findTalent.html',
         controller: FindTalentCtrl,
@@ -61,8 +61,8 @@ function FindTalentCtrl($scope , UsersService, localStorageService, ProjectsServ
 
         users.getUsers(searchUsersInfo, function (err, res) {
           if(err) return console.log(err);
-          $scope.projects = res;
-          console.log($scope.projects);
+          $scope.theUsers = res;
+          console.log($scope.theUsers);
         });
 
         function getItem(key) {
@@ -113,12 +113,12 @@ function FindTalentCtrl($scope , UsersService, localStorageService, ProjectsServ
 
 
       
-
+/*
         angular.element('button').click(function(e) {
             e.preventDefault();
             alert("This is a demo.\n :-)");
         });
-  
+  */
 
 
 }
