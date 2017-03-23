@@ -66,8 +66,8 @@ function setCurrentUser(user) {
         description: user.aboutMe,
         url: user.linkedInURL,
         photo: user.userPhotoLink,
-        local: user.local,
-        remote: user.remote,
+        local: user.willDoLocalProjects,
+        remote: user.willDoRemoteProjects,
         signUpDate: user.signUpDate
     };
 }
