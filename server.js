@@ -4,7 +4,11 @@ const app = express();
 const api = require('./api/routes/api.route');
 const auth = require('./api/routes/auth.route');
 const logger = require('morgan');
+const favicon = require('serve-favicon');
 const port = process.env.PORT || 3000;
+const path = require('path');
+
+app.use(favicon(path.join(__dirname, 'src', 'favicon.ico')));
 
 app.use(logger('dev'));
 app.use(express.static(__dirname + '/src'));
