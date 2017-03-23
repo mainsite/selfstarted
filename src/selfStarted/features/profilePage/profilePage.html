@@ -25,23 +25,23 @@
     <div class="row">
         <div class="toppad col-sm-12">
             <form ng-submit="ProfilePageVM.saveChanges()">
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    <h3 class="panel-title">{{ProfilePageVM.user.firstName}} {{ProfilePageVM.user.lastName}}</h3>
-                </div>
-                <div class="panel-body">
-                    <div class="row">
-                        <div class="col-md-3 col-lg-3 " align="center">
-                            <img alt="User Pic" ng-src="{{ProfilePageVM.user.photo}}">
-                        </div>
-                        <div class=" col-md-9 col-lg-9 ">
-                            <table class="table table-user-information">
-                                <tbody>
-                                    <tr>
-                                        <td>Joined:</td>
-                                        <td>{{ProfilePageVM.user.signUpDate | date}}</td>
-                                    </tr>
-                                    <tr>
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">{{ProfilePageVM.user.firstName}} {{ProfilePageVM.user.lastName}}</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-3 col-lg-3 " align="center">
+                                <img alt="User Pic" ng-src="{{ProfilePageVM.user.photo}}">
+                            </div>
+                            <div class=" col-md-9 col-lg-9 ">
+                                <table class="table table-user-information">
+                                    <tbody>
+                                        <tr>
+                                            <td>Joined:</td>
+                                            <td>{{ProfilePageVM.user.signUpDate | date}}</td>
+                                        </tr>
+                                        <!--<tr>-->
                                         <tr>
                                             <td>Location:</td>
                                             <td>{{ProfilePageVM.user.location}}</td>
@@ -62,44 +62,75 @@
                                                 <textarea ng-model="ProfilePageVM.user.description" ng-value="ProfilePageVM.user.description" name="aboutMe" cols="60" rows="4"></textarea>
                                             </td>
                                         </tr>
-                                    </tr>
-                                    <tr>
-                                        <th>Work Preference</th>
-                                        <td>
-                                            <h5>Work locally</h5>
-                                            <span ng-if="ProfilePageVM.user.local">Yes</span><span ng-if="!ProfilePageVM.user.local">No</span>
-                                            <span ng-if="ProfilePageVM.edit">
+                                        <tr>
+                                            <td>Current School Name:</td>
+                                            <td>{{ProfilePageVM.user.schoolName}}</td>
+                                        </tr>
+                                        <tr ng-if="ProfilePageVM.edit">
+                                            <td>School Name:</td>
+                                            <td>
+                                                <input class="col-sm-12" ng-model="ProfilePageVM.user.schoolName" type="text" name="schoolName" value="ProfilePageVM.user.schoolName">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Main College:<br> Major:
+                                            </td>
+                                            <td>
+                                                {{ProfilePageVM.user.college}}<br> {{ProfilePageVM.user.major}}
+                                            </td>
+                                        </tr>
+                                        
+                                        <tr ng-if="ProfilePageVM.edit">
+                                            <td>
+                                                Main College:<br> Major:
+                                            </td>
+                                            <td>
+                                                <select class="styled-select dropBoxClear semi-square" data-ng-model="ProfilePageVM.mainCollege" data-ng-change="ProfilePageVM.changeSubCollege()"
+                                                    data-ng-options="college for college in ProfilePageVM.colleges"></select>
+                                                <select class="styled-select dropBoxClear semi-square" data-ng-model="ProfilePageVM.subCollege" data-ng-change="ProfilePageVM.changeSubCollege()"
+                                                    data-ng-options="subcollege for subcollege in ProfilePageVM.subcolleges"></select>
+                                            </td>
+                                        </tr>
+                                        <!--</tr>-->
+                                        <tr>
+                                            <th>Work Preference</th>
+                                            <td>
+                                                <h5>Work locally</h5>
+                                                <span ng-if="ProfilePageVM.user.local">Yes</span><span ng-if="!ProfilePageVM.user.local">No</span>
+                                                <span ng-if="ProfilePageVM.edit">
                                             <label ng-model="ProfilePageVM.user.local" class="btn btn-primary btn-sm" uib-btn-radio="true">Yes</label>
                                             <label ng-model="ProfilePageVM.user.local" class="btn btn-primary btn-sm" uib-btn-radio="false">No </label>
                                             </span>
-                                            <h5>Work Remote</h5>
-                                            <span ng-if="ProfilePageVM.user.remote">Yes</span><span ng-if="!ProfilePageVM.user.remote">No</span>
-                                            <span ng-if="ProfilePageVM.edit">
+                                                <h5>Work Remote</h5>
+                                                <span ng-if="ProfilePageVM.user.remote">Yes</span><span ng-if="!ProfilePageVM.user.remote">No</span>
+                                                <span ng-if="ProfilePageVM.edit">
                                             <label ng-model="ProfilePageVM.user.remote" class="btn btn-primary btn-sm"  uib-btn-radio="true">Yes</label>
                                             <label ng-model="ProfilePageVM.user.remote" class="btn btn-primary btn-sm"  uib-btn-radio="false">No </label>
                                             </span>
-                                        </td>
+                                            </td>
 
-                                    </tr>
+                                        </tr>
 
-                                </tbody>
-                            </table>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="panel-footer">
-                    <a ng-click="ProfilePageVM.toggleEdit()" type="button" class="btn btn-sm btn-warning">
-                        <i class="glyphicon glyphicon-check"></i> Edit Profile</a>
-                    <span class="pull-right">
+                    <div class="panel-footer">
+                        <a ng-click="ProfilePageVM.toggleEdit()" type="button" class="btn btn-sm btn-warning">
+                            <i class="glyphicon glyphicon-check"></i> Edit Profile</a>
+                        <span class="pull-right">
                         <button type="submit" class="btn btn-sm btn-success">
                             <i class="glyphicon glyphicon-edit"></i> Save Changes
                         </button>
                     </span>
+                    </div>
                 </div>
-            </div>
             </form>
 
-            </div>
         </div>
     </div>
 </div>
+</div>
+

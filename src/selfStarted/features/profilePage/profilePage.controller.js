@@ -2,17 +2,24 @@ angular
     .module('selfStarted.profilePage')
     .controller('ProfilePageCtrl', ProfilePageCtrl);
 
-function ProfilePageCtrl($scope, localStorageService, UsersService) {
+function ProfilePageCtrl($scope, localStorageService, UsersService, CollegeService) {
     var vm = this;
+    var college = CollegeService;
+    var mainCollegeField = Object.keys(college);
     var users = UsersService;
-    var userID = {
-        _id: getItem('userDBid')
-    };
+    var userID = {_id: getItem('userDBid')};
+    vm.user = {};
 
+    //college drop menu init
+    vm.colleges = mainCollegeField;
+    vm.subcolleges = [];
+    vm.changeSubCollege = changeSubCollege;
+
+    //edit/save button configs
     vm.edit = false;
     vm.toggleEdit = toggleEdit;
     vm.saveChanges = saveChanges;
-    vm.user = {};
+    
 
     users.getUsers(userID, function (err, response) {
         if (err) console.error(err);
@@ -41,11 +48,11 @@ function ProfilePageCtrl($scope, localStorageService, UsersService) {
             _id: userID._id,
             willDoRemoteProjects: vm.user.remote,
             willDoLocalProjects: vm.user.local,
-            aboutMe: vm.user.description
-            //userSchoolName: vm.user.userSchoolName,
+            aboutMe: vm.user.description,
+            userSchoolName: vm.user.schoolName,
             //additionalSkills: vm.user.additionalSkills,
-            //defaultSkillByCollege: vm.user.defaultSkillByCollege,
-            //defaultSkillByProgram: vm.user.defaultSkillByProgram
+            defaultSkillByCollege: vm.user.college,
+            defaultSkillByProgram: vm.user.major
         };
 
         console.log(updatedInfo);
@@ -55,6 +62,14 @@ function ProfilePageCtrl($scope, localStorageService, UsersService) {
             users.updateUser(updatedInfo);
             vm.edit = false;
         }
+    }
+
+    function changeSubCollege() {
+        var key = vm.mainCollege;
+        vm.user.college = key;
+        var userSub = college[key];
+        vm.subcolleges = userSub;
+        vm.user.major = vm.subCollege;
     }
 }
 
@@ -68,6 +83,9 @@ function setCurrentUser(user) {
         photo: user.userPhotoLink,
         local: user.willDoLocalProjects,
         remote: user.willDoRemoteProjects,
-        signUpDate: user.signUpDate
+        signUpDate: user.signUpDate,
+        college: user.defaultSkillByCollege,
+        major: user.defaultSkillByProgram,
+        schoolName: user.userSchoolName
     };
 }
