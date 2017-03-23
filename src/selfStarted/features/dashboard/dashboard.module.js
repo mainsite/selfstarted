@@ -3,5 +3,6 @@ angular
 		"selfStarted.component.createProjects",
 		"selfStarted.component.searchProjects",
 		"selfStarted.component.viewProject",
-		'selfStarted.component.userProfile'
+		'selfStarted.component.userProfile',
+		'selfStarted.component.findTalent'
 	]);
