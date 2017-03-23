@@ -126,4 +126,19 @@ router.get('/projects/searchAssignedProjects?', function(req, res, next) {
         });
 });
 
+// searchInvitedProjects route for user to find projects they're invited to
+// or have put in a request to join, but are not assigned yet. req.query 
+// needs to send the user's objectID as _usersInvited from the front end
+router.get('/projects/searchInvitedProjects?', function(req, res, next) {
+
+    Projects.find(req.query)
+        .populate('_primaryProjectOwner')
+        .populate('_usersAssigned')
+        .populate('_usersInvited')
+        .exec(function(error, invitedProjectsData) {
+            if (error) return error;
+            res.json(invitedProjectsData);
+        });
+});
+
 module.exports = router;
