@@ -76,7 +76,7 @@ router.get('/userdataid', ensureAuthenticated, function (req, res) {
 });
 
 function ensureAuthenticated(req, res, next) {
-    console.log(req.isAuthenticated());
+    console.log("User is authenticated:", req.isAuthenticated());
 
     if (req.isAuthenticated()) {
         return next();

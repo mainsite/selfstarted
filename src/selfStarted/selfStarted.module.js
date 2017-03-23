@@ -6,7 +6,9 @@ angular
         'LocalStorageModule',
         'selfStarted.landingPage',
         'selfStarted.dashboard',
-        'selfStarted.service.users'
+        'selfStarted.service.users',
+        'selfStarted.profilePage',
+        'selfStarted.projectsPage'
     ])
     .config(appConfig);
 
