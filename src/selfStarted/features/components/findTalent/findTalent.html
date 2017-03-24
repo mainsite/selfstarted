@@ -79,7 +79,7 @@
 	                                    </tr>
 	                                    <tr>
 	                                        <td>LinkedIn:</td>
-	                                        <td><a>{{user.linkedInURL}}</a></td>
+	                                        <td><a target="_blank" href="{{user.linkedInURL}}">Profile page</a></td>
 	                                    </tr>
 	                                    </tbody>
 	                                </table>
@@ -99,7 +99,7 @@
 									Recruit
 
 	                             </button>
-								<select data-ng-model="myProject" ng-change="selectProject()" data-ng-options="project for project in userProjects"></select>
+								<select ng-model="myProject" ng-options="project for project in userProjects"></select>
 	                        
 	                    </div>
 	                </div>
