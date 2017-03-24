@@ -39,7 +39,6 @@ router.post('/projects/newProject', function (req, res, next) {
             res.send('posted project');
         }
     });
-
 });
 
 // updateProject is a post route for user to update the project they own
@@ -70,7 +69,6 @@ router.post('/projects/updateProject', function(req, res, next) {
             res.send(projectData);
         }
     });
-
 });
 
 // searchProjects is used to get projects that match
@@ -139,6 +137,28 @@ router.get('/projects/searchInvitedProjects?', function(req, res, next) {
             if (error) return error;
             res.json(invitedProjectsData);
         });
+});
+
+// joinProjectRoute is a post route for a user requesting to join a project
+// The post request needs to send the _id of the project itself and also
+// the user's object id from localstorage must be passed as _usersInvited
+router.post('/projects/joinProjectRoute', function(req, res, next) {
+    console.log('updating project');
+    console.log(req.body);
+
+    Projects.findByIdAndUpdate(req.body._id, {
+        $push: {_usersInvited: req.body._usersInvited}
+    }, {
+        'new': true
+        })
+    .exec(function(err, projectData) {
+        if (err) {
+            console.log(err);
+            res.send(err);
+        } else {
+            res.send(projectData);
+        }
+    });
 });
 
 module.exports = router;
