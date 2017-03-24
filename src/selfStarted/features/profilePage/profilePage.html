@@ -56,6 +56,7 @@
                                                 {{ProfilePageVM.user.description}}
                                             </td>
                                         </tr>
+                                        <!-- text box that only shows up once user hits edit -->
                                         <tr ng-if="ProfilePageVM.edit">
                                             <td>About Me:</td>
                                             <td>
@@ -66,6 +67,7 @@
                                             <td>Current School Name:</td>
                                             <td>{{ProfilePageVM.user.schoolName}}</td>
                                         </tr>
+                                        <!-- text box that only shows up once user hits edit -->
                                         <tr ng-if="ProfilePageVM.edit">
                                             <td>School Name:</td>
                                             <td>
@@ -80,7 +82,7 @@
                                                 {{ProfilePageVM.user.college}}<br> {{ProfilePageVM.user.major}}
                                             </td>
                                         </tr>
-                                        
+                                        <!-- Drop menu that only shows up once user hits edit -->
                                         <tr ng-if="ProfilePageVM.edit">
                                             <td>
                                                 Main College:<br> Major:
@@ -98,16 +100,18 @@
                                             <td>
                                                 <h5>Work locally</h5>
                                                 <span ng-if="ProfilePageVM.user.local">Yes</span><span ng-if="!ProfilePageVM.user.local">No</span>
+                                                <!-- radio buttons that only shows up once user hits edit -->
                                                 <span ng-if="ProfilePageVM.edit">
-                                            <label ng-model="ProfilePageVM.user.local" class="btn btn-primary btn-sm" uib-btn-radio="true">Yes</label>
-                                            <label ng-model="ProfilePageVM.user.local" class="btn btn-primary btn-sm" uib-btn-radio="false">No </label>
-                                            </span>
+                                                    <label ng-model="ProfilePageVM.user.local" class="btn btn-primary btn-sm" uib-btn-radio="true">Yes</label>
+                                                    <label ng-model="ProfilePageVM.user.local" class="btn btn-primary btn-sm" uib-btn-radio="false">No </label>
+                                                </span>
                                                 <h5>Work Remote</h5>
                                                 <span ng-if="ProfilePageVM.user.remote">Yes</span><span ng-if="!ProfilePageVM.user.remote">No</span>
+                                                <!-- radio buttons that only shows up once user hits edit -->
                                                 <span ng-if="ProfilePageVM.edit">
-                                            <label ng-model="ProfilePageVM.user.remote" class="btn btn-primary btn-sm"  uib-btn-radio="true">Yes</label>
-                                            <label ng-model="ProfilePageVM.user.remote" class="btn btn-primary btn-sm"  uib-btn-radio="false">No </label>
-                                            </span>
+                                                    <label ng-model="ProfilePageVM.user.remote" class="btn btn-primary btn-sm"  uib-btn-radio="true">Yes</label>
+                                                    <label ng-model="ProfilePageVM.user.remote" class="btn btn-primary btn-sm"  uib-btn-radio="false">No </label>
+                                                </span>
                                             </td>
 
                                         </tr>
@@ -133,4 +137,3 @@
     </div>
 </div>
 </div>
-
