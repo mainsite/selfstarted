@@ -76,7 +76,7 @@ function FindTalentCtrl($scope, UsersService, localStorageService, ProjectsServi
 
             _primaryProjectOwner: userDBid
 
-        }
+        };
 
         projects.getAllProjects(theProjects, function (err, res) {
             if (err) return console.log(err);
