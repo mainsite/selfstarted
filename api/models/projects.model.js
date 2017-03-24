@@ -129,6 +129,13 @@ var ProjectsSchema = new Schema({
 		ref: "Users"
 	}],
 
+	// _usersRequesting tracks the users who are requesting to join a project
+	// but do not belong to it yet.
+	_usersRequesting: [{
+		type: Schema.ObjectId,
+		ref: "Users"
+	}],
+
 	// _usersAssigned will be an array of users that belong to the project who
 	// accepted after being invited. Remember to always add the project owner
 	// as in this array.

@@ -85,6 +85,7 @@ router.get('/projects/searchProjects?', function(req, res, next) {
         .populate('_primaryProjectOwner')
         .populate('_usersAssigned')
         .populate('_usersInvited')
+        .populate('_usersRequesting')
         .exec(function(error, projectsData) {
             if (error) return error;
             res.json(projectsData);
@@ -102,6 +103,7 @@ router.get('/projects/searchPersonalProjects?', function(req, res, next) {
         .populate('_primaryProjectOwner')
         .populate('_usersAssigned')
         .populate('_usersInvited')
+        .populate('_usersRequesting')
         .exec(function(error, personalProjectsData) {
             if (error) return error;
             res.json(personalProjectsData);
@@ -118,6 +120,7 @@ router.get('/projects/searchAssignedProjects?', function(req, res, next) {
         .populate('_primaryProjectOwner')
         .populate('_usersAssigned')
         .populate('_usersInvited')
+        .populate('_usersRequesting')
         .exec(function(error, assignedProjectsData) {
             if (error) return error;
             res.json(assignedProjectsData);
@@ -125,7 +128,7 @@ router.get('/projects/searchAssignedProjects?', function(req, res, next) {
 });
 
 // searchInvitedProjects route for user to find projects they're invited to
-// or have put in a request to join, but are not assigned yet. req.query 
+// join but are not assigned yet. req.query 
 // needs to send the user's objectID as _usersInvited from the front end
 router.get('/projects/searchInvitedProjects?', function(req, res, next) {
 
@@ -133,6 +136,23 @@ router.get('/projects/searchInvitedProjects?', function(req, res, next) {
         .populate('_primaryProjectOwner')
         .populate('_usersAssigned')
         .populate('_usersInvited')
+        .populate('_usersRequesting')
+        .exec(function(error, invitedProjectsData) {
+            if (error) return error;
+            res.json(invitedProjectsData);
+        });
+});
+
+// searchRequestingProjects route for user to find projects they requested to
+// join but are not assigned yet. req.query 
+// needs to send the user's objectID as _usersRequesting from the front end
+router.get('/projects/searchRequestingProjects?', function(req, res, next) {
+
+    Projects.find(req.query)
+        .populate('_primaryProjectOwner')
+        .populate('_usersAssigned')
+        .populate('_usersInvited')
+        .populate('_usersRequesting')
         .exec(function(error, invitedProjectsData) {
             if (error) return error;
             res.json(invitedProjectsData);
@@ -141,13 +161,13 @@ router.get('/projects/searchInvitedProjects?', function(req, res, next) {
 
 // joinProject is a post route for a user requesting to join a project
 // The post request needs to send the _id of the project itself and also
-// the user's object id from localstorage must be passed as _usersInvited
+// the user's object id from localstorage must be passed as _usersRequesting
 router.post('/projects/joinProject', function(req, res, next) {
     console.log('updating project');
     console.log(req.body);
 
     Projects.findByIdAndUpdate(req.body._id, {
-        $push: {_usersInvited: req.body._usersInvited}
+        $push: {_usersRequesting: req.body._usersRequesting}
     }, {
         'new': true
         })
@@ -164,13 +184,13 @@ router.post('/projects/joinProject', function(req, res, next) {
 // denyProjectJoin is a post route for denying a user who has requested
 // to join a project. The post request needs to send the _id of the project
 // itself and also send the id of the user who had requested to join as 
-// _usersInvited
+// _usersRequesting
 router.post('/projects/denyProjectJoin', function(req, res, next) {
     console.log('updating project');
     console.log(req.body);
 
     Projects.findByIdAndUpdate(req.body._id, {
-        $pull: {_usersInvited: req.body._usersInvited}
+        $pull: {_usersRequesting: req.body._usersRequesting}
     }, {
         'new': true
         })
@@ -187,14 +207,14 @@ router.post('/projects/denyProjectJoin', function(req, res, next) {
 // acceptProjectJoin is a post route for accepting a user who has requested
 // to join a project. The post request needs to send the _id of the project
 // itself and also send the id of the user who had requested to join as 
-// _usersInvited
+// _usersRequesting
 router.post('/projects/acceptProjectJoin', function(req, res, next) {
     console.log('updating project');
     console.log(req.body);
 
     Projects.findByIdAndUpdate(req.body._id, {
-        $pull: {_usersInvited: req.body._usersInvited},
-        $push: {_usersInvited: req.body._usersAssigned} 
+        $pull: {_usersRequesting: req.body._usersRequesting},
+        $push: {_usersRequesting: req.body._usersAssigned} 
     }, {
         'new': true
         })
