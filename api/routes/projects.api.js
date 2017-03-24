@@ -139,10 +139,10 @@ router.get('/projects/searchInvitedProjects?', function(req, res, next) {
         });
 });
 
-// joinProjectRoute is a post route for a user requesting to join a project
+// joinProject is a post route for a user requesting to join a project
 // The post request needs to send the _id of the project itself and also
 // the user's object id from localstorage must be passed as _usersInvited
-router.post('/projects/joinProjectRoute', function(req, res, next) {
+router.post('/projects/joinProject', function(req, res, next) {
     console.log('updating project');
     console.log(req.body);
 
