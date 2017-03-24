@@ -16,7 +16,7 @@ function FindTalent() {
 }
 
 
-function FindTalentCtrl($scope , UsersService, localStorageService, ProjectsService, CollegeService) {
+function FindTalentCtrl($scope, UsersService, localStorageService, ProjectsService, CollegeService) {
 
     var vm = this;
     var college = CollegeService;
@@ -31,6 +31,7 @@ function FindTalentCtrl($scope , UsersService, localStorageService, ProjectsServ
     $scope.project = [];
     $scope.subcolleges = [];
     $scope.changeSubCollege = changeSubCollege;
+    $scope.myProject = "";
 
 
     function changeSubCollege() {
@@ -47,7 +48,7 @@ function FindTalentCtrl($scope , UsersService, localStorageService, ProjectsServ
 
         var userDBid = getItem('userDBid');
 
-      
+
 
         var firstName = $scope.firstName ? $scope.firstName.trim().toLowerCase() : undefined;
         var lastName = $scope.lastName ? $scope.lastName.trim().toLowerCase() : undefined;
@@ -59,12 +60,12 @@ function FindTalentCtrl($scope , UsersService, localStorageService, ProjectsServ
             defaultSkillByProgram: $scope.subCollege
         };
 
-       
+
 
         users.getUsers(searchUsersInfo, function (err, res) {
-          if(err) return console.log(err);
-          $scope.theUsers = res;
-         
+            if (err) return console.log(err);
+            $scope.theUsers = res;
+
         });
 
         function getItem(key) {
@@ -75,74 +76,76 @@ function FindTalentCtrl($scope , UsersService, localStorageService, ProjectsServ
 
             _primaryProjectOwner: userDBid
 
-        }
+        };
 
         projects.getAllProjects(theProjects, function (err, res) {
-          if(err) return console.log(err);
-         
+            if (err) return console.log(err);
+
             var holder = [];
 
-          for (var i = 0; i < res.data.length; i++) {
-              
-            holder.push(res.data[i].projectName);
+            for (var i = 0; i < res.data.length; i++) {
 
-          }
+                holder.push(res.data[i].projectName);
 
-          console.log(holder);
+            }
 
-          $scope.userProjects = holder;
-         
+            console.log(holder);
+
+            $scope.userProjects = holder;
+
         });
-        
+
+    }
+    $scope.selectProject = function () {
+        $scope.myProject = this.myProject;
+    };
+
+
+    function recruit(userID) {
+        var userChosen = userID;
+        console.log(userChosen);
+        console.log($scope.myProject);
     }
 
 
-    function recruit(){
+    /*
+       
+            var panels = angular.element('.user-infos');
+            var panelsButton = angular.element('.dropdown-user');
+            panels.hide();
+    
+            //Click dropdown
+            panelsButton.click(function() {
+                //get data-for attribute
+                var dataFor = angular.element(this).attr('data-for');
+                var idFor = angular.element(dataFor);
+    
+                //current button
+                var currentButton = angular.element(this);
+                idFor.slideToggle(400, function() {
+                    //Completed slidetoggle
+                    if(idFor.is(':visible'))
+                    {
+                        currentButton.html('<i class="icon-chevron-up text-muted"></i>');
+                    }
+                    else
+                    {
+                        currentButton.html('<i class="icon-chevron-down text-muted"></i>');
+                    }
+                })
+            });
+    
+    */
 
 
-        console.log($scope.userSelection);
-
-    }
-
-
-/*
-   
-        var panels = angular.element('.user-infos');
-        var panelsButton = angular.element('.dropdown-user');
-        panels.hide();
-
-        //Click dropdown
-        panelsButton.click(function() {
-            //get data-for attribute
-            var dataFor = angular.element(this).attr('data-for');
-            var idFor = angular.element(dataFor);
-
-            //current button
-            var currentButton = angular.element(this);
-            idFor.slideToggle(400, function() {
-                //Completed slidetoggle
-                if(idFor.is(':visible'))
-                {
-                    currentButton.html('<i class="icon-chevron-up text-muted"></i>');
-                }
-                else
-                {
-                    currentButton.html('<i class="icon-chevron-down text-muted"></i>');
-                }
-            })
-        });
-
-*/
-      
-
-/*        angular.element(".main").on("click",".recruit" ,function(e) {
-            e.preventDefault();
-            var userChoosen = angular.element(this).data("index");
-            console.log(userChoosen);
-            console.log($scope.userSelection);
-
-        });
-  */
+    /*        angular.element(".main").on("click",".recruit" ,function(e) {
+                e.preventDefault();
+                var userChoosen = angular.element(this).data("index");
+                console.log(userChoosen);
+                console.log($scope.userSelection);
+    
+            });
+      */
 
 
 }
