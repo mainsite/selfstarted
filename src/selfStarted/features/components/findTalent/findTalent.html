@@ -77,14 +77,22 @@
                             		class="btn btn-danger recruit" type="button"
                                     data-toggle="tooltip"
                                     data-original-title="Remove this user"
-                                    data-index="{{user._id}}">
+                                    data-index="{{user._id}}"
+                                    ng-click="recruit()">
                                     <i class="icon-remove icon-white"></i>
 									
 									Recruit
 
 	                             </button>
 
-									<select data-ng-model="userProjects" data-ng-options="project for project in userProjects"></select>
+
+
+								<select 
+
+										data-ng-model="userSelection" 
+										data-ng-options="project for project in userProjects">
+											
+								</select>
 	                        
 	                    </div>
 	                </div>
