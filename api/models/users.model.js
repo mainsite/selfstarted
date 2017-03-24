@@ -172,7 +172,8 @@ var UsersSchema = new Schema({
 
   // User's photo link. For now we're pulling this from LinkedIn.
   userPhotoLink: {
-    type: String
+    type: String,
+    default: "/assets/images/defaultuser.jpg"
   },
 
   // aboutMe allows the user to save a personal description of any kind.
