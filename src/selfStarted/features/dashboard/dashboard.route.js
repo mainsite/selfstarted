@@ -11,9 +11,9 @@ function dashboardConfig($stateProvider, localStorageServiceProvider) {
         templateUrl: 'selfStarted/features/dashboard/dashboard.html',
         controller: DashboardCtrl,
         controllerAs: 'DashboardVM',
-        resolve: {
-            loggedIn: checkLogin
-        }
+        // resolve: {
+        //     loggedIn: checkLogin
+        // }
     });
 }
 

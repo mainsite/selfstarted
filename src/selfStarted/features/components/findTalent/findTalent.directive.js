@@ -28,6 +28,7 @@ function FindTalentCtrl($scope , UsersService, localStorageService, ProjectsServ
     $scope.colleges = mainCollegeField;
     $scope.subcolleges = [];
     $scope.changeSubCollege = changeSubCollege;
+    $scope.myProject;
 
 
     function changeSubCollege() {
