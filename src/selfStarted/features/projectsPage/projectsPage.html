@@ -30,9 +30,11 @@
             <uib-tab index="0" heading="My Projects">
                 <div class="row projectsList">
                     <div>
+                        <button ng-click="ProjectsPageVM.filterDeleted()" class="btn btn-primary btn-lg">Deleted</button>
                     </div>
+                    <br>
                     <div class="col-md-12">
-                        <uib-accordion ng-repeat="project in ProjectsPageVM.projects[0]">
+                        <uib-accordion ng-repeat="project in ProjectsPageVM.projects[0] | filter:ProjectsPageVM.filter">
                             <div uib-accordion-group class="panel-default" is-open="status.open">
                                 <uib-accordion-heading>
                                     {{project.projectName}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>

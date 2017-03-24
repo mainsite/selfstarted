@@ -7,6 +7,9 @@ function ProjectsPageCtrl(ProjectsService, localStorageService) {
     var projects = ProjectsService;
     var userID = getUserId('userDBid');
     vm.projects = [];
+    vm.undeleted = true;
+    vm.filterDeleted = filterDeleted;
+    vm.filter = undefined;
     
     //current users projects
     projects.getUserProjects.ownedProjects(userID, function (err, response) {
@@ -34,5 +37,15 @@ function ProjectsPageCtrl(ProjectsService, localStorageService) {
 
     function getUserId(key) {
         return localStorageService.get(key);
+    }
+
+    function filterDeleted() {
+        if (vm.undeleted) {
+            vm.undeleted = false;
+            vm.filter = 'project.isDeleted';
+        } else {
+            vm.undeleted = true;
+            vm.filter = undefined;
+        }
     }
 }
