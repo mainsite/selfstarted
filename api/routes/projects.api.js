@@ -24,9 +24,7 @@ router.post('/projects/newProject', function (req, res, next) {
         projectCategoryByProgram: req.body.projectCategoryByProgram,
         otherSkillsDesired: req.body.otherSkillsDesired,
         remotePermitted: remotePermittedConverted,
-        _primaryProjectOwner: req.body._primaryProjectOwner,
-        _usersInvited: null,
-        _usersAssigned: null
+        _primaryProjectOwner: req.body._primaryProjectOwner
     });
 
     newProject.save(function (err, newProject) {
