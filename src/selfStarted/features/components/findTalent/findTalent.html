@@ -58,12 +58,28 @@
 	                                        <td>{{user.aboutMe}}</td>
 	                                    </tr>
 	                                    <tr>
-	                                        <td>Email:</td>
-	                                        <td>{{user.userEmail}}</td>
+	                                        <td>College:</td>
+	                                        <td>{{user.defaultSkillByCollege}}</td>
+	                                    </tr>
+	                                    <tr>
+	                                        <td>Program:</td>
+	                                        <td>{{user.defaultSkillByProgram}}</td>
 	                                    </tr>
 	                                    <tr>
 	                                        <td>Location:</td>
 	                                        <td>{{user.userLocation}}</td>
+	                                    </tr>
+	                                    <tr>
+	                                        <td>Remote:</td>
+	                                        <td>{{user.willDoRemoteProjects}}</td>
+	                                    </tr>
+	                                    <tr>
+	                                        <td>Date:</td>
+	                                        <td>{{user.signUpDate | date:"MM/dd/yyyy"}}</td>
+	                                    </tr>
+	                                    <tr>
+	                                        <td>LinkedIn:</td>
+	                                        <td><a>{{user.linkedInURL}}</a></td>
 	                                    </tr>
 	                                    </tbody>
 	                                </table>
@@ -77,14 +93,14 @@
                             		class="btn btn-danger recruit" type="button"
                                     data-toggle="tooltip"
                                     data-original-title="Remove this user"
-                                    data-index="{{user._id}}">
+                                    data-index="{{user._id}}"
+                                    ng-click="recruit()">
                                     <i class="icon-remove icon-white"></i>
 									
 									Recruit
 
 	                             </button>
-
-									<select data-ng-model="myProject" ng-change="selectProject()" data-ng-options="project for project in userProjects"></select>
+								<select data-ng-model="myProject" ng-change="selectProject()" data-ng-options="project for project in userProjects"></select>
 	                        
 	                    </div>
 	                </div>

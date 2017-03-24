@@ -25,7 +25,10 @@ function FindTalentCtrl($scope , UsersService, localStorageService, ProjectsServ
     var projects = ProjectsService;
 
     $scope.submit = submit;
+    $scope.recruit = recruit;
     $scope.colleges = mainCollegeField;
+    $scope.userSelection = [];
+    $scope.project = [];
     $scope.subcolleges = [];
     $scope.changeSubCollege = changeSubCollege;
     $scope.myProject = "";
@@ -98,6 +101,15 @@ function FindTalentCtrl($scope , UsersService, localStorageService, ProjectsServ
         };
 
 
+    function recruit(){
+
+
+        console.log($scope.userSelection);
+
+    }
+
+
+/*
    
         var panels = angular.element('.user-infos');
         var panelsButton = angular.element('.dropdown-user');
@@ -124,16 +136,17 @@ function FindTalentCtrl($scope , UsersService, localStorageService, ProjectsServ
             })
         });
 
-
+*/
       
 
-        angular.element(".main").on("click",".recruit" ,function(e) {
+/*        angular.element(".main").on("click",".recruit" ,function(e) {
             e.preventDefault();
             var userChoosen = angular.element(this).data("index");
             console.log(userChoosen);
+            console.log($scope.userSelection);
 
         });
-  
+  */
 
 
 }
