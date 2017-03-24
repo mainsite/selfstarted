@@ -7,36 +7,33 @@ const Projects = require('../models/projects.model');
 router.post('/testpost', function (req, res, next) {
 
     var newUser = new Users({
-        selfStartedUserName: "justinbesteman",
-        userEmail: "justin@besteman.io",
-        linkedInUserName: "unknown",
-        linkedInUniqueId: "lKQTrIf0VT",
-        lastLinkedInAPIRefresh: "2017-03-17T05:00:00.000Z",
-        userLocation: "Orlando, Florida Area",
-        willDoRemoteProjects: true,
-        willDoLocalProjects: true,
-        defaultSkillByCollege: "Business Administration",
-        defaultSkillByProgram: "Economics",
-        additionalSkills: "Juggling, Coding, Teaching",
-        firstName: "Justin",
-        lastName: "Besteman",
+        selfStartedUserName: "dummyusertesting",
+        userEmail: "dummy@usertesting.com",
+        linkedInUniqueId: "dummyusertesting",
+        linkedInURL: "https://www.linkedin.com/in/dummyusertesting",
+        userLocation: "Hollywood, CA",
+        userLocationLowerCase: "hollywood, ca",
+        firstName: "Dummy",
+        firstNameLowerCase: "dummy",
+        lastName: "User",
+        lastNameLowerCase: "user",
         userSchoolName: "University of Central Florida",
-        userPhotoLink: "https://media.licdn.com/mpr/mprx/0_mjjX1d0o71NnHMVDeJFogOvId14nSH9lmJWXvjdoWCkcS4HlIJwoZYtoocz5aWMT3uL5RZAE8kcBwuRjFm44RjyQLkc9w2uT3m4FrpWwa5GsTVBjS0mWKebs5AD6G2RKeDyHBmV9i94",
+        userPhotoLink: "https://s-media-cache-ak0.pinimg.com/originals/85/9d/a7/859da77c02655e6b93f86b0107d14dc4.jpg",
         aboutMe: "dummy data delete this user later blah blah",
-        signUpDate: "2017-03-17T05:00:00.000Z",
-        lastLoginDate: "2017-03-17T05:00:00.000Z",
+        signUpDate: "2017-03-23T05:00:00.000Z",
+        lastLoginDate: "2017-03-23T05:00:00.000Z",
         isActiveUser: true
     });
 
     newUser.save(function (err, newUser) {
         if (err) {
             console.log("error saving user");
+            res.send(err);
         } else {
             console.log('posted user');
             res.send('posted user');
         }
     });
-    res.send("could not post - user exists?");
 }); // end of the /testpost post route
 
 // test route for getting dummy user data
