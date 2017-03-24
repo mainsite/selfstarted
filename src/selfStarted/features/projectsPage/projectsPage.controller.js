@@ -27,12 +27,19 @@ function ProjectsPageCtrl(ProjectsService, localStorageService) {
         vm.projects[1] = response;
     });
 
-    //projects pending on membership
-    projects.getUserProjects.pendingProjects(userID, function (err, response) {
+    //projects user is pending on membership
+    projects.getUserProjects.requestingProjects(userID, function (err, response) {
         if (err) console.erro(err);
         console.log(response);
 
         vm.projects[2] = response;
+    });
+
+    projects.getUserProjects.invitedProjects(userID, function (err, response) {
+        if (err) console.erro(err);
+        console.log(response);
+
+        vm.projects[3] = response;
     });
 
     function getUserId(key) {

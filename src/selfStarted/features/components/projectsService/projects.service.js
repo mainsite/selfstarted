@@ -35,9 +35,9 @@ function ProjectsService($http) {
         },
         getUserProjects: {
 
-            ownedProjects: function (userId, callback) {
+            ownedProjects: function (userID, callback) {
 
-                var user = {_primaryProjectOwner: userId};
+                var user = { _primaryProjectOwner: userID };
 
                 //all projects including deleted
                 $http({
@@ -52,9 +52,9 @@ function ProjectsService($http) {
                     return callback(err);
                 });
             },
-            memberProjects: function (userId, callback){
+            memberProjects: function (userID, callback) {
 
-                var user = {_usersAssigned: userId};
+                var user = { _usersAssigned: userID };
 
                 //pojects user is a member of
                 $http({
@@ -69,11 +69,26 @@ function ProjectsService($http) {
                     return callback(err);
                 });
             },
-            pendingProjects: function (userId, callback) {
+            requestingProjects: function (userID, callback) {
 
-                var user = {_usersInvited: userId};
+                var user = { _usersRequesting: userID };
 
                 //pojects user is a member of
+                $http({
+                    method: 'GET',
+                    url: '/api/projects/searchRequestingProjects',
+                    params: user
+                }).then(function (response) {
+                    var err = false;
+                    return callback(err, response.data);
+                }, function (err) {
+                    console.log("error retreiving projects", err);
+                    return callback(err);
+                });
+            },
+            invitedProjects: function (userID, callback) {
+                var user = { _usersInvited: userID };
+
                 $http({
                     method: 'GET',
                     url: '/api/projects/searchInvitedProjects',
@@ -87,6 +102,90 @@ function ProjectsService($http) {
                 });
             }
 
-        }
+        },
+        joinProject: function (projectID, userID, callback) {
+            var projectRequest = {
+                _id: projectID,
+                _usersRequesting: userID
+            };
+
+            $http.post('/api/projects/joinProject', projectRequest)
+                .then(function (response) {
+                    var err;
+                    return callback(err, "Join request");
+                }, function (err) {
+                    return callback(err);
+                });
+        },
+        acceptMemberRequest: function (projectID, userID, callback) {
+            var projectRequest = {
+                _id: projectID,
+                _usersRequesting: userID
+            };
+
+            $http.post('/api/projects/acceptProjectJoin', projectRequest)
+                .then(function (response) {
+                    var err;
+                    callback(err, "Member accepted");
+                }, function (err) {
+                    callback(err);
+                });
+        },
+        denyMemberRequest: function (projectID, userID, callback) {
+            var projectRequest = {
+                _id: projectID,
+                _usersRequesting: userID
+            };
+
+            $http.post('/api/projects/denyProjectJoin', projectRequest)
+                .then(function (response) {
+                    var err;
+                    callback(err, "Member denied");
+                }, function (err) {
+                    callback(err);
+                });
+        },
+        inviteToProject: function (projectID, userID, callback) {
+            var projectRequest = {
+                _id: projectID,
+                _usersInvited: userID
+            };
+
+            $http.post('/api/projects/inviteProject', projectRequest)
+                .then(function (response) {
+                    var err;
+                    callback(err, "Invited member");
+                }, function (err) {
+                    callback(err);
+                });
+        },
+        denyProjectInvite: function (projectID, userID, callback) {
+            var projectRequest = {
+                _id: projectID,
+                _usersInvited: userID
+            };
+
+            $http.post('/api/projects/denyProjectInvite', projectRequest)
+                .then(function (response) {
+                    var err;
+                    callback(err, "denied invite");
+                }, function (err) {
+                    callback(err);
+                });
+        },
+        acceptProjectInvite: function (projectID, userID, callback) {
+            var projectRequest = {
+                _id: projectID,
+                _usersInvited: userID
+            };
+
+            $http.post('/api/projects/denyProjectInvite', projectRequest)
+                .then(function (response) {
+                    var err;
+                    callback(err, "accepted Invitation");
+                }, function (err) {
+                    callback(err);
+                });
+        },
     };
 }
