@@ -31,8 +31,6 @@ function FindTalentCtrl($scope, UsersService, localStorageService, ProjectsServi
     $scope.project = [];
     $scope.subcolleges = [];
     $scope.changeSubCollege = changeSubCollege;
-    $scope.myProject = "";
-
 
     function changeSubCollege() {
 
@@ -65,18 +63,13 @@ function FindTalentCtrl($scope, UsersService, localStorageService, ProjectsServi
         users.getUsers(searchUsersInfo, function (err, res) {
             if (err) return console.log(err);
             $scope.theUsers = res;
-
         });
 
         function getItem(key) {
             return localStorageService.get(key);
         }
 
-        var theProjects = {
-
-            _primaryProjectOwner: userDBid
-
-        };
+        var theProjects = {_primaryProjectOwner: userDBid};
 
         projects.getAllProjects(theProjects, function (err, res) {
             if (err) return console.log(err);
@@ -96,15 +89,13 @@ function FindTalentCtrl($scope, UsersService, localStorageService, ProjectsServi
         });
 
     }
-    $scope.selectProject = function () {
-        $scope.myProject = this.myProject;
-    };
-
 
     function recruit(userID) {
         var userChosen = userID;
+        var projectChosen = this.myProject;
         console.log(userChosen);
-        console.log($scope.myProject);
+        console.log(projectChosen);
+        //TODO call service to send out recruit flag
     }
 
 
