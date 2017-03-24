@@ -228,4 +228,26 @@ router.post('/projects/acceptProjectJoin', function(req, res, next) {
     });
 });
 
+// inviteProject is a post route for a inviting a user to join a project
+// The post request needs to send the _id of the project itself and also
+// the talent's object id as _usersInvited
+router.post('/projects/inviteProject', function(req, res, next) {
+    console.log('updating project');
+    console.log(req.body);
+
+    Projects.findByIdAndUpdate(req.body._id, {
+        $push: {_usersInvited: req.body._usersInvited}
+    }, {
+        'new': true
+        })
+    .exec(function(err, projectData) {
+        if (err) {
+            console.log(err);
+            res.send(err);
+        } else {
+            res.send(projectData);
+        }
+    });
+});
+
 module.exports = router;
