@@ -67,7 +67,7 @@
                     </div>
                 </uib-accordion>
             </uib-tab>
-            <uib-tab index="2" heading="Pending Projects">
+            <uib-tab index="2" heading="Requested Projects">
                 <uib-accordion ng-repeat="project in ProjectsPageVM.projects[2]">
                     <div uib-accordion-group class="panel-default" is-open="status.open">
                         <uib-accordion-heading>
@@ -83,6 +83,23 @@
                     </div>
                 </uib-accordion>
             </uib-tab>
+            <uib-tab index="3" heading="Projects Invites">
+            <uib-accordion ng-repeat="project in ProjectsPageVM.projects[3]">
+                <div uib-accordion-group class="panel-default" is-open="status.open">
+                    <uib-accordion-heading>
+                        {{project.projectName}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+                    </uib-accordion-heading>
+                    <p>Project Description: {{project.projectDescription}}</p>
+                    <p>Start date: {{project.projectStartDate | date}}</p>
+                    <p>End date: {{project.projectEndDate | date}}</p>
+                    <p>Location: {{project.projectLocation}}</p>
+                    <p>Main College: {{project.projectCategoryByCollege}}</p>
+                    <p>Sub College: {{project.projectCategoryByProgram}}</p>
+                    <p>Project Skills: {{project.otherSkillsDesired}}</p>
+                    <button type="button">Accept invite</button>
+                    <button type="button">Deny invite</button>
+                </div>
+            </uib-accordion>
         </uib-tabset>
     </div>
 </div>
