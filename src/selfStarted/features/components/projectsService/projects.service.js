@@ -46,7 +46,7 @@ function ProjectsService($http) {
                     params: user
                 }).then(function (response) {
                     var err = false;
-                    return callback(err, response);
+                    return callback(err, response.data);
                 }, function (err) {
                     console.log("error retreiving projects", err);
                     return callback(err);
@@ -63,7 +63,7 @@ function ProjectsService($http) {
                     params: user
                 }).then(function (response) {
                     var err = false;
-                    return callback(err, response);
+                    return callback(err, response.data);
                 }, function (err) {
                     console.log("error retreiving projects", err);
                     return callback(err);
@@ -80,7 +80,7 @@ function ProjectsService($http) {
                     params: user
                 }).then(function (response) {
                     var err = false;
-                    return callback(err, response);
+                    return callback(err, response.data);
                 }, function (err) {
                     console.log("error retreiving projects", err);
                     return callback(err);

@@ -1,6 +1,5 @@
-<div class="container"><!-- Fixed navbar -->
 <nav class="navbar navbar-inverse navbar-fixed-top row">
-    <div class="container-fluid">
+    <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" ng-click="isCollapsed = !isCollapsed" aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
@@ -9,8 +8,8 @@
                 <span class="icon-bar"></span>
             </button>
             <a ui-sref="home" class="navbar-brand">
-                <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
-                Self<span id="selfLogo">Started</span>
+                <i class="fa fa-arrow-circle-up" aria-hidden="true"></i> Self
+                <span id="selfLogo">Started</span>
             </a>
         </div>
         <div id="navbar" class="collapse navbar-collapse navbar-right" uib-collapse="isCollapsed">
@@ -21,7 +20,67 @@
         <!--/.nav-collapse -->
     </div>
 </nav>
+<div class="container">
+    <div class="projectsContent">
+        <h1>Projects</h1>
 
-<div class="projectsContent"><h1>Will add some stuff for projects listing here</h1></div>
+        <br>
 
+        <uib-tabset active="activeJustified" justified="true">
+            <uib-tab index="0" heading="My Projects">
+                <div class="row projectsList">
+                    <div>
+                    </div>
+                    <div class="col-md-12">
+                        <uib-accordion ng-repeat="project in ProjectsPageVM.projects[0]">
+                            <div uib-accordion-group class="panel-default" is-open="status.open">
+                                <uib-accordion-heading>
+                                    {{project.projectName}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+                                </uib-accordion-heading>
+                                <p>Project Description: {{project.projectDescription}}</p>
+                                <p>Start date: {{project.projectStartDate | date}}</p>
+                                <p>End date: {{project.projectEndDate | date}}</p>
+                                <p>Location: {{project.projectLocation}}</p>
+                                <p>Main College: {{project.projectCategoryByCollege}}</p>
+                                <p>Sub College: {{project.projectCategoryByProgram}}</p>
+                                <p>Project Skills: {{project.otherSkillsDesired}}</p>
+                            </div>
+                        </uib-accordion>
+                    </div>
+                </div>
+            </uib-tab>
+            <uib-tab index="1" heading="Member of Projects">
+                <uib-accordion ng-repeat="project in ProjectsPageVM.projects[1]">
+                    <div uib-accordion-group class="panel-default" is-open="status.open">
+                        <uib-accordion-heading>
+                            {{project.projectName}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+                        </uib-accordion-heading>
+                        <p>Project Description: {{project.projectDescription}}</p>
+                        <p>Start date: {{project.projectStartDate | date}}</p>
+                        <p>End date: {{project.projectEndDate | date}}</p>
+                        <p>Location: {{project.projectLocation}}</p>
+                        <p>Main College: {{project.projectCategoryByCollege}}</p>
+                        <p>Sub College: {{project.projectCategoryByProgram}}</p>
+                        <p>Project Skills: {{project.otherSkillsDesired}}</p>
+                    </div>
+                </uib-accordion>
+            </uib-tab>
+            <uib-tab index="2" heading="Pending Projects">
+                <uib-accordion ng-repeat="project in ProjectsPageVM.projects[2]">
+                    <div uib-accordion-group class="panel-default" is-open="status.open">
+                        <uib-accordion-heading>
+                            {{project.projectName}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+                        </uib-accordion-heading>
+                        <p>Project Description: {{project.projectDescription}}</p>
+                        <p>Start date: {{project.projectStartDate | date}}</p>
+                        <p>End date: {{project.projectEndDate | date}}</p>
+                        <p>Location: {{project.projectLocation}}</p>
+                        <p>Main College: {{project.projectCategoryByCollege}}</p>
+                        <p>Sub College: {{project.projectCategoryByProgram}}</p>
+                        <p>Project Skills: {{project.otherSkillsDesired}}</p>
+                    </div>
+                </uib-accordion>
+            </uib-tab>
+        </uib-tabset>
+    </div>
 </div>
