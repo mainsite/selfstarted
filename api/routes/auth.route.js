@@ -35,7 +35,7 @@ passport.deserializeUser(function (obj, done) {
 passport.use(new LinkedInStrategy({
     clientID: linkedInConfig.LINKEDIN_API_KEY,
     clientSecret: linkedInConfig.LINKEDIN_SECRET_KEY,
-    callbackURL: "http://localhost:4000/auth/linkedin/callback",
+    callbackURL: linkedInConfig.CALLBACK_URL,
     scope: ['r_emailaddress', 'r_basicprofile', 'r_emailaddress'],
     profileFields: ['id', 'first-name', 'last-name', 'email-address', 'headline', "location", "positions", "picture-url", "public-profile-url"]
 },
