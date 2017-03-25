@@ -5,8 +5,11 @@ var mongoose = require('mongoose');
 var Promise = require('bluebird');
 mongoose.Promise = Promise;
 
+//connection string
+var dbURI = process.env.MONGODB_URI || "mongodb://localhost/selfstarted";
+
 // make the connection
-mongoose.connect("mongodb://localhost/selfstarted");
+mongoose.connect(dbURI);
 
 var db = mongoose.connection;
 
