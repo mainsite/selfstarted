@@ -15,17 +15,19 @@ function SearchProjects() {
     };
 }
 
-function SearchProjectsCtrl($scope, ProjectsService, CollegeService) {
+function SearchProjectsCtrl($scope, ProjectsService, CollegeService, localStorageService) {
 
     var vm = this;
     var college = CollegeService;
     var mainCollegeField = Object.keys(college);
     var projects = ProjectsService;
+    var userID = getUserID();
 
     $scope.submit = submit;
     $scope.colleges = mainCollegeField;
     $scope.subcolleges = [];
     $scope.changeSubCollege = changeSubCollege;
+    $scope.joinProject = joinProject;
 
 
 
@@ -54,10 +56,25 @@ function SearchProjectsCtrl($scope, ProjectsService, CollegeService) {
         };
 
         projects.getAllProjects(searchProjectInfo, function (err, res) {
-          if(err) return console.log(err);
-          $scope.projects = res.data;
-          console.log($scope.projects);
+            if (err) return console.log(err);
+            $scope.projects = res.data;
+            console.log($scope.projects);
         });
+    }
+
+    function joinProject(projectID) {
+        var accept = window.confirm("Confirm Join Request");
+
+        if (accept) {
+            projects.joinProject(projectID, userID, function (err, res) {
+                if (err) console.log("error joining project", err);
+                console.log(res, "Succeeded");
+            });
+        }
+    }
+
+    function getUserID() {
+        return localStorageService.get('userDBid');
     }
 
 }

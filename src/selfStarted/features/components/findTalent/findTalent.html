@@ -1,31 +1,31 @@
 <div class="container-fluid main">
-<form class="navbar-form navbar-left" role="search">
+	<form class="navbar-form navbar-left" role="search">
 
-  <!-- will add user search later -->
-  <!--<input type="text" class="form-control" required ng-model="user" placeholder="User Name" />-->
+		<!-- will add user search later -->
+		<!--<input type="text" class="form-control" required ng-model="user" placeholder="User Name" />-->
 
-  <input type="text" class="form-control" required ng-model="firstName" placeholder="User First Name" />
+		<input type="text" class="form-control" required ng-model="firstName" placeholder="User First Name" />
 
-  <input type="text" class="form-control" required ng-model="lastName" placeholder="User Last Name" />
+		<input type="text" class="form-control" required ng-model="lastName" placeholder="User Last Name" />
 
-  <select data-ng-model="mainCollege" data-ng-change="changeSubCollege()" data-ng-options="college as college for college  in colleges"></select>
+		<select data-ng-model="mainCollege" data-ng-change="changeSubCollege()" data-ng-options="college as college for college  in colleges"></select>
 
-  <select data-ng-model="subCollege" data-ng-options="subcollege for subcollege in subcolleges"></select>
+		<select data-ng-model="subCollege" data-ng-options="subcollege for subcollege in subcolleges"></select>
 
-  <button type="button" class="btn btn-primary" ng-click="submit()">
+		<button type="button" class="btn btn-primary" ng-click="submit()">
         Search
   </button>
 
-</form>
+	</form>
 
-<br><br>
+	<br><br>
 
-<uib-accordion close-others="oneAtATime" ng-repeat="user in theUsers">
-	<div class="well span8 offset2" uib-accordion-group class="panel-default" is-open="status.open">
-	        <div class="row-fluid user-row">
-	        	 <uib-accordion-heading>
-	            
-	            	<span>
+	<uib-accordion close-others="oneAtATime" ng-repeat="user in theUsers">
+		<div class="well span8 offset2" uib-accordion-group class="panel-default" is-open="status.open">
+			<div class="row-fluid user-row">
+				<uib-accordion-heading>
+
+					<span>
 	            
 	                	 <img class="img-circle"
 	                     ng-src="{{user.userPhotoLink}}">
@@ -34,85 +34,79 @@
 	                     <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
 	             
 	                </span>
-	         
-			   </uib-accordion-heading>
-	        </div>
-	        <div class="row-fluid user-infos {{user._id}}">
-	            <div class="span10 offset1">
-	                <div class="panel panel-primary">
-	                    <div class="panel-heading">
-	                        <h3 class="panel-title">User information</h3>
-	                    </div>
-	                    <div class="panel-body">
-	                        <div class="row-fluid">
-	                            <div class="span3">
-	                                <img class="img-circle"
-	                                     ng-src="{{user.userPhotoLink}}">
-	                            </div>
-	                            <div class="span6">
-	                                <strong>{{user.firstName}} {{user.lastName}}</strong><br>
-	                                <table class="table table-condensed table-responsive table-user-information">
-	                                    <tbody>
-	                                    <tr>
-	                                        <td>Main Title Of Work:</td>
-	                                        <td>{{user.aboutMe}}</td>
-	                                    </tr>
-	                                    <tr>
-	                                        <td>College:</td>
-	                                        <td>{{user.defaultSkillByCollege}}</td>
-	                                    </tr>
-	                                    <tr>
-	                                        <td>Program:</td>
-	                                        <td>{{user.defaultSkillByProgram}}</td>
-	                                    </tr>
-	                                    <tr>
-	                                        <td>Location:</td>
-	                                        <td>{{user.userLocation}}</td>
-	                                    </tr>
-	                                    <tr>
-	                                        <td>Remote:</td>
-	                                        <td>{{user.willDoRemoteProjects}}</td>
-	                                    </tr>
-	                                    <tr>
-	                                        <td>Date:</td>
-	                                        <td>{{user.signUpDate | date:"MM/dd/yyyy"}}</td>
-	                                    </tr>
-	                                    <tr>
-	                                        <td>LinkedIn:</td>
-	                                        <td><a target="_blank" href="{{user.linkedInURL}}">Profile page</a></td>
-	                                    </tr>
-	                                    </tbody>
-	                                </table>
-	                            </div>
-	                        </div>
-	                    </div>
-	                    <div class="panel-footer foot">
 
-	                            <button 
-
-                            		class="btn btn-danger recruit" type="button"
-                                    data-toggle="tooltip"
-                                    data-original-title="Remove this user"
-                                    ng-click="recruit(user._id)">
+				</uib-accordion-heading>
+			</div>
+			<div class="row-fluid user-infos {{user._id}}">
+				<div class="span10 offset1">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h3 class="panel-title">User information</h3>
+						</div>
+						<div class="panel-body">
+							<div class="row-fluid">
+								<div class="span3">
+									<img class="img-circle" ng-src="{{user.userPhotoLink}}">
+								</div>
+								<div class="span6">
+									<strong>{{user.firstName}} {{user.lastName}}</strong><br>
+									<table class="table table-condensed table-responsive table-user-information">
+										<tbody>
+											<tr>
+												<td>Main Title Of Work:</td>
+												<td>{{user.aboutMe}}</td>
+											</tr>
+											<tr>
+												<td>College:</td>
+												<td>{{user.defaultSkillByCollege}}</td>
+											</tr>
+											<tr>
+												<td>Program:</td>
+												<td>{{user.defaultSkillByProgram}}</td>
+											</tr>
+											<tr>
+												<td>Location:</td>
+												<td>{{user.userLocation}}</td>
+											</tr>
+											<tr>
+												<td>Remote:</td>
+												<td>{{user.willDoRemoteProjects}}</td>
+											</tr>
+											<tr>
+												<td>Date:</td>
+												<td>{{user.signUpDate | date:"MM/dd/yyyy"}}</td>
+											</tr>
+											<tr>
+												<td>LinkedIn:</td>
+												<td><a target="_blank" href="{{user.linkedInURL}}">Profile page</a></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<div class="panel-footer foot">
+							<form ng-submit="recruit(user._id)">
+								<button class="btn btn-danger recruit" type="submit" data-toggle="tooltip" data-original-title="Remove this user">
                                     <i class="icon-remove icon-white"></i>
-									
 									Recruit
+	                            </button>
 
-	                             </button>
-								<select ng-model="myProject" ng-options="project for project in userProjects"></select>
-	                        
-	                    </div>
-	                </div>
-	            </div>
-	        </div>
+								<select required="required" aria-required="your project name" data-ng-model="myProject" data-ng-options="project.name for project in userProjects">
+									<option required value="">Select Project</option>
+								</select>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
 
 
-	        
-	</div>
 
-</uib-accordion>
+		</div>
+
+	</uib-accordion>
 
 
 
 </div>
-
