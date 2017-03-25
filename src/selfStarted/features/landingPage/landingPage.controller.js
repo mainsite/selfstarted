@@ -19,7 +19,7 @@ function LandingPageCtrl($scope) {
         var newWidth = 1080 + slides.length + 1;
         slides.push({
             image: '//unsplash.it/' + newWidth + '/300',
-            text: ['Nice image', 'Awesome photograph', 'That is so cool', 'I love that'][slides.length % 4],
+            text: ['Discover projects that need your skillset', 'Start up a project for others to find', 'Recruit talent that meet the skills you need', 'Join a network where people can make teams and work great together'][slides.length % 4],
             id: currIndex++
         });
     };

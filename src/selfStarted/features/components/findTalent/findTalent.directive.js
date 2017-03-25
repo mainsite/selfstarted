@@ -78,7 +78,7 @@ function FindTalentCtrl($scope, UsersService, localStorageService, ProjectsServi
 
             for (var i = 0; i < res.data.length; i++) {
 
-                holder.push(res.data[i].projectName);
+                holder.push({ id: res.data[i]._id, name: res.data[i].projectName});
 
             }
 
@@ -91,52 +91,19 @@ function FindTalentCtrl($scope, UsersService, localStorageService, ProjectsServi
     }
 
     function recruit(userID) {
-        var userChosen = userID;
-        var projectChosen = this.myProject;
-        console.log(userChosen);
-        console.log(projectChosen);
+        var chosenUser = userID;
+        var chosenProject = this.myProject.id;
+        console.log(chosenUser, chosenProject);
+
         //TODO call service to send out recruit flag
+        var accept = window.confirm("Confirm Adding user to your project");
+
+        if (accept) {
+            projects.inviteToProject(chosenProject, chosenUser, function (err, res) {
+                if (err) console.log(err);
+                console.log(res, "Succeeded");
+            });
+        }
     }
-
-
-    /*
-       
-            var panels = angular.element('.user-infos');
-            var panelsButton = angular.element('.dropdown-user');
-            panels.hide();
-    
-            //Click dropdown
-            panelsButton.click(function() {
-                //get data-for attribute
-                var dataFor = angular.element(this).attr('data-for');
-                var idFor = angular.element(dataFor);
-    
-                //current button
-                var currentButton = angular.element(this);
-                idFor.slideToggle(400, function() {
-                    //Completed slidetoggle
-                    if(idFor.is(':visible'))
-                    {
-                        currentButton.html('<i class="icon-chevron-up text-muted"></i>');
-                    }
-                    else
-                    {
-                        currentButton.html('<i class="icon-chevron-down text-muted"></i>');
-                    }
-                })
-            });
-    
-    */
-
-
-    /*        angular.element(".main").on("click",".recruit" ,function(e) {
-                e.preventDefault();
-                var userChoosen = angular.element(this).data("index");
-                console.log(userChoosen);
-                console.log($scope.userSelection);
-    
-            });
-      */
-
 
 }
