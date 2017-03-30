@@ -71,8 +71,11 @@ function CreateProjectsCtrl($scope, localStorageService, ProjectsService, Colleg
 
         projects.addNewProject(createProjectInfo);
 
-        console.log(createProjectInfo);
+         alert("Project has been successfully sumbitted");
+         
         resetForm();
+
+
     }
 
     function resetForm() {
