@@ -39,13 +39,44 @@
                                 <uib-accordion-heading>
                                     {{project.projectName}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
                                 </uib-accordion-heading>
-                                <p>Project Description: {{project.projectDescription}}</p>
+<!--                                 <p>Project Description: {{project.projectDescription}}</p>
                                 <p>Start date: {{project.projectStartDate | date}}</p>
                                 <p>End date: {{project.projectEndDate | date}}</p>
                                 <p>Location: {{project.projectLocation}}</p>
                                 <p>Main College: {{project.projectCategoryByCollege}}</p>
                                 <p>Sub College: {{project.projectCategoryByProgram}}</p>
-                                <p>Project Skills: {{project.otherSkillsDesired}}</p>
+                                <p>Project Skills: {{project.otherSkillsDesired}}</p> -->
+                                <table class="table table-bordered">
+                                    <tr class="success">
+                                      <th>Project Description</th>
+                                      <td>{{project.projectDescription}}</td>
+                                    </tr>
+                                    <tr>
+                                       <th>Start Date</th>
+                                       <td>{{project.projectStartDate | date:"MM/dd/yyyy"}}</td>
+                                    </tr>
+                                    <tr class="success">
+                                        <th>End Date</th>
+                                        <td>{{project.projectEndDate | date:"MM/dd/yyyy"}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Location</th>
+                                        <td>{{project.projectLocation}}</td>
+                                    </tr>
+                                    <tr class="success">
+                                        <th>College</th>
+                                        <td>{{project.projectCategoryByCollege}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Major</th>
+                                        <td>{{project.projectCategoryByProgram}}</td>
+                                    </tr>
+                                    <tr class="success">
+                                        <th>Skills</th>
+                                        <td>{{project.otherSkillsDesired}}</td>
+                                    </tr>
+                                </table>
+
                             </div>
                         </uib-accordion>
                     </div>
@@ -57,13 +88,44 @@
                         <uib-accordion-heading>
                             {{project.projectName}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
                         </uib-accordion-heading>
-                        <p>Project Description: {{project.projectDescription}}</p>
+<!--                         <p>Project Description: {{project.projectDescription}}</p>
                         <p>Start date: {{project.projectStartDate | date}}</p>
                         <p>End date: {{project.projectEndDate | date}}</p>
                         <p>Location: {{project.projectLocation}}</p>
                         <p>Main College: {{project.projectCategoryByCollege}}</p>
                         <p>Sub College: {{project.projectCategoryByProgram}}</p>
-                        <p>Project Skills: {{project.otherSkillsDesired}}</p>
+                        <p>Project Skills: {{project.otherSkillsDesired}}</p> -->
+                        <table class="table table-bordered">
+                            <tr class="success">
+                              <th>Project Description</th>
+                              <td>{{project.projectDescription}}</td>
+                            </tr>
+                            <tr>
+                               <th>Start Date</th>
+                               <td>{{project.projectStartDate | date:"MM/dd/yyyy"}}</td>
+                            </tr>
+                            <tr class="success">
+                                <th>End Date</th>
+                                <td>{{project.projectEndDate | date:"MM/dd/yyyy"}}</td>
+                            </tr>
+                            <tr>
+                                <th>Location</th>
+                                <td>{{project.projectLocation}}</td>
+                            </tr>
+                            <tr class="success">
+                                <th>College</th>
+                                <td>{{project.projectCategoryByCollege}}</td>
+                            </tr>
+                            <tr>
+                                <th>Major</th>
+                                <td>{{project.projectCategoryByProgram}}</td>
+                            </tr>
+                            <tr class="success">
+                                <th>Skills</th>
+                                <td>{{project.otherSkillsDesired}}</td>
+                            </tr>
+                        </table>
+
                     </div>
                 </uib-accordion>
             </uib-tab>
@@ -73,13 +135,44 @@
                         <uib-accordion-heading>
                             {{project.projectName}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
                         </uib-accordion-heading>
-                        <p>Project Description: {{project.projectDescription}}</p>
+<!--                         <p>Project Description: {{project.projectDescription}}</p>
                         <p>Start date: {{project.projectStartDate | date}}</p>
                         <p>End date: {{project.projectEndDate | date}}</p>
                         <p>Location: {{project.projectLocation}}</p>
                         <p>Main College: {{project.projectCategoryByCollege}}</p>
                         <p>Sub College: {{project.projectCategoryByProgram}}</p>
-                        <p>Project Skills: {{project.otherSkillsDesired}}</p>
+                        <p>Project Skills: {{project.otherSkillsDesired}}</p> -->
+                        <table class="table table-bordered">
+                            <tr class="success">
+                              <th>Project Description</th>
+                              <td>{{project.projectDescription}}</td>
+                            </tr>
+                            <tr>
+                               <th>Start Date</th>
+                               <td>{{project.projectStartDate | date:"MM/dd/yyyy"}}</td>
+                            </tr>
+                            <tr class="success">
+                                <th>End Date</th>
+                                <td>{{project.projectEndDate | date:"MM/dd/yyyy"}}</td>
+                            </tr>
+                            <tr>
+                                <th>Location</th>
+                                <td>{{project.projectLocation}}</td>
+                            </tr>
+                            <tr class="success">
+                                <th>College</th>
+                                <td>{{project.projectCategoryByCollege}}</td>
+                            </tr>
+                            <tr>
+                                <th>Major</th>
+                                <td>{{project.projectCategoryByProgram}}</td>
+                            </tr>
+                            <tr class="success">
+                                <th>Skills</th>
+                                <td>{{project.otherSkillsDesired}}</td>
+                            </tr>
+                        </table>
+
                     </div>
                 </uib-accordion>
             </uib-tab>
@@ -89,13 +182,44 @@
                     <uib-accordion-heading>
                         {{project.projectName}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
                     </uib-accordion-heading>
-                    <p>Project Description: {{project.projectDescription}}</p>
+<!--                     <p>Project Description: {{project.projectDescription}}</p>
                     <p>Start date: {{project.projectStartDate | date}}</p>
                     <p>End date: {{project.projectEndDate | date}}</p>
                     <p>Location: {{project.projectLocation}}</p>
                     <p>Main College: {{project.projectCategoryByCollege}}</p>
                     <p>Sub College: {{project.projectCategoryByProgram}}</p>
-                    <p>Project Skills: {{project.otherSkillsDesired}}</p>
+                    <p>Project Skills: {{project.otherSkillsDesired}}</p> -->
+                    <table class="table table-bordered">
+                        <tr class="success">
+                          <th>Project Description</th>
+                          <td>{{project.projectDescription}}</td>
+                        </tr>
+                        <tr>
+                           <th>Start Date</th>
+                           <td>{{project.projectStartDate | date:"MM/dd/yyyy"}}</td>
+                        </tr>
+                        <tr class="success">
+                            <th>End Date</th>
+                            <td>{{project.projectEndDate | date:"MM/dd/yyyy"}}</td>
+                        </tr>
+                        <tr>
+                            <th>Location</th>
+                            <td>{{project.projectLocation}}</td>
+                        </tr>
+                        <tr class="success">
+                            <th>College</th>
+                            <td>{{project.projectCategoryByCollege}}</td>
+                        </tr>
+                        <tr>
+                            <th>Major</th>
+                            <td>{{project.projectCategoryByProgram}}</td>
+                        </tr>
+                        <tr class="success">
+                            <th>Skills</th>
+                            <td>{{project.otherSkillsDesired}}</td>
+                        </tr>
+                    </table>
+
                     <button type="button">Accept invite</button>
                     <button type="button">Deny invite</button>
                 </div>
