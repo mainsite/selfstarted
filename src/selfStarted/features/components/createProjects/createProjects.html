@@ -5,9 +5,11 @@
       <!-- Project title and Description input boxes -->
       <div class="row">
         <div class="col-sm-12">
+          <i class="fa fa-question-circle  fa-lg" aria-hidden="true" uib-tooltip="Enter a brief title that the project will be known by." tooltip-class="tooltipsclass"></i>
           <input placeholder="Title of Project" aria-placeholder="Title of Project" type="text" class="form-control" required ng-model="title"
           />
           <br>
+          <i class="fa fa-question-circle  fa-lg" aria-hidden="true" uib-tooltip="Enter a detailed description of the project." tooltip-class="tooltipsclass"></i>
           <textarea rows="4" placeholder="Project Description" aria-placeholder="Project Description" class="form-control" required
             ng-model="description" />
         </div>
@@ -18,6 +20,7 @@
       <!-- location input -->
       <div class="row">
         <div class="col-sm-12">
+          <i class="fa fa-question-circle  fa-lg" aria-hidden="true" uib-tooltip="Enter the primary location for the project. In most cases this will be your City and State." tooltip-class="tooltipsclass"></i>
           <input placeholder="Location" aria-placeholder="Location" type="text" class="form-control" required ng-model="location" />
         </div>
       </div>
@@ -26,7 +29,7 @@
 
       <div class="row">
         <div class="col-sm-12 btn-group">
-          <h4>Willing to allow Remote Work</h4> <i class="fa fa-question-circle  fa-lg" aria-hidden="true"></i>
+          <h4>Remote Talent</h4> <i class="fa fa-question-circle  fa-lg" aria-hidden="true" uib-tooltip="Select 'Yes' to allow non-local project members. Select 'No' if all members must be local to the project location." tooltip-class="tooltipsclass"></i>
           <label class="btn btn-primary" ng-model="radioModel" uib-btn-radio="'true'">Yes</label>
           <label class="btn btn-primary" ng-model="radioModel" uib-btn-radio="'false'">No</label>
         </div>
@@ -40,10 +43,10 @@
           <label for="mainCollege">Select your college of study</label><br>
           <select class="styled-select dropBoxClear semi-square" data-ng-model="mainCollege" data-ng-change="changeSubCollege()" data-ng-options="college as college for college  in colleges">
               <option value="">College</option>
-            </select> <i class="fa fa-question-circle   fa-lg" aria-hidden="true"></i>
+            </select> <i class="fa fa-question-circle   fa-lg" aria-hidden="true" uib-tooltip="Select the primary category of the project by college program." tooltip-class="tooltipsclass"></i>
           <select class="styled-select dropBoxClear semi-square" data-ng-model="subCollege" data-ng-options="subcollege for subcollege in subcolleges">
-              <option value="">Sub College</option>
-            </select> <i class="fa fa-question-circle  fa-lg" aria-hidden="true"></i>
+              <option value="">Major</option>
+            </select> <i class="fa fa-question-circle  fa-lg" aria-hidden="true" uib-tooltip="Select the secondary category of the project by college major." tooltip-class="tooltipsclass"></i>
         </div>
       </div>
 
@@ -54,12 +57,14 @@
       <!-- Date picker -->
       <div class="row">
         <div class="col-sm-12 col-md-6">
+          <i class="fa fa-question-circle  fa-lg" aria-hidden="true" uib-tooltip="Select the approximate start date of the project." tooltip-class="tooltipsclass"></i>
           <h3>Start Date</h3>
           <div style="display:inline-block; min-height:290px;">
             <div uib-datepicker ng-model="startDate" class="well well-sm" datepicker-options="optionsStartDate" ng-click="dateRestrict()"></div>
           </div>
         </div>
         <div class="col-sm-12 col-md-6">
+          <i class="fa fa-question-circle  fa-lg" aria-hidden="true" uib-tooltip="Select the approximate end date of the project." tooltip-class="tooltipsclass"></i>
           <h3>End Date</h3>
           <div style="display:inline-block; min-height:290px;">
             <div uib-datepicker ng-model="endDate" class="well well-sm" datepicker-options="optionsEndDate"></div>
@@ -75,7 +80,7 @@
           <input placeholder="Skills needed" aria-placeholder="Skills needed" type="text" class="form-control" required ng-model="skills"
           />
         </div>
-        <i class="fa fa-question-circle  fa-lg" aria-hidden="true"></i>
+        <i class="fa fa-question-circle  fa-lg" aria-hidden="true" uib-tooltip="List any additional skills that would be helpful for potential project members to possess." tooltip-class="tooltipsclass"></i>
       </div>
 
       <br>
