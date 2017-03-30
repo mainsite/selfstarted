@@ -6,13 +6,3 @@
 .projectsList {
     padding-top: 5% !important;
 }
-
-.tooltip.tooltipsclass .tooltip-inner {
-	color: #000000;
-	background-color: #f0f0f0;
-	box-shadow: 0 6px 12px rgba(0,0,0,.5);
-}
-
-.tooltip.customClass .tooltip-arrow {
-	display: none;
-}
