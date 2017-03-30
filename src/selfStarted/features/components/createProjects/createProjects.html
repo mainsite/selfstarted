@@ -1,4 +1,4 @@
-<div class="container-fluid projectForm">
+<div class="container-fluid col-sm-12  col-md-10 projectForm">
   <form class="row col-sm-12" ng-submit="submit()" name="nestedForm">
     <div class="form-group">
 
@@ -8,46 +8,12 @@
           <input placeholder="Title of Project" aria-placeholder="Title of Project" type="text" class="form-control" required ng-model="title"
           />
           <br>
-          <textarea rows="4" placeholder="Project Description" aria-placeholder="Project Description"  class="form-control" required
+          <textarea rows="4" placeholder="Project Description" aria-placeholder="Project Description" class="form-control" required
             ng-model="description" />
         </div>
       </div>
 
       <br><br>
-
-      <!-- College and Subcollege drop downs-->
-      <div class="row">
-        <div class="col-sm-12">
-          <label for="mainCollege">Select your college of study</label><br>
-          <select class="styled-select dropBoxClear semi-square" data-ng-model="mainCollege" data-ng-change="changeSubCollege()" data-ng-options="college as college for college  in colleges"></select><i class="fa fa-question-circle   fa-lg" aria-hidden="true"></i>  
-          <select class="styled-select dropBoxClear semi-square" data-ng-model="subCollege" data-ng-options="subcollege for subcollege in subcolleges"></select> <i class="fa fa-question-circle  fa-lg" aria-hidden="true"></i>
-        </div>
-      </div>
-
-      <br><br>
-
-      <!-- Date picker -->
-      <div class="row">
-        <div class="col-sm-12 col-md-6">
-          <h3>Start Date</h3>
-          <div style="display:inline-block; min-height:290px;">
-            <div uib-datepicker ng-model="startDate" class="well well-sm"></div>
-          </div>
-          <!-- selected date display -->
-          <pre>Start date is: <em>{{startDate | date:'fullDate' }}</em></pre>
-        </div>
-        <div class="col-sm-12 col-md-6">
-          <h3>End Date</h3>
-          <div style="display:inline-block; min-height:290px;">
-            <div uib-datepicker ng-model="endDate" class="well well-sm"></div>
-          </div>
-          <!-- selected date display -->
-          <pre>End date is: <em>{{endDate | date:'fullDate' }}</em></pre>
-        </div>
-      </div>
-      <!-- end of Date picker -->
-
-      <br>
 
       <!-- location input -->
       <div class="row">
@@ -60,17 +26,54 @@
 
       <div class="row">
         <div class="col-sm-12 btn-group">
-          <h4>Willing to allow Remote Work</h4>  <i class="fa fa-question-circle  fa-lg" aria-hidden="true"></i>
+          <h4>Willing to allow Remote Work</h4> <i class="fa fa-question-circle  fa-lg" aria-hidden="true"></i>
           <label class="btn btn-primary" ng-model="radioModel" uib-btn-radio="'true'">Yes</label>
           <label class="btn btn-primary" ng-model="radioModel" uib-btn-radio="'false'">No</label>
         </div>
       </div>
 
+      <br><br>
+
+      <!-- College and Subcollege drop downs-->
+      <div class="row">
+        <div class="col-sm-9">
+          <label for="mainCollege">Select your college of study</label><br>
+          <select class="styled-select dropBoxClear semi-square" data-ng-model="mainCollege" data-ng-change="changeSubCollege()" data-ng-options="college as college for college  in colleges">
+              <option value="">College</option>
+            </select> <i class="fa fa-question-circle   fa-lg" aria-hidden="true"></i>
+          <select class="styled-select dropBoxClear semi-square" data-ng-model="subCollege" data-ng-options="subcollege for subcollege in subcolleges">
+              <option value="">Sub College</option>
+            </select> <i class="fa fa-question-circle  fa-lg" aria-hidden="true"></i>
+        </div>
+      </div>
+
+
+
+      <br><br>
+
+      <!-- Date picker -->
+      <div class="row">
+        <div class="col-sm-12 col-md-6">
+          <h3>Start Date</h3>
+          <div style="display:inline-block; min-height:290px;">
+            <div uib-datepicker ng-model="startDate" class="well well-sm"></div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-6">
+          <h3>End Date</h3>
+          <div style="display:inline-block; min-height:290px;">
+            <div uib-datepicker ng-model="endDate" class="well well-sm"></div>
+          </div>
+        </div>
+      </div>
+      <!-- end of Date picker -->
+
       <br>
 
       <div class="row">
         <div class="col-sm-12">
-         <input placeholder="Skills needed" aria-placeholder="Skills needed" type="text" class="form-control" required ng-model="skills" />  
+          <input placeholder="Skills needed" aria-placeholder="Skills needed" type="text" class="form-control" required ng-model="skills"
+          />
         </div>
         <i class="fa fa-question-circle  fa-lg" aria-hidden="true"></i>
       </div>
@@ -78,7 +81,7 @@
       <br>
       <br>
 
-      <div class="col-md-12">
+      <div class="col-sm-6 col-md-offset-4">
         <button type="submit" class="btn btn-primary btn-lg">
             Submit New Project
         </button>

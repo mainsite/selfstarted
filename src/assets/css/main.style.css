@@ -81,7 +81,6 @@
     @media (max-width: 768px) {
         .sidebar {
             background-color: #1A1F2B;
-            border-right: 1px solid #eee;
             margin-top: 50px;
         }
     }
@@ -119,6 +118,7 @@
     /* ----------------------------------------------- */
     
     .main {
+        margin-top: 6%;
         padding: 20px;
     }
     
@@ -137,18 +137,25 @@
     /* ----------------------------------------------- */
     
     .projectForm {
-        padding-left: 2.5em !important;
         padding-bottom: 1.5em !important;
-        border-top: 4px solid white;
         background-color: #24323d;
+        margin: 0 auto;
+        margin-top: 5%;
     }
     
-    .projectForm form {
+    /*.projectForm form {
+        margin: 0 auto;
+        margin-top: 20px;
+    }*/
+    
+    .projectForm .row {
+        margin: 0 auto;
         margin-top: 20px;
     }
     
     .projectForm input {
-        border: 2px solid lightgray;
+        border: 0;
+        border-bottom: 2px solid lightgray;
         background-color: transparent;
         border-radius: 0;
         color: white;
@@ -156,7 +163,8 @@
     }
     
     .projectForm textarea {
-        border: 2px solid lightgray;
+        border: 0;
+        border-bottom: 2px solid lightgray;
         background-color: transparent;
         border-radius: 0;
         color: white;
@@ -180,6 +188,8 @@
         -webkit-border-radius: 0px;
         -moz-border-radius: 0px;
         border-radius: 0px;
+        border: 0;
+        border-bottom: 1px solid grey;
     }
     /* end of select drop down*/
     /* buttons and date picker styles */
