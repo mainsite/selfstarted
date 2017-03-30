@@ -20,8 +20,7 @@ var ProjectsSchema = new Schema({
 	projectName: {
 		type: String,
 		required: true,
-		trim: true,
-		unique: true
+		trim: true
 	},
 
 	// Save a lowercase version of the project name. Needed for when we search
@@ -31,8 +30,7 @@ var ProjectsSchema = new Schema({
 	projectNameLowerCase: {
 		type: String,
 		required: true,
-		trim: true,
-		unique: true
+		trim: true
 	},
 
 	// projectDescription is a text description entered by the project owner,
