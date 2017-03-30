@@ -27,11 +27,10 @@ router.post('/projects/newProject', function (req, res, next) {
         _primaryProjectOwner: req.body._primaryProjectOwner
     });
 
-    newProject.save(function (err, newProject) {
+    newProject.save(function (error, newProject) {
         if (err) {
-            console.log("error saving project");
-            console.log(err);
-            res.send("posting error");
+            console.log(error);
+            res.send(error);
         } else {
             console.log('posted project');
             res.send('posted project');
@@ -59,12 +58,12 @@ router.post('/projects/updateProject', function(req, res, next) {
         remotePermitted: req.body.remotePermitted,
         isDeleted: req.body.isDeleted
     })
-    .exec(function(err, projectData) {
-        if (err) {
-            console.log(err);
-            res.send(err);
+    .exec(function(error, projectData) {
+        if (error) {
+            console.log(error);
+            res.send(error);
         } else {
-            res.send(projectData);
+            res.json(projectData);
         }
     });
 });
@@ -85,8 +84,14 @@ router.get('/projects/searchProjects?', function(req, res, next) {
         .populate('_usersInvited')
         .populate('_usersRequesting')
         .exec(function(error, projectsData) {
-            if (error) return error;
-            res.json(projectsData);
+            if (error) {
+                console.log(error);
+                res.send(error);
+            } else {
+                res.json(projectsData);
+            }
+            // if (error) return error;
+            // res.json(projectsData);
         });
 });
 
@@ -103,8 +108,14 @@ router.get('/projects/searchPersonalProjects?', function(req, res, next) {
         .populate('_usersInvited')
         .populate('_usersRequesting')
         .exec(function(error, personalProjectsData) {
-            if (error) return error;
-            res.json(personalProjectsData);
+            if (error) {
+                console.log(error);
+                res.send(error);
+            } else {
+                res.json(personalProjectsData);
+            }
+            // if (error) return error;
+            // res.json(personalProjectsData);
         });
 });
 
@@ -120,8 +131,14 @@ router.get('/projects/searchAssignedProjects?', function(req, res, next) {
         .populate('_usersInvited')
         .populate('_usersRequesting')
         .exec(function(error, assignedProjectsData) {
-            if (error) return error;
-            res.json(assignedProjectsData);
+            if (error) {
+                console.log(error);
+                res.send(error);
+            } else {
+                res.json(assignedProjectsData);
+            }
+            // if (error) return error;
+            // res.json(assignedProjectsData);
         });
 });
 
@@ -136,8 +153,14 @@ router.get('/projects/searchInvitedProjects?', function(req, res, next) {
         .populate('_usersInvited')
         .populate('_usersRequesting')
         .exec(function(error, invitedProjectsData) {
-            if (error) return error;
-            res.json(invitedProjectsData);
+            if (error) {
+                console.log(error);
+                res.send(error);
+            } else {
+                res.json(invitedProjectsData);
+            }
+            // if (error) return error;
+            // res.json(invitedProjectsData);
         });
 });
 
@@ -152,8 +175,14 @@ router.get('/projects/searchRequestingProjects?', function(req, res, next) {
         .populate('_usersInvited')
         .populate('_usersRequesting')
         .exec(function(error, invitedProjectsData) {
-            if (error) return error;
-            res.json(invitedProjectsData);
+            if (error) {
+                console.log(error);
+                res.send(error);
+            } else {
+                res.json(invitedProjectsData);
+            }
+            // if (error) return error;
+            // res.json(invitedProjectsData);
         });
 });
 
@@ -174,7 +203,8 @@ router.post('/projects/joinProject', function(req, res, next) {
             console.log(err);
             res.send(err);
         } else {
-            res.send(projectData);
+            // res.send(projectData);
+            res.json(projectData);
         }
     });
 });
@@ -197,7 +227,8 @@ router.post('/projects/denyProjectJoin', function(req, res, next) {
             console.log(err);
             res.send(err);
         } else {
-            res.send(projectData);
+            // res.send(projectData);
+            res.json(projectData);
         }
     });
 });
@@ -221,7 +252,8 @@ router.post('/projects/acceptProjectJoin', function(req, res, next) {
             console.log(err);
             res.send(err);
         } else {
-            res.send(projectData);
+            // res.send(projectData);
+            res.json(projectData);
         }
     });
 });
@@ -243,7 +275,8 @@ router.post('/projects/inviteProject', function(req, res, next) {
             console.log(err);
             res.send(err);
         } else {
-            res.send(projectData);
+            // res.send(projectData);
+            res.json(projectData);
         }
     });
 });
@@ -266,7 +299,8 @@ router.post('/projects/denyProjectInvite', function(req, res, next) {
             console.log(err);
             res.send(err);
         } else {
-            res.send(projectData);
+            // res.send(projectData);
+            res.json(projectData);
         }
     });
 });
@@ -290,7 +324,8 @@ router.post('/projects/acceptProjectInvite', function(req, res, next) {
             console.log(err);
             res.send(err);
         } else {
-            res.send(projectData);
+            // res.send(projectData);
+            res.json(projectData);
         }
     });
 });
