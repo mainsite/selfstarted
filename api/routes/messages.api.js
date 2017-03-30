@@ -11,8 +11,14 @@ router.get('/messages/searchMessages?', function(req, res, next) {
         .populate('_fromUser')
         .populate('_toUser')
         .exec(function(error, messagesData) {
-            if (error) return error;
-            res.json(messagesData);
+        	if (error) {
+        		console.log(error);
+        		res.send(error);
+        	} else {
+        		res.json(messagesData);
+        	}
+            // if (error) return error;
+            // res.json(messagesData);
         });
 });
 

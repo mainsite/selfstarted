@@ -12,8 +12,14 @@ router.get('/reviews/searchReviews?', function(req, res, next) {
         .populate('_reviewFromUser')
         .populate('_reviewForUser')
         .exec(function(error, reviewsData) {
-            if (error) return error;
-            res.json(reviewsData);
+        	if (error) {
+        		console.log(error);
+        		res.send(error);
+        	} else {
+        		res.json(reviewsData);
+        	}
+            // if (error) return error;
+            // res.json(reviewsData);
         });
 });
 

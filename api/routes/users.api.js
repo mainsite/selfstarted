@@ -21,10 +21,10 @@ router.post('/users/updateUser', function (req, res) {
 		defaultSkillByProgram: req.body.defaultSkillByProgram,
 		aboutMe: req.body.aboutMe
 	})
-		.exec(function (err, userData) {
-			if (err) {
-				console.log(err);
-				res.send(err);
+		.exec(function (error, userData) {
+			if (error) {
+				console.log(error);
+				res.send(error);
 			} else {
 				res.send(userData);
 			}
@@ -39,8 +39,14 @@ router.get('/users/searchUsers?', function (req, res, next) {
 
 	Users.find(req.query)
 		.exec(function (error, usersData) {
-			if (error) return error;
-			res.json(usersData);
+			if (error) {
+				console.log(error);
+				res.send(error);
+			} else {
+				res.json(usersData);
+			}
+			// if (error) return error;
+			// res.json(usersData);
 		});
 });
 
