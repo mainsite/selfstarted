@@ -18,27 +18,38 @@ function CreateProjects() {
 
 function CreateProjectsCtrl($scope, localStorageService, ProjectsService, CollegeService) {
 
+
+
     var vm = this;
     var college = CollegeService;
     var mainCollegeField = Object.keys(college);
     var projects = ProjectsService;
 
     $scope.submit = submit;
+    $scope.dateRestrict = dateRestrict;
     $scope.colleges = mainCollegeField;
     $scope.subcolleges = [];
     $scope.changeSubCollege = changeSubCollege;
 
-
-    $scope.today = function () {
-        $scope.startDate = new Date();
-        $scope.endDate = new Date();
+    $scope.optionsStartDate = {
+      minDate: new Date(),
+      showWeeks: true
     };
-    $scope.today();
 
-    $scope.setDate = function () {
-        $scope.startDate = new Date();
-        $scope.endDate = new Date();
+    $scope.optionsEndDate = {
+      minDate: new Date(),
+      showWeeks: true
     };
+
+    function dateRestrict () {
+        console.log("obj");
+        $scope.optionsEndDate = {
+            minDate: $scope.startDate,
+            showWeeks: true
+    };
+
+
+    }
 
     function changeSubCollege() {
         var key = $scope.mainCollege;
