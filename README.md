@@ -9,12 +9,12 @@ Justin Besteman, Alex Rivera, Ali Zaidi
 Self Started is a social site to help students find and connect with other like minded individuals to team up and accomplish great things together.
 
 ## Tech used:
-HTML / CSS, JavaScript, Node, Express, Angular, Mongo w/Mongoose ODM, Passport
+HTML / CSS, JavaScript, Node, Express, AngularJS, Mongo w/Mongoose ODM, Passport
 
 -----------------------------------------
 
 #### Deployed:
-(heroku link ...)
+http://selfstarted.herokuapp.com/
 
 #### Walkthrough Video:
 (youtube link ...)
