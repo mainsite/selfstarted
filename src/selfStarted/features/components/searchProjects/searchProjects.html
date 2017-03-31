@@ -5,8 +5,11 @@
       <!-- will add user search later -->
       <!--<input type="text" class="form-control" required ng-model="user" placeholder="User Name" />-->
       <div class="row">
-        <input type="text" class="col-sm-12" ng-model="title" placeholder="Title" />
-        <input type="text" class="col-sm-12" ng-model="location" placeholder="location" />
+        <i class="fa fa-question-circle  fa-lg" aria-hidden="true" uib-tooltip="Enter the title of the project you wish to search for, if known." tooltip-class="tooltipsclass"></i>
+        <input type="text" class="col-sm-12" ng-model="title" placeholder="Title of Project" />
+        <br>
+        <i class="fa fa-question-circle  fa-lg" aria-hidden="true" uib-tooltip="Enter a City and State to search for projects by geographic location." tooltip-class="tooltipsclass"></i>
+        <input type="text" class="col-sm-12" ng-model="location" placeholder="Location" />
       </div>
 
       <br>
@@ -14,11 +17,11 @@
       <div class="row">
         <select class="styled-select dropBoxClear semi-square" data-ng-model="mainCollege" data-ng-change="changeSubCollege()" data-ng-options="college as college for college  in colleges">
         <option value="">College</option>
-      </select>
+      </select> <i class="fa fa-question-circle   fa-lg" aria-hidden="true" uib-tooltip="Select the primary category of the project by college program." tooltip-class="tooltipsclass"></i>
 
         <select class="styled-select dropBoxClear semi-square" data-ng-model="subCollege" data-ng-options="subcollege for subcollege in subcolleges">
-        <option value="">Sub College</option>
-      </select>
+        <option value="">Program</option>
+      </select> <i class="fa fa-question-circle  fa-lg" aria-hidden="true" uib-tooltip="Select the secondary category of the project by college program." tooltip-class="tooltipsclass"></i>
       </div>
 
       <br>

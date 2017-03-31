@@ -6,19 +6,23 @@
 			<!--<input type="text" class="form-control" required ng-model="user" placeholder="User Name" />-->
 
 			<div class="row">
-				<input type="text" class="col-sm-12 col-md-5" ng-model="firstName" placeholder="User First Name" />
-
-				<input type="text" class="col-sm-12 col-md-6 col-md-offset-1" ng-model="lastName" placeholder="User Last Name" />
+				<i class="fa fa-question-circle  fa-lg" aria-hidden="true" uib-tooltip="To search for a specific user by first name, enter it here." tooltip-class="tooltipsclass"></i>
+				<!-- <input type="text" class="col-sm-12 col-md-5" ng-model="firstName" placeholder="First Name" /> -->
+				<input type="text" class="col-sm-12" ng-model="firstName" placeholder="First Name" />
+				<br>
+				<i class="fa fa-question-circle  fa-lg" aria-hidden="true" uib-tooltip="To search for a specific user by last name, enter it here." tooltip-class="tooltipsclass"></i>
+				<!-- <input type="text" class="col-sm-12 col-md-6 col-md-offset-1" ng-model="lastName" placeholder="User Last Name" /> -->
+				<input type="text" class="col-sm-12" ng-model="lastName" placeholder="User Last Name" />
 			</div>
 
 			<div class="row">
 				<select class="styled-select dropBoxClear semi-square" data-ng-model="mainCollege" data-ng-change="changeSubCollege()" data-ng-options="college as college for college  in colleges">
 					<option value="">College</option>
-				</select>
+				</select> <i class="fa fa-question-circle   fa-lg" aria-hidden="true" uib-tooltip="Select the main college within which to search for talent." tooltip-class="tooltipsclass"></i>
 
 				<select class="styled-select dropBoxClear semi-square" data-ng-model="subCollege" data-ng-options="subcollege for subcollege in subcolleges">
-					<option value="">Sub College</option>
-				</select>
+					<option value="">Program</option>
+				</select> <i class="fa fa-question-circle  fa-lg" aria-hidden="true" uib-tooltip="Select the college program within which to search for talent." tooltip-class="tooltipsclass"></i>
 			</div>
 
 			<div class="row">
