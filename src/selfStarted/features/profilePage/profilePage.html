@@ -21,7 +21,7 @@
     </div>
 </nav>
 
-<div class="container">
+<div class="container profilePage">
     <div class="row">
         <div class="toppad col-sm-12">
             <form ng-submit="ProfilePageVM.saveChanges()">
@@ -58,7 +58,7 @@
                                         </tr>
                                         <!-- text box that only shows up once user hits edit -->
                                         <tr ng-if="ProfilePageVM.edit">
-                                            <td>About Me:</td>
+                                            <td>(Edit) About Me:</td>
                                             <td>
                                                 <textarea ng-model="ProfilePageVM.user.description" ng-value="ProfilePageVM.user.description" name="aboutMe" cols="60" rows="4"></textarea>
                                             </td>
@@ -69,7 +69,7 @@
                                         </tr>
                                         <!-- text box that only shows up once user hits edit -->
                                         <tr ng-if="ProfilePageVM.edit">
-                                            <td>School Name:</td>
+                                            <td>(Edit) School Name:</td>
                                             <td>
                                                 <input class="col-sm-12" ng-model="ProfilePageVM.user.schoolName" type="text" name="schoolName" value="ProfilePageVM.user.schoolName">
                                             </td>
@@ -85,17 +85,21 @@
                                         <!-- Drop menu that only shows up once user hits edit -->
                                         <tr ng-if="ProfilePageVM.edit">
                                             <td>
-                                                Main College:<br> Major:
+                                                (Edit) Main College:<br> Major:
                                             </td>
                                             <td>
                                                 <select class="styled-select dropBoxClear semi-square" data-ng-model="ProfilePageVM.mainCollege" data-ng-change="ProfilePageVM.changeSubCollege()"
-                                                    data-ng-options="college for college in ProfilePageVM.colleges"></select>
+                                                    data-ng-options="college for college in ProfilePageVM.colleges">
+                                                    <option value="">College</option>
+                                                    </select>
                                                 <select class="styled-select dropBoxClear semi-square" data-ng-model="ProfilePageVM.subCollege" data-ng-change="ProfilePageVM.changeSubCollege()"
-                                                    data-ng-options="subcollege for subcollege in ProfilePageVM.subcolleges"></select>
+                                                    data-ng-options="subcollege for subcollege in ProfilePageVM.subcolleges">
+                                                    <option value="">Program</option>
+                                                    </select>
                                             </td>
                                         </tr>
                                         <!--</tr>-->
-                                        <tr>
+                                        <tr class="projectForm">
                                             <th>Work Preference</th>
                                             <td>
                                                 <h5>Work locally</h5>
@@ -121,7 +125,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="panel-footer">
+                    <div class="panel-footer projectForm">
                         <a ng-click="ProfilePageVM.toggleEdit()" type="button" class="btn btn-sm btn-warning">
                             <i class="glyphicon glyphicon-check"></i> Edit Profile</a>
                         <span class="pull-right">
