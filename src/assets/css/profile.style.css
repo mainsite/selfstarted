@@ -1,3 +1,17 @@
+body {
+    background-image: url('../images/carousel/DSC_3531_2.jpg');
+    background-size: 100% auto;
+}
+
+.panel-info>.panel-heading {
+    background-color: #30395C;
+}
+
+.panel-title {
+    padding: .50em;
+    color: white;
+}
+
 .user-row {
     margin-bottom: 14px;
 }
@@ -18,6 +32,7 @@
 
 .table-user-information > tbody > tr {
     border-top: 1px solid rgb(221, 221, 221);
+    background-color: white;
 }
 
 .table-user-information > tbody > tr:first-child {
@@ -30,4 +45,9 @@
 
 .toppad {
     margin-top: 20%;
+}
+
+.btn-warning {
+    background-color: #4A6491;
+    border-color: #D0E4F2;
 }
