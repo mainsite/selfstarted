@@ -14,6 +14,27 @@ var Schema = mongoose.Schema;
 // Create article schema
 var MessagesSchema = new Schema({
 
+	// _messageOwner tracks who owns this message. Every user has their
+	// own unique copy that they can delete, have mark read, etc.
+	_messageOwner: {
+		type: Schema.ObjectId,
+		ref: "Users"
+	},
+
+	// _fromUser tracks who sent the message, and for this we
+	// reference the Users collection
+	_fromUser: {
+		type: Schema.ObjectId,
+		ref: "Users"
+	},
+
+	// _toUser tracks who the message was sent to, and for this
+	// we again reference the Users collection
+	_toUser: {
+		type: Schema.ObjectId,
+		ref: "Users"
+	},
+
 	// messageSubject is the title/subject field of the message. It
 	// is required. We also want to trim it to get rid of any dead space.
 	messageSubject: {
@@ -31,52 +52,32 @@ var MessagesSchema = new Schema({
 		trim: true
 	},
 
-	// _fromUser tracks who sent the message, and for this we
-	// reference the Users collection
-	_fromUser: {
-		type: Schema.ObjectId,
-		ref: "Users"
-	},
-
-	// _toUser tracks who the message was sent to, and for this
-	// we again reference the Users collection
-	_toUser: {
-		type: Schema.ObjectId,
-		ref: "Users"
-	},
-
-	// sendDate tracks when the mssage was sent, and it can be
-	// set to a default of the message creation date
-	messageSendDate: {
+	// messageCreateDate tracks when the mssage was created/sent, and it can be
+	// set to a default of the current date when the document is created
+	messageCreateDate: {
 		type: Date,
 		default: Date.now
 	},
 
-	// toUserRead is a bool that tracks whether the message
-	// has been read by the user who was sent the message,
-	// and default is false to indicate unread
-	toUserRead: {
-		type: Boolean,
-		default: false
-	},
-
-	// messageReadDate tracks when the recepient read the message
+	// messageReadDate tracks when the message was first read
 	messageReadDate: {
 		type: Date
 	},
 
-	// sendUserDeletedMessage tracks whether the sending user has
-	// deleted the message from their end so we no longer need to display
-	// it in their sent items, and default is false to indicate not deleted
-	sendUserDeletedMessage: {
+	// messageRead tracks whether the user has read the message. Default is false
+	// to indicate message hasn't been read yet.
+	messageRead: {
 		type: Boolean,
 		default: false
 	},
 
-	// toUserDeletedMessage tracks whether the receiving user has
-	// deleted the message from their end so we no longer need to display
-	// it in their sent items, and default is false to indicate not deleted
-	toUserDeletedMessage: {
+	// messageDeleteDate tracks when the user deleted the message
+	messageDeleteDate: {
+		type: Date
+	},
+
+	// messageDeleted 
+	messageDeleted: {
 		type: Boolean,
 		default: false
 	}
