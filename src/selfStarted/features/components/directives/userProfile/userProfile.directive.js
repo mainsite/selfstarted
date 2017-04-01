@@ -8,7 +8,7 @@ function UserProfile() {
         scope: {
             userData: '='
         },
-        templateUrl: 'selfStarted/features/components/userProfile/userProfile.html',
+        templateUrl: 'selfStarted/features/components/directives/userProfile/userProfile.html',
         controller: UserProfileCtrl,
         controllerAs: 'UserProfileVM'
     };

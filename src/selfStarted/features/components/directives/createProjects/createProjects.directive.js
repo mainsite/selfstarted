@@ -8,7 +8,7 @@ function CreateProjects() {
         scope: {
             todoData: '='
         },
-        templateUrl: 'selfStarted/features/components/createProjects/createProjects.html',
+        templateUrl: 'selfStarted/features/components/directives/createProjects/createProjects.html',
         controller: CreateProjectsCtrl,
         controllerAS: 'createProjectsVM',
         bindToController: true

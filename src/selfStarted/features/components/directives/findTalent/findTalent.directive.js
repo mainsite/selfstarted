@@ -9,7 +9,7 @@ function FindTalent() {
         scope: {
             userData: '='
         },
-        templateUrl: 'selfStarted/features/components/findTalent/findTalent.html',
+        templateUrl: 'selfStarted/features/components/directives/findTalent/findTalent.html',
         controller: FindTalentCtrl,
         controllerAS: 'FindTalentVM',
         bindToController: true
