@@ -19,7 +19,7 @@
     /* ----------------------------------------------- */
     
     .landingCarousel {
-        margin-top: 8%;
+        /*margin-top: 8%;*/
     }
     
     .landingFooter {
@@ -86,7 +86,7 @@
             border-right: 1px solid #eee;
         }
         .dashWrapper {
-            background-image: url('../images/carousel/DSC_3531_2.jpg');
+            background-image: url('../images/carousel/l.jpg');
             background-size: 90% auto;
             background-repeat: no-repeat;
             background-attachment: fixed;
