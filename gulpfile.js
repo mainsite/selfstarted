@@ -13,7 +13,8 @@ gulp.task('index', function () {
         './src/selfStarted/*.js',
         './src/selfStarted/features/**/*.js',
         './src/selfStarted/features/components/**/*.js',
-        './src/selfStarted/features/components/services**/*.js'
+        './src/selfStarted/features/components/services**/*.js',
+        './src/selfStarted/features/components/directives**/*.js'
     ]).pipe(angularFilesort());
 
     return target.pipe(inject(sources, { ignorePath: 'src/', addRootSlash: false }))

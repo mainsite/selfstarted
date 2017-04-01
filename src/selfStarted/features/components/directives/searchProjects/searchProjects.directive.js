@@ -8,7 +8,7 @@ function SearchProjects() {
         scope: {
             projectData: '='
         },
-        templateUrl: 'selfStarted/features/components/searchProjects/searchProjects.html',
+        templateUrl: 'selfStarted/features/components/directives/searchProjects/searchProjects.html',
         controller: SearchProjectsCtrl,
         controllerAS: 'SearchProjectsVM',
         bindToController: true

@@ -19,9 +19,64 @@
 
       <!-- location input -->
       <div class="row">
-        <div class="col-sm-12">
-          <i class="fa fa-question-circle  fa-lg" aria-hidden="true" uib-tooltip="Enter the primary location for the project. In most cases this will be your City and State." tooltip-class="tooltipsclass"></i>
-          <input placeholder="Location" aria-placeholder="Location" type="text" class="form-control" required ng-model="location" />
+        <div class="col-sm-9">
+          <label for="location">Location</label><br>
+
+          <select 
+
+            class="styled-select dropBoxClear semi-square" 
+            data-ng-model="countryUser" 
+            data-ng-change="changeState()" 
+            data-ng-options="country as country for country in countries">
+
+              <option value="">Country</option>
+
+          </select> 
+          <i 
+
+            class="fa fa-question-circle fa-lg" 
+            aria-hidden="true" 
+            uib-tooltip="Select your country." 
+            tooltip-class="tooltipsclass">
+              
+          </i>
+
+          <select 
+
+            class="styled-select dropBoxClear semi-square" 
+            data-ng-model="stateUser"
+            data-ng-change="changeCity()" 
+            data-ng-options="state for state in states">
+
+              <option value="">State</option>
+
+          </select> 
+          <i 
+
+            class="fa fa-question-circle  fa-lg" 
+            aria-hidden="true" 
+            uib-tooltip="Select your state." 
+            tooltip-class="tooltipsclass">
+              
+          </i>
+
+          <select 
+
+            class="styled-select dropBoxClear semi-square" 
+            data-ng-model="cityUser" 
+            data-ng-options="city for city in cities">
+
+              <option value="">Major City</option>
+
+          </select> 
+          <i 
+
+            class="fa fa-question-circle  fa-lg" 
+            aria-hidden="true" 
+            uib-tooltip="Select the closest major city to you." 
+            tooltip-class="tooltipsclass">
+              
+          </i>
         </div>
       </div>
 
@@ -41,12 +96,41 @@
       <div class="row">
         <div class="col-sm-9">
           <label for="mainCollege">Select your college of study</label><br>
-          <select class="styled-select dropBoxClear semi-square" data-ng-model="mainCollege" data-ng-change="changeSubCollege()" data-ng-options="college as college for college  in colleges">
+
+          <select 
+            class="styled-select dropBoxClear semi-square" 
+            data-ng-model="mainCollege" 
+            data-ng-change="changeSubCollege()" 
+            data-ng-options="college as college for college  in colleges">
+
               <option value="">College</option>
-            </select> <i class="fa fa-question-circle   fa-lg" aria-hidden="true" uib-tooltip="Select the primary category of the project by college program." tooltip-class="tooltipsclass"></i>
-          <select class="styled-select dropBoxClear semi-square" data-ng-model="subCollege" data-ng-options="subcollege for subcollege in subcolleges">
+
+          </select> 
+          <i 
+
+            class="fa fa-question-circle   fa-lg" 
+            aria-hidden="true" 
+            uib-tooltip="Select the primary category of the project by college program." 
+            tooltip-class="tooltipsclass">
+              
+          </i>
+
+          <select 
+
+            class="styled-select dropBoxClear semi-square" 
+            data-ng-model="subCollege" 
+            data-ng-options="subcollege for subcollege in subcolleges">
+
               <option value="">Program</option>
-            </select> <i class="fa fa-question-circle  fa-lg" aria-hidden="true" uib-tooltip="Select the secondary category of the project by college program." tooltip-class="tooltipsclass"></i>
+
+          </select> 
+          <i 
+
+            class="fa fa-question-circle  fa-lg" 
+            aria-hidden="true" 
+            uib-tooltip="Select the secondary category of the project by college program." 
+            tooltip-class="tooltipsclass"></i>
+
         </div>
       </div>
 
