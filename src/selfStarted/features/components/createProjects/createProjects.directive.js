@@ -36,10 +36,7 @@ function CreateProjectsCtrl($scope, localStorageService, ProjectsService, Colleg
 
     var userLocation = UserLocation;
 
-    console.log(userLocation);
-
     var country = Object.keys(userLocation);
-    console.log(country);
 
     $scope.countries = country;
 
@@ -49,8 +46,6 @@ function CreateProjectsCtrl($scope, localStorageService, ProjectsService, Colleg
         let key = $scope.countryUser;
 
         let userCountry = Object.keys(userLocation[key]);
-
-        console.log(userCountry);
 
         $scope.states = userCountry;
 
@@ -63,10 +58,7 @@ function CreateProjectsCtrl($scope, localStorageService, ProjectsService, Colleg
 
         let userState = userLocation[keyCountry][keyState];
 
-        console.log(userState);
-
         $scope.cities = userState
-
 
     }
 
@@ -99,6 +91,8 @@ function CreateProjectsCtrl($scope, localStorageService, ProjectsService, Colleg
         $scope.subcolleges = userSub;
     }
 
+    // projectCountry, projectState, projectCityArea
+
     function submit() {
 
         var userDBid = getItem('userDBid');
@@ -110,8 +104,9 @@ function CreateProjectsCtrl($scope, localStorageService, ProjectsService, Colleg
             projectDescription: $scope.description.trim(),
             projectStartDate: $scope.startDate.toISOString(),
             projectEndDate: $scope.endDate.toISOString(),
-            projectLocation: $scope.location,
-            projectLocationLowerCase: $scope.location.trim().toLowerCase(),
+            projectCountry: $scope.countryUser,
+            projectState: $scope.stateUser,
+            projectCity: $scope.cityUser,
             projectCategoryByCollege: $scope.mainCollege,
             projectCategoryByProgram: $scope.subCollege,
             remotePermitted: $scope.radioModel,
