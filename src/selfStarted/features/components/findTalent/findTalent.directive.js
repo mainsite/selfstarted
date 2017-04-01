@@ -2,6 +2,7 @@ angular
     .module('selfStarted.component.findTalent')
     .directive('findTalent', FindTalent);
 
+
 function FindTalent() {
     return {
         restrict: 'E',
@@ -19,19 +20,36 @@ function FindTalent() {
 function FindTalentCtrl($scope, UsersService, localStorageService, ProjectsService, CollegeService) {
 
     var vm = this;
-    var college = CollegeService;
-    var mainCollegeField = Object.keys(college);
-    var users = UsersService;
-    var projects = ProjectsService;
 
+    // Using CollegeService to get the colleges and fields
+    var college = CollegeService;
+
+    // Getting the Object keys
+    var mainCollegeField = Object.keys(college);
+
+    // Using UsersService to get the user
+    var users = UsersService;
+
+    // Using ProjectsService
+    var projects = ProjectsService
+    // Setting submit() function in the form to scope.submit
     $scope.submit = submit;
+
+    // Setting recruit() function in the form to scope.recruit
     $scope.recruit = recruit;
+
+    // Setting up function for colleges and changSubCollege 
     $scope.colleges = mainCollegeField;
+    $scope.changeSubCollege = changeSubCollege;
+
+    // Will get data of user input
     $scope.userSelection = [];
     $scope.project = [];
     $scope.subcolleges = [];
-    $scope.changeSubCollege = changeSubCollege;
 
+    /**
+     * @return {Will make the drop down and find what the user click on}
+     */
     function changeSubCollege() {
 
         var key = $scope.mainCollege;
@@ -42,15 +60,33 @@ function FindTalentCtrl($scope, UsersService, localStorageService, ProjectsServi
 
     }
 
+    /**
+     * @return {Light the Powder Keg}
+     */
     function submit() {
 
+        /**
+         * Location Storage of the User ID
+         * @type {LinkedId ID of User}
+         */
         var userDBid = getItem('userDBid');
 
-
-
+        /**
+         * Allows user to search for a first name
+         * @type {String - trim and lower case}
+         */
         var firstName = $scope.firstName ? $scope.firstName.trim().toLowerCase() : undefined;
+
+        /**
+         * Allows user to search for a last name
+         * @type {String - trim and lower case}
+         */
         var lastName = $scope.lastName ? $scope.lastName.trim().toLowerCase() : undefined;
 
+        /**
+         * Gathers user search as an object
+         * @type {Object}
+         */
         var searchUsersInfo = {
             firstNameLowerCase: firstName,
             lastNameLowerCase: lastName,
@@ -59,24 +95,41 @@ function FindTalentCtrl($scope, UsersService, localStorageService, ProjectsServi
         };
 
 
-
+        /**
+         * @param  {searchUsersInfo}
+         * @param  {null}
+         * @return {The talent in the database that matches the fields}
+         */
         users.getUsers(searchUsersInfo, function (err, res) {
             if (err) return console.log(err);
             $scope.theUsers = res;
         });
 
+        /**
+         * @param  {User LinkedIn key}
+         * @return {User LinkedIn Key}
+         */
         function getItem(key) {
             return localStorageService.get(key);
         }
 
+        /**
+         * theProjects is the projects that user has made
+         * @type {Key}
+         */
         var theProjects = {_primaryProjectOwner: userDBid};
 
+        /**
+         * @param  {Projects that the user is primary on}
+         * @param  {null}
+         * @return {The projects the user is primart on}
+         */
         projects.getAllProjects(theProjects, function (err, res) {
             if (err) return console.log(err);
 
-            var holder = [];
+            let holder = [];
 
-            for (var i = 0; i < res.data.length; i++) {
+            for (let i = 0; i < res.data.length; i++) {
 
                 holder.push({ id: res.data[i]._id, name: res.data[i].projectName});
 
@@ -90,10 +143,14 @@ function FindTalentCtrl($scope, UsersService, localStorageService, ProjectsServi
 
     }
 
+    /**
+     * @param  {user ID linkedIn key}
+     * @return {null}
+     */
     function recruit(userID) {
-        var chosenUser = userID;
-        var chosenProject = this.myProject.id;
-        console.log(chosenUser, chosenProject);
+        
+        let chosenUser = userID;
+        let chosenProject = this.myProject.id;
 
         //TODO call service to send out recruit flag
         var accept = window.confirm("Confirm Adding user to your project");
