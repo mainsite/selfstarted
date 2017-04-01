@@ -102,6 +102,7 @@ function FindTalentCtrl($scope, UsersService, localStorageService, ProjectsServi
          */
         users.getUsers(searchUsersInfo, function (err, res) {
             if (err) return console.log(err);
+
             $scope.theUsers = res;
         });
 
@@ -135,7 +136,7 @@ function FindTalentCtrl($scope, UsersService, localStorageService, ProjectsServi
 
             }
 
-            console.log(holder);
+           
 
             $scope.userProjects = holder;
 

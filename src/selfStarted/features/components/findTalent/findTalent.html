@@ -86,7 +86,8 @@
 											</tr>
 											<tr>
 												<td>Remote:</td>
-												<td>{{user.willDoRemoteProjects}}</td>
+												<td ng-if="user.willDoRemoteProjects === true">Yes</td>
+												<td ng-if="user.willDoRemoteProjects === false">No</td>
 											</tr>
 											<tr>
 												<td>Date:</td>
