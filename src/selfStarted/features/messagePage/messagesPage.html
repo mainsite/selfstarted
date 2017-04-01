@@ -1,35 +1,61 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" ng-click="isCollapsed = !isCollapsed" aria-expanded="false" aria-controls="navbar">
+<div class="messageWrapper">
+
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" ng-click="isCollapsed = !isCollapsed" aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a ui-sref="home" class="navbar-brand">
-                <i class="fa fa-arrow-circle-up" aria-hidden="true"></i> Self<span id="selfLogo">Started</span>
-            </a>
+                <a ui-sref="home" class="navbar-brand">
+                    <i class="fa fa-arrow-circle-up" aria-hidden="true"></i> Self<span id="selfLogo">Started</span>
+                </a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse navbar-right" uib-collapse="isCollapsed">
+                <ul class="nav navbar-nav">
+                    <li><a ui-sref="profile">Profile</a></li>
+                    <li><a ui-sref="projects">Projects</a></li>
+                    <li><a ui-sref="dashboard">Dashboard</a></li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
         </div>
-        <div id="navbar" class="collapse navbar-collapse navbar-right" uib-collapse="isCollapsed">
-            <ul class="nav navbar-nav">
-                <li><a ui-sref="profile">Profile</a></li>
-                <li><a ui-sref="projects">Projects</a></li>
-                <li><a ui-sref="dashboard">Dashboard</a></li>
+    </nav>
+
+    <div class="container-fluid col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <!-- Side bar content -->
+        <div class="col-sm-3 col-md-2 sidebar messageSidebar" uib-collapse="isCollapsed">
+            <ul class="nav nav-sidebar">
+                <li class="active"><a href="">Messages<span class="sr-only">(current)</span></a></li>
+                <li><a href=""><i class="fa fa-commenting" aria-hidden="true"></i> Inbox</a></li>
+                <li><a href=""><i class="fa fa-share-square" aria-hidden="true"></i> Sent</a></li>
+                <li><a href=""><i class="fa fa-users" aria-hidden="true"></i> Group</a></li>
             </ul>
         </div>
-        <!--/.nav-collapse -->
+        <!-- end of side bar -->
+
+        <div class="panel panel-primary messagePanel">
+            <div class="panel-heading">
+                <h3 class="panel-title">Panel title</h3>
+            </div>
+            <div class="panel-body">
+                <div class="col-md-4 messageList">
+                    list of messages
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            from: {{}}<br>
+                            subject: {{}}
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-8 messageBody">
+                    message body
+                </div>
+            </div>
+        </div>
     </div>
-</nav>
 
-<!-- Side bar content -->
-<div class="col-sm-3 col-md-2 sidebar messageSidebar" uib-collapse="isCollapsed">
-    <ul class="nav nav-sidebar">
-        <li class="active"><a href="">Messages<span class="sr-only">(current)</span></a></li>
-        <li><a href=""><i class="fa fa-commenting" aria-hidden="true"></i> Inbox</a></li>
-        <li><a href=""><i class="fa fa-share-square" aria-hidden="true"></i> Sent</a></li>
-        <li><a href=""><i class="fa fa-users" aria-hidden="true"></i> Group</a></li>
-    </ul>
 </div>
-<!-- end of side bar -->
-
