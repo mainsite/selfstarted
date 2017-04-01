@@ -95,6 +95,22 @@ function CreateProjectsCtrl($scope, localStorageService, ProjectsService, Colleg
 
     function submit() {
 
+        let theSkills = [$scope.skills1,$scope.skills2,$scope.skills3,$scope.skills4]
+
+        let skillsHolder = [];
+
+        for (let i = 0; i < theSkills.length; i++) {
+            console.log(i);
+            if (theSkills[i]) {
+
+                skillsHolder.push(theSkills[i]);
+            }
+
+        }
+
+        console.log(theSkills);
+        console.log(skillsHolder);
+
         var userDBid = getItem('userDBid');
 
         var createProjectInfo = {
@@ -110,10 +126,12 @@ function CreateProjectsCtrl($scope, localStorageService, ProjectsService, Colleg
             projectCategoryByCollege: $scope.mainCollege,
             projectCategoryByProgram: $scope.subCollege,
             remotePermitted: $scope.radioModel,
-            otherSkillsDesired: $scope.skills,
+            otherSkillsDesired: skillsHolder,
             _primaryProjectOwner: userDBid
 
         };
+
+        console.log(createProjectInfo);
 
         projects.addNewProject(createProjectInfo);
 
