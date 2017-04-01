@@ -1,1 +1,3 @@
-angular.module('selfStarted.profilePage', []);
+angular.module('selfStarted.profilePage', [
+		'selfStarted.service.userLocation'
+	]);

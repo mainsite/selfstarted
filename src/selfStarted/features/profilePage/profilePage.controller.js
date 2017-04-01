@@ -2,7 +2,7 @@ angular
     .module('selfStarted.profilePage')
     .controller('ProfilePageCtrl', ProfilePageCtrl);
 
-function ProfilePageCtrl($scope, localStorageService, UsersService, CollegeService) {
+function ProfilePageCtrl($scope, localStorageService, UsersService, CollegeService, UserLocation) {
     var vm = this;
     var college = CollegeService;
     var mainCollegeField = Object.keys(college);
@@ -21,11 +21,42 @@ function ProfilePageCtrl($scope, localStorageService, UsersService, CollegeServi
     vm.saveChanges = saveChanges;
     
 
+    vm.changeState = changeState;
+    vm.changeCity = changeCity;
+
+    var userLocation = UserLocation;
+
+    var country = Object.keys(userLocation);
+
+    $scope.countries = country;
+
+    function changeState(){
+
+        let key = vm.countryUser;
+
+        
+
+        let userCountry = Object.keys(userLocation[key]);
+
+        $scope.states = userCountry;
+
+    }
+
+    function changeCity() {
+
+        let keyCountry = vm.countryUser;
+        let keyState = vm.stateUser;
+
+        let userState = userLocation[keyCountry][keyState];
+
+        $scope.cities = userState
+
+    }
+
     users.getUsers(userID, function (err, response) {
         if (err) console.error(err);
         var user = response[0];
-        console.log("User id is:", userID._id);
-        console.log("User is:", user);
+        
         vm.user = setCurrentUser(user);
     });
 
@@ -43,9 +74,12 @@ function ProfilePageCtrl($scope, localStorageService, UsersService, CollegeServi
     }
 
     function saveChanges() {
-
+ // userCountry, userState, userCityArea
         var updatedInfo = {
             _id: userID._id,
+            userCountry : vm.countryUser,
+            userState : vm.stateUser,
+            userCity : vm.cityUser,
             willDoRemoteProjects: vm.user.remote,
             willDoLocalProjects: vm.user.local,
             aboutMe: vm.user.description,
