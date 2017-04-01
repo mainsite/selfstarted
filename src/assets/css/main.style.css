@@ -57,6 +57,15 @@
     /* ----------------------------------------------- */
     /* Hide for mobile, show later */
     
+    .dashWrapper {
+        background-image: url('../images/carousel/DSC_3531_2.jpg');
+        background-size: 90% auto;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        min-height: 100%;
+        background-position-x: 100%;
+    }
+    
     .sidebar {
         display: none;
     }
@@ -76,12 +85,26 @@
             background-color: #1A1F2B;
             border-right: 1px solid #eee;
         }
+        .dashWrapper {
+            background-image: url('../images/carousel/DSC_3531_2.jpg');
+            background-size: 90% auto;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            min-height: 100%;
+            background-position-x: 100%;
+        }
     }
     
     @media (max-width: 768px) {
         .sidebar {
             background-color: #1A1F2B;
             margin-top: 50px;
+        }
+        .dashWrapper {
+            background-size: auto 100%;
+            background-repeat: repeat-y;
+            min-height: 100%;
+            background-position-x: 50%;
         }
     }
     /* Sidebar navigation */
@@ -142,7 +165,6 @@
         margin: 0 auto;
         margin-top: 5%;
     }
-    
     /*.projectForm form {
         margin: 0 auto;
         margin-top: 20px;
@@ -232,15 +254,15 @@
     /* end of buttons and date picker */
     /* end of create a project */
     /* ----------------------------------------------- */
-
-/*tooltips related class work*/
-.tooltip.tooltipsclass .tooltip-inner {
-    color: #000000;
-    background-color: #f0f0f0;
-    box-shadow: 0 6px 12px rgba(0,0,0,.5);
-}
-
-.tooltip.customClass .tooltip-arrow {
-    display: none;
-}
-/*end of tooltips class work*/
+    /*tooltips related class work*/
+    
+    .tooltip.tooltipsclass .tooltip-inner {
+        color: #000000;
+        background-color: #f0f0f0;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, .5);
+    }
+    
+    .tooltip.customClass .tooltip-arrow {
+        display: none;
+    }
+    /*end of tooltips class work*/
