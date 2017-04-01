@@ -19,7 +19,10 @@ router.post('/users/updateUser', function (req, res) {
 		additionalSkills: req.body.additionalSkills,
 		defaultSkillByCollege: req.body.defaultSkillByCollege,
 		defaultSkillByProgram: req.body.defaultSkillByProgram,
-		aboutMe: req.body.aboutMe
+		aboutMe: req.body.aboutMe,
+		userCountry: req.body.userCountry,
+		userState: req.body.userState,
+		userCity: req.body.userCity
 	})
 		.exec(function (error, userData) {
 			if (error) {

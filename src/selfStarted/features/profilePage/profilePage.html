@@ -48,6 +48,45 @@
                                             <td>Location:</td>
                                             <td>{{ProfilePageVM.user.location}}</td>
                                         </tr>
+                                        <tr ng-if="ProfilePageVM.edit">
+                                            <td>(Edit) Location:</td>
+                                            <td>
+                                                <label for="location">Location</label><br>
+
+                                                <select 
+
+                                                  class="styled-select dropBoxClear semi-square" 
+                                                  data-ng-model="ProfilePageVM.countryUser" 
+                                                  data-ng-change="ProfilePageVM.changeState()" 
+                                                  data-ng-options="country as country for country in countries">
+
+                                                    <option value="">Country</option>
+
+                                                </select> 
+
+                                                <select 
+
+                                                  class="styled-select dropBoxClear semi-square" 
+                                                  data-ng-model="ProfilePageVM.stateUser"
+                                                  data-ng-change="ProfilePageVM.changeCity()" 
+                                                  data-ng-options="state for state in states">
+
+                                                    <option value="">State</option>
+
+                                                </select> 
+
+                                                <select 
+
+                                                  class="styled-select dropBoxClear semi-square" 
+                                                  data-ng-model="ProfilePageVM.cityUser" 
+                                                  data-ng-options="city for city in cities">
+
+                                                    <option value="">Major City</option>
+
+                                                </select> 
+
+                                            </td>
+                                        </tr>
                                         <tr>
                                             <td>LinkedIn Profile:</td>
                                             <td><a ng-href="{{ProfilePageVM.user.url}}">{{ProfilePageVM.user.url}}</a></td>
@@ -90,14 +129,27 @@
                                                 (Edit) Main College:<br> Major:
                                             </td>
                                             <td>
-                                                <select class="styled-select dropBoxClear semi-square" data-ng-model="ProfilePageVM.mainCollege" data-ng-change="ProfilePageVM.changeSubCollege()"
+                                                <select 
+
+                                                    class="styled-select dropBoxClear semi-square" 
+                                                    data-ng-model="ProfilePageVM.mainCollege" 
+                                                    data-ng-change="ProfilePageVM.changeSubCollege()"
                                                     data-ng-options="college for college in ProfilePageVM.colleges">
+
                                                     <option value="">College</option>
-                                                    </select>
-                                                <select class="styled-select dropBoxClear semi-square" data-ng-model="ProfilePageVM.subCollege" data-ng-change="ProfilePageVM.changeSubCollege()"
+
+                                                </select>
+
+                                                <select 
+
+                                                    class="styled-select dropBoxClear semi-square" 
+                                                    data-ng-model="ProfilePageVM.subCollege" 
+                                                    data-ng-change="ProfilePageVM.changeSubCollege()"
                                                     data-ng-options="subcollege for subcollege in ProfilePageVM.subcolleges">
+
                                                     <option value="">Program</option>
-                                                    </select>
+
+                                                </select>
                                             </td>
                                         </tr>
                                         <!--</tr>-->

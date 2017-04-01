@@ -67,6 +67,7 @@ var UsersSchema = new Schema({
     type: Date
   },
 
+  // OLD USER LOCATION CODE ---- DEPRECATED
   // userLocation is required in order to list projects
   // by distance when user searches for them. For
   // future consideration - do we want set another
@@ -75,18 +76,39 @@ var UsersSchema = new Schema({
   // Google Maps Geocoding API can take in any string
   // for location such as "Orlando, FL" or "Orlando FL" and
   // convert that to lat/long.
-  userLocation: {
-    type: String,
-    required: true
-  },
+  // userLocation: {
+    // type: String,
+    // required: true
+  // },
 
   // lower case version of the userLocation for searching
   // case insensitive. Faster approach than doing a case
   // insensitive approach which ignores indexing and causes
   // performance hit
-  userLocationLowerCase: {
-    type: String,
-    required: true
+  // userLocationLowerCase: {
+    // type: String,
+    // required: true
+  // },
+  // OLD USER LOCATION CODE ---- DEPRECATED
+
+  // userCountry is the country the user will be located in.
+  // It can be an actual country name, or just "online".
+  userCountry: {
+    type: String
+  },
+
+  // userState is the state the user will be located in.
+  // It can be an actual state/province name, or just "online".
+  userState: {
+    type: String
+  },
+
+  // userCity is the city area the user will be located in.
+  // It needs to cover suburban cities too. For example, "Orlando"
+  // would cover Kissimmee, Windermere, Casselberry, etc.
+  // It can be an actual city name, or just "online"
+  userCity: {
+    type: String
   },
 
   // willDoRemoteProjects is a boolean for whether the user

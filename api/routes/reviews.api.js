@@ -7,7 +7,7 @@ router.get('/reviews/searchReviews?', function(req, res, next) {
 
     console.log(req.query);
 
-    Projects.find(req.query)
+    Reviews.find(req.query)
         .populate('_projectId')
         .populate('_reviewFromUser')
         .populate('_reviewForUser')
