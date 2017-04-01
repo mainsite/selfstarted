@@ -1,0 +1,42 @@
+.messageWrapper {
+    height: 100%;
+}
+
+/*-- Side bar --*/
+/*---------------------------------------------*/
+
+@media (min-width: 768px) {
+    .messageSidebar {
+        position: fixed;
+        top: 50px;
+        bottom: 0;
+        left: 0;
+        z-index: 1000;
+        display: block;
+        padding: 20px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        /* Scrollable contents if viewport is shorter than content. */
+        background-color: #1A1F2B;
+        border-right: 1px solid #eee;
+    }
+}
+
+@media (max-width: 768px) {
+    .messageSidebar {
+        background-color: #1A1F2B;
+        padding-top: 35%;
+    }
+}
+
+
+/*-- message panel --*/
+/*---------------------------------------------*/
+.messagePanel .panel-body {
+    height: 80vh;
+}
+
+.messageList {
+    height: 100%;
+    border-right: 4px solid gray;
+}

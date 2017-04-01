@@ -8,7 +8,7 @@ function dashboardConfig($stateProvider, localStorageServiceProvider) {
     $stateProvider.state({
         name: 'dashboard',
         url: '/dashboard',
-        templateUrl: 'selfStarted/features/dashboard/dashboard.html',
+        templateUrl: '/selfStarted/features/dashboard/dashboard.html',
         controller: DashboardCtrl,
         controllerAs: 'DashboardVM',
 /*        resolve: {
