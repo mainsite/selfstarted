@@ -1,62 +1,68 @@
-<div class="wrapper">
-<!-- Top Nav bar with a hamburger menu for mobile views -->
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" ng-click="isCollapsed = !isCollapsed">
+<div class="dashWrapper">
+    <!-- Top Nav bar with a hamburger menu for mobile views -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" ng-click="isCollapsed = !isCollapsed">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">
-                <i class="fa fa-arrow-circle-up" aria-hidden="true"></i> 
-                Self<span id="selfLogo">Started</span>
-            </a>
+                <a class="navbar-brand" href="#">
+                    <i class="fa fa-arrow-circle-up" aria-hidden="true"></i> Self
+                    <span id="selfLogo">Started</span>
+                </a>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
-<!-- bottom section with side bar and main content -->
-<div class="container-fluid">
-    <div class="row" >
-        <!-- Side bar content -->
-        <div class="col-sm-3 col-md-2 sidebar" uib-collapse="isCollapsed">
-            <ul class="nav nav-sidebar">
-                <li><a href=""><img class="img-circle" ng-src="{{DashboardVM.userImg}}" alt="user image"></a></li>
-                <li class="active"><a href="">Dashboard<span class="sr-only">(current)</span></a></li>
-                <li><a ui-sref="profile"><i class="fa fa-user" aria-hidden="true"></i> Profile</a></li>
-                <li><a href=""><i class="fa fa-commenting" aria-hidden="true"></i> Message</a></li>
-                <li><a ui-sref="projects"><i class="fa fa-product-hunt" aria-hidden="true"></i> Projects</a></li>
-                <li><a href=""><i class="fa fa-line-chart" aria-hidden="true"></i> Analytics</a></li>
-                <li><a href=""><i class="fa fa-truck" aria-hidden="true"></i> Export</a></li>
-            </ul>
-        </div>
-        <!-- end of side bar -->
+    <!-- bottom section with side bar and main content -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Side bar content -->
+            <div class="col-sm-3 col-md-2 sidebar" uib-collapse="isCollapsed">
+                <ul class="nav nav-sidebar">
+                    <li>
+                        <a href=""><img class="img-circle" ng-src="{{DashboardVM.userImg}}" alt="user image"></a>
+                    </li>
+                    <li class="active"><a href="">Dashboard<span class="sr-only">(current)</span></a></li>
+                    <li><a ui-sref="profile"><i class="fa fa-user" aria-hidden="true"></i> Profile</a></li>
+                    <li><a href=""><i class="fa fa-commenting" aria-hidden="true"></i> Message</a></li>
+                    <li><a ui-sref="projects"><i class="fa fa-product-hunt" aria-hidden="true"></i> Projects</a></li>
+                    <li><a href=""><i class="fa fa-line-chart" aria-hidden="true"></i> Analytics</a></li>
+                    <li><a href=""><i class="fa fa-truck" aria-hidden="true"></i> Export</a></li>
+                </ul>
+            </div>
+            <!-- end of side bar -->
 
-        <!-- Main page content -->
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <!--<h1 class="page-header">Welcome {{DashboardVM.userName}}</h1>-->
+            <!-- Main page content -->
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                <!--<h1 class="page-header">Welcome {{DashboardVM.userName}}</h1>-->
 
-            <div class="row">
-                <!-- Tabs for inner content -->
-                <uib-tabset>
-                    <uib-tab class="tabBar" index="0" heading="Create a Project">
-                        <!-- we will put our form directives here-->
-                       <create-projects></create-projects>
-                    </uib-tab>
-                    <uib-tab class="tabBar" index="1" heading="Search Projects">
-                        <!-- we will put our form directives here-->
-                        <search-projects></search-projects>
-                    </uib-tab>
-                    <uib-tab class="tabBar" index="2" heading="Find Talent">
-                        <!-- we will put our form directives here-->
-                        <find-talent></find-talent>
-                    </uib-tab>
-                </uib-tabset>
-                <!-- end of tabs content -->
+                <div class="row">
+                    <!-- Tabs for inner content -->
+                    <uib-tabset>
+                        <uib-tab class="tabBar" index="0" heading="Welcome">
+                            <!-- we will put our form directives here-->
+                            
+                        </uib-tab>
+                        <uib-tab class="tabBar" index="1" heading="Create a Project">
+                            <!-- we will put our form directives here-->
+                            <create-projects></create-projects>
+                        </uib-tab>
+                        <uib-tab class="tabBar" index="2" heading="Search Projects">
+                            <!-- we will put our form directives here-->
+                            <search-projects></search-projects>
+                        </uib-tab>
+                        <uib-tab class="tabBar" index="3" heading="Find Talent">
+                            <!-- we will put our form directives here-->
+                            <find-talent></find-talent>
+                        </uib-tab>
+                    </uib-tabset>
+                    <!-- end of tabs content -->
+                </div>
             </div>
         </div>
     </div>
-</div>
 </div>

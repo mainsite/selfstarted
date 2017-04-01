@@ -1,6 +1,9 @@
-body {
+.wrapper {
     background-image: url('../images/carousel/l.jpg');
     background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100%;
 }
 
 .panel-info>.panel-heading {
@@ -9,7 +12,7 @@ body {
 
 .panel-title {
     padding: .50em;
-    color: white;
+    color: darkgray;
 }
 
 .user-row {
@@ -44,7 +47,7 @@ body {
 }
 
 .toppad {
-    margin-top: 20%;
+    margin-top: 10%;
 }
 
 .btn-warning {
