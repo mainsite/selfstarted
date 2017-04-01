@@ -1,0 +1,2 @@
+angular
+    .modular('selfStarted.messagesPage', []);
