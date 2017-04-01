@@ -1,2 +1,2 @@
 angular
-    .modular('selfStarted.messagesPage', []);
+    .module('selfStarted.messagesPage', []);

@@ -10,7 +10,8 @@ angular
         'selfStarted.profilePage',
         'selfStarted.projectsPage',
         'selfStarted.service.college',
-        'selfStarted.service.projects'
+        'selfStarted.service.projects',
+        'selfStarted.messagesPage'
     ])
     .config(appConfig);
 
