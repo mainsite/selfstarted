@@ -53,22 +53,44 @@ var ProjectsSchema = new Schema({
 		type: Date
 	},
 
+	// projectCountry is the country the project will be located in.
+	// It can be an actual country name, or just "online".
+	projectCountry: {
+		type: String
+	},
+
+	// projectState is the state the project will be located in.
+	// It can be an actual state/province name, or just "online".
+	projectState: {
+		type: String
+	},
+
+	// projectCity is the city area the project will be located in.
+	// It needs to cover suburban cities too. For example, "Orlando"
+	// would cover Kissimmee, Windermere, Casselberry, etc.
+	// It can be an actual city name, or just "online"
+	projectCity: {
+		type: String
+	},
+
+	// OLD PROJECT LOCATION CODE ---- DEPRECATED 
 	// projectLocation is the city/etc where the project will be located.
 	// Consider making the default value the same as primary project owner's
 	// location?
-	projectLocation: {
-		type: String,
-		required: true,
-		trim: true
-	},
+	// projectLocation: {
+		// type: String,
+		// required: true,
+		// trim: true
+	// },
 
 	// lowercase version of the projectLocation. See notes on projectNameLowerCase
 	// above for explanation as to why we need this.
-	projectLocationLowerCase: {
-		type: String,
-		required: true,
-		trim: true
-	},
+	// projectLocationLowerCase: {
+		// type: String,
+		// required: true,
+		// trim: true
+	// },
+	// OLD PROJECT LOCATION CODE ---- DEPRECATED 
 
 	// projectCategoryByCollege references projectAreas.js by which we store
 	// the main category by college, and subsequently in projectCategoryByProgram
