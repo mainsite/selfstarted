@@ -16,7 +16,7 @@ function CreateProjects() {
 }
 
 
-function CreateProjectsCtrl($scope, localStorageService, ProjectsService, CollegeService) {
+function CreateProjectsCtrl($scope, localStorageService, ProjectsService, CollegeService, UserLocation) {
 
 
 
@@ -24,6 +24,9 @@ function CreateProjectsCtrl($scope, localStorageService, ProjectsService, Colleg
     var college = CollegeService;
     var mainCollegeField = Object.keys(college);
     var projects = ProjectsService;
+    var userLocation = UserLocation;
+
+    console.log(userLocation);
 
     $scope.submit = submit;
     $scope.dateRestrict = dateRestrict;
