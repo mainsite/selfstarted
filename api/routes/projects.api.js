@@ -21,8 +21,6 @@ router.post('/projects/newProject', function (req, res, next) {
         projectCountry: req.body.projectCountry,
         projectState: req.body.projectState,
         projectCity: req.body.projectCity,
-        projectLocation: req.body.projectLocation,
-        projectLocationLowerCase: req.body.projectLocationLowerCase,
         projectCategoryByCollege: req.body.projectCategoryByCollege,
         projectCategoryByProgram: req.body.projectCategoryByProgram,
         otherSkillsDesired: req.body.otherSkillsDesired,
