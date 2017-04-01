@@ -24,15 +24,45 @@ function CreateProjectsCtrl($scope, localStorageService, ProjectsService, Colleg
     var college = CollegeService;
     var mainCollegeField = Object.keys(college);
     var projects = ProjectsService;
-    var userLocation = UserLocation;
 
-    console.log(userLocation);
 
     $scope.submit = submit;
     $scope.dateRestrict = dateRestrict;
     $scope.colleges = mainCollegeField;
     $scope.subcolleges = [];
     $scope.changeSubCollege = changeSubCollege;
+    $scope.changeState = changeState;
+    $scope.changeCity = changeCity;
+
+    var userLocation = UserLocation;
+
+    var country = Object.keys(userLocation);
+
+    $scope.countries = country;
+
+
+    function changeState(){
+
+        let key = $scope.countryUser;
+
+        let userCountry = Object.keys(userLocation[key]);
+
+        $scope.states = userCountry;
+
+    }
+
+    function changeCity() {
+
+        let keyCountry = $scope.countryUser;
+        let keyState = $scope.stateUser;
+
+        let userState = userLocation[keyCountry][keyState];
+
+        $scope.cities = userState
+
+    }
+
+
 
     $scope.optionsStartDate = {
       minDate: new Date(),
@@ -45,22 +75,23 @@ function CreateProjectsCtrl($scope, localStorageService, ProjectsService, Colleg
     };
 
     function dateRestrict () {
-        console.log("obj");
+
         $scope.optionsEndDate = {
             minDate: $scope.startDate,
             showWeeks: true
-    };
-
+        };
 
     }
 
     function changeSubCollege() {
-        var key = $scope.mainCollege;
+        let key = $scope.mainCollege;
 
-        var userSub = college[key];
+        let userSub = college[key];
 
         $scope.subcolleges = userSub;
     }
+
+    // projectCountry, projectState, projectCityArea
 
     function submit() {
 
@@ -73,8 +104,9 @@ function CreateProjectsCtrl($scope, localStorageService, ProjectsService, Colleg
             projectDescription: $scope.description.trim(),
             projectStartDate: $scope.startDate.toISOString(),
             projectEndDate: $scope.endDate.toISOString(),
-            projectLocation: $scope.location,
-            projectLocationLowerCase: $scope.location.trim().toLowerCase(),
+            projectCountry: $scope.countryUser,
+            projectState: $scope.stateUser,
+            projectCity: $scope.cityUser,
             projectCategoryByCollege: $scope.mainCollege,
             projectCategoryByProgram: $scope.subCollege,
             remotePermitted: $scope.radioModel,
