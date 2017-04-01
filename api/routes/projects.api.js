@@ -29,7 +29,7 @@ router.post('/projects/newProject', function (req, res, next) {
     });
 
     newProject.save(function (error, newProject) {
-        if (err) {
+        if (error) {
             console.log(error);
             res.send(error);
         } else {

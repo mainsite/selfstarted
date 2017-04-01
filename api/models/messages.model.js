@@ -53,31 +53,31 @@ var MessagesSchema = new Schema({
 	},
 
 	// messageCreateDate tracks when the mssage was created/sent, and it can be
-	// set to a default of the current date when the document is created
+	// set to a default of the current date when the document is created.
 	messageCreateDate: {
 		type: Date,
 		default: Date.now
 	},
 
-	// messageReadDate tracks when the message was first read
+	// messageReadDate tracks when the message was first read.
 	messageReadDate: {
 		type: Date
 	},
 
-	// messageRead tracks whether the user has read the message. Default is false
+	// isRead tracks whether the user has read the message. Default is false
 	// to indicate message hasn't been read yet.
-	messageRead: {
+	isRead: {
 		type: Boolean,
 		default: false
 	},
 
-	// messageDeleteDate tracks when the user deleted the message
+	// messageDeleteDate tracks when the user deleted the message.
 	messageDeleteDate: {
 		type: Date
 	},
 
-	// messageDeleted 
-	messageDeleted: {
+	// isDeleted tracks whether the user has deleted the message.
+	isDeleted: {
 		type: Boolean,
 		default: false
 	}
