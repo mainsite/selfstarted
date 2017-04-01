@@ -75,6 +75,24 @@ function ProfilePageCtrl($scope, localStorageService, UsersService, CollegeServi
 
     function saveChanges() {
  // userCountry, userState, userCityArea
+
+        let theSkills = [vm.skills1,vm.skills2,vm.skills3,vm.skills4]
+
+        let skillsHolder = [];
+
+        for (let i = 0; i < theSkills.length; i++) {
+             
+
+            if (theSkills[i]) {
+
+                skillsHolder.push(theSkills[i]);
+            }
+
+        }
+
+        console.log(theSkills);
+        console.log(skillsHolder);
+
         var updatedInfo = {
             _id: userID._id,
             userCountry : vm.countryUser,
@@ -84,7 +102,7 @@ function ProfilePageCtrl($scope, localStorageService, UsersService, CollegeServi
             willDoLocalProjects: vm.user.local,
             aboutMe: vm.user.description,
             userSchoolName: vm.user.schoolName,
-            //additionalSkills: vm.user.additionalSkills,
+            additionalSkills: skillsHolder,
             defaultSkillByCollege: vm.user.college,
             defaultSkillByProgram: vm.user.major
         };
