@@ -72,10 +72,12 @@ router.post('/messages/newMessage', function(req, res, next) {
 router.post('/messages/markMessageRead', function(req, res, next) {
     console.log(req.body);
 
-    Messages.findOneAndUpdate(req.body._id, {
+    Messages.findByIdAndUpdate(req.body._id, {
         isRead: true,
         messageReadDate: Date.now()
-    })
+    }, {
+        'new': true
+        })
     .exec(function(error, messageData) {
         if (error) {
             console.log(error);
@@ -91,10 +93,12 @@ router.post('/messages/markMessageRead', function(req, res, next) {
 router.post('/messages/deleteMessage', function(req, res, next) {
     console.log(req.body);
 
-    Messages.findOneAndUpdate(req.body._id, {
+    Messages.findByIdAndUpdate(req.body._id, {
         isDeleted: true,
         messageDeleteDate: Date.now()
-    })
+    }, {
+        'new': true
+        })
     .exec(function(error, messageData) {
         if (error) {
             console.log(error);
