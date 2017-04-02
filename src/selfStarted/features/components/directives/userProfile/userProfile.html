@@ -20,16 +20,77 @@
             </div>
             <div class="col-sm-4">
                 <h4>Work Locally:</h4>
-                <p>{{user.local}}</p>
+                <p class="text-capitalize">{{user.local}}</p>
             </div>
             <div class="col-sm-4">
                 <h4>Work Remotely:</h4>
-                <p>{{user.remote}}</p>
+                <p class="text-capitalize">{{user.remote}}</p>
             </div>
         </div>
     </div>
+
+    <hr>
+
+    <h3 class="text-center">Send Message</h3>
+
+    <form class="row col-sm-12" name="nestedForm" ng-submit="ok()">
+      <div class="form-group">
+
+    <div class="row container-fluid">
+        <div class="col-sm-5">
+        <input 
+
+            ng-model="subjectUser"
+            type="text" 
+            class="form-control" 
+            required 
+            placeholder="Subject">
+
+        </div>
+    </div>
+
+
+    <div class="row container-fluid">
+        <div class="col-sm-12">
+
+        <textarea 
+
+            ng-model="messageUser" 
+            class="form-control" 
+            placeholder="Message" 
+            aria-placeholder="Message"
+            required 
+            rows="6">
+                
+        </textarea>
+   
+        </div>
+
+    </div>
+
+    </div>
+
+    <div class="row container-fluid">
+    
+      <div class="col-sm-12 center-block">
+
+    <button 
+
+        type="ok" 
+        class="btn btn-success" >
+
+        Send Message
+
+    </button>
+    <button class="btn" ng-click="cancel()">Cancel</button>
+
+        </div>
+
+    </div>
+
+    </form>
+
     <div class="modal-footer">
-        <button class="btn btn-success" ng-click="ok()">Okay</button>
-        <button class="btn" ng-click="cancel()">Cancel</button>
+
     </div>
 </div>

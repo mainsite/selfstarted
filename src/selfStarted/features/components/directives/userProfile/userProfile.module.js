@@ -1,1 +1,3 @@
-angular.module('selfStarted.component.userProfile', []);
+angular.module('selfStarted.component.userProfile', [
+	'selfStarted.service.messages'
+	]);
