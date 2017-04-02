@@ -2,7 +2,10 @@
     height: 100%;
 }
 
+
 /*-- Side bar --*/
+
+
 /*---------------------------------------------*/
 
 @media (min-width: 768px) {
@@ -31,7 +34,10 @@
 
 
 /*-- message panel --*/
+
+
 /*---------------------------------------------*/
+
 .messagePanel .panel-body {
     height: 80vh;
 }
@@ -39,4 +45,9 @@
 .messageList {
     height: 100%;
     border-right: 4px solid gray;
+}
+
+.messageBody {
+    padding-left: 5%;
+    padding-right: 5%;
 }
