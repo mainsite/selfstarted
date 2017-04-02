@@ -5,13 +5,43 @@
       <!-- Project title and Description input boxes -->
       <div class="row">
         <div class="col-sm-12">
-          <i class="fa fa-question-circle  fa-lg" aria-hidden="true" uib-tooltip="Enter a brief title that the project will be known by." tooltip-class="tooltipsclass"></i>
-          <input placeholder="Title of Project" aria-placeholder="Title of Project" type="text" class="form-control" required ng-model="title"
-          />
+          <i 
+
+            class="fa fa-question-circle  fa-lg" 
+            aria-hidden="true" 
+            uib-tooltip="Enter a brief title that the project will be known by." 
+            tooltip-class="tooltipsclass">
+              
+          </i>
+
+          <input 
+
+            placeholder="Title of Project" 
+            aria-placeholder="Title of Project" 
+            type="text" 
+            class="form-control" 
+            required ng-model="title"/>
+
           <br>
-          <i class="fa fa-question-circle  fa-lg" aria-hidden="true" uib-tooltip="Enter a detailed description of the project." tooltip-class="tooltipsclass"></i>
-          <textarea rows="4" placeholder="Project Description" aria-placeholder="Project Description" class="form-control" required
+
+          <i 
+
+            class="fa fa-question-circle fa-lg" 
+            aria-hidden="true" 
+            uib-tooltip="Enter a detailed description of the project." 
+            tooltip-class="tooltipsclass">
+              
+          </i>
+
+          <textarea 
+
+            rows="4" 
+            placeholder="Project Description" 
+            aria-placeholder="Project Description" 
+            class="form-control" 
+            required
             ng-model="description" />
+
         </div>
       </div>
 
@@ -84,7 +114,17 @@
 
       <div class="row">
         <div class="col-sm-12 btn-group">
-          <h4>Remote Talent</h4> <i class="fa fa-question-circle  fa-lg" aria-hidden="true" uib-tooltip="Select 'Yes' to allow non-local project members. Select 'No' if all members must be local to the project location." tooltip-class="tooltipsclass"></i>
+
+          <h4>Remote Talent</h4> 
+
+          <i 
+
+            class="fa fa-question-circle fa-lg" 
+            aria-hidden="true" 
+            uib-tooltip="Select 'Yes' to allow non-local project members. Select 'No' if all members must be local to the project location." tooltip-class="tooltipsclass">
+              
+          </i>
+
           <label class="btn btn-primary" ng-model="radioModel" uib-btn-radio="'true'">Yes</label>
           <label class="btn btn-primary" ng-model="radioModel" uib-btn-radio="'false'">No</label>
         </div>
@@ -140,18 +180,53 @@
 
       <!-- Date picker -->
       <div class="row">
+
         <div class="col-sm-12 col-md-6">
-          <i class="fa fa-question-circle  fa-lg" aria-hidden="true" uib-tooltip="Select the approximate start date of the project." tooltip-class="tooltipsclass"></i>
+
+          <i 
+            class="fa fa-question-circle fa-lg" 
+            aria-hidden="true" 
+            uib-tooltip="Select the approximate start date of the project." 
+            tooltip-class="tooltipsclass">
+              
+          </i>
+
           <h3>Start Date</h3>
+
           <div style="display:inline-block; min-height:290px;">
-            <div uib-datepicker ng-model="startDate" class="well well-sm" datepicker-options="optionsStartDate" ng-click="dateRestrict()"></div>
+
+            <div 
+
+              uib-datepicker ng-model="startDate" 
+              class="well well-sm" 
+              datepicker-options="optionsStartDate" 
+              ng-click="dateRestrict()">
+                
+            </div>
           </div>
         </div>
+
         <div class="col-sm-12 col-md-6">
-          <i class="fa fa-question-circle  fa-lg" aria-hidden="true" uib-tooltip="Select the approximate end date of the project." tooltip-class="tooltipsclass"></i>
+          <i 
+
+            class="fa fa-question-circle fa-lg" 
+            aria-hidden="true" 
+            uib-tooltip="Select the approximate end date of the project." 
+            tooltip-class="tooltipsclass">
+              
+          </i>
+
           <h3>End Date</h3>
+
           <div style="display:inline-block; min-height:290px;">
-            <div uib-datepicker ng-model="endDate" class="well well-sm" datepicker-options="optionsEndDate"></div>
+            <div
+
+              uib-datepicker 
+              ng-model="endDate" 
+              class="well well-sm" 
+              datepicker-options="optionsEndDate">
+                
+            </div>
           </div>
         </div>
       </div>
