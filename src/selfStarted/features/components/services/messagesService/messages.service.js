@@ -17,7 +17,7 @@
                         callback(err);
                     });
             },
-            postMessage: function (messageData) {
+            postMessage: function (messageData, callback) {
                 var message = {
                     _fromUser: messageData._from,
                     _toUser: messageData._to,
@@ -33,7 +33,7 @@
                         callback(err);
                     });
             },
-            markMessageRead: function (messageID) {
+            markMessageRead: function (messageID, callback) {
                 var message = {
                     _id: messageID
                 };
@@ -41,12 +41,12 @@
                 $http.post('/api/messages/markMessageRead', message)
                     .then(function (res) {
                         var err = false;
-                        callback(err, "message read");
+                        callback(err, res.data);
                     }, function (err) {
                         callback(err);
                     });
             },
-            markMessageDeleted: function (messageID) {
+            markMessageDeleted: function (messageID, callback) {
                 var message = {
                     _id: messageID
                 };
