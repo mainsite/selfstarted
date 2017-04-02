@@ -39,20 +39,31 @@
 
         <div class="panel panel-primary messagePanel">
             <div class="panel-heading">
-                <h3 class="panel-title">Panel title</h3>
+                <h3 class="panel-title">Your Messages</h3>
             </div>
             <div class="panel-body">
                 <div class="col-md-4 messageList">
-                    list of messages
+                    Inbox
                     <ul class="list-group">
-                        <li class="list-group-item">
-                            from: {{}}<br>
-                            subject: {{}}
+                        <li class="list-group-item" ng-click="MessagesPageVM.showMessage(message)" ng-repeat="message in MessagesPageVM.userMessages">
+                            from: {{message._fromUser.firstName}}<br>
+                            subject: {{message.messageSubject}}
                         </li>
                     </ul>
                 </div>
                 <div class="col-md-8 messageBody">
-                    message body
+                    <div ng-if="MessagesPageVM.show" class="row messageHeader ">
+                        from: {{MessagesPageVM.messageBody._fromUser.firstName}} <br>
+                        to: {{MessagesPageVM.messageBody._toUser.firstName}} <br>
+                        on: {{MessagesPageVM.messageBody.messageCreateDate | date:"MM/dd/yyyy 'at' h:mma"}} <br>
+                        <hr>
+                        subject: {{MessagesPageVM.messageBody.messageSubject}}
+                        <hr>
+                    </div>
+
+                    <div ng-if="MessagesPageVM.show" class="row messageText">
+                        {{MessagesPageVM.messageBody.messageText}}
+                    </div>
                 </div>
             </div>
         </div>
