@@ -45,9 +45,10 @@
                 <div class="col-md-4 messageList">
                     Inbox
                     <ul class="list-group">
-                        <li class="list-group-item" ng-click="MessagesPageVM.showMessage(message)" ng-repeat="message in MessagesPageVM.userMessages">
+                        <li class="list-group-item" ng-click="MessagesPageVM.showMessage(message, $index)" ng-repeat="message in MessagesPageVM.userMessages">
                             from: {{message._fromUser.firstName}}<br>
                             subject: {{message.messageSubject}}
+                            <span ng-if="!message.isRead" class="newMessage">new <i class="fa fa-envelope" aria-hidden="true"></i></span>
                         </li>
                     </ul>
                 </div>

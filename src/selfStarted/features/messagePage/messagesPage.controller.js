@@ -7,6 +7,8 @@ function MessagesPageCtrl(MessagesService, localStorageService) {
     var messages = MessagesService;
     var userID = getUserID();
 
+    console.log(userID);
+
     vm.showMessage = showMessage;
     vm.show = false;
 
@@ -16,9 +18,16 @@ function MessagesPageCtrl(MessagesService, localStorageService) {
         console.log(vm.userMessages);
     });
 
-    function showMessage(message) {
+    function showMessage(message, index) {
         vm.show = true;
         vm.messageBody = message;
+        
+        if (!message.isRead) {
+            messages.markMessageRead(message._id, function(err, response) {
+                vm.userMessages[index] = response;
+                console.log(vm.messageBody);
+            });
+        }
     }
 
     function getUserID() {
