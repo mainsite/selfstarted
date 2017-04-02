@@ -74,7 +74,7 @@ router.post('/messages/markMessageRead', function(req, res, next) {
 
     Messages.findOneAndUpdate(req.body._id, {
         isRead: true,
-        messageReadDate: Date.now();
+        messageReadDate: Date.now()
     })
     .exec(function(error, messageData) {
         if (error) {
@@ -93,7 +93,7 @@ router.post('/messages/deleteMessage', function(req, res, next) {
 
     Messages.findOneAndUpdate(req.body._id, {
         isDeleted: true,
-        messageDeleteDate: Date.now();
+        messageDeleteDate: Date.now()
     })
     .exec(function(error, messageData) {
         if (error) {
