@@ -17,7 +17,7 @@ function FindTalent() {
 }
 
 
-function FindTalentCtrl($scope, UsersService, localStorageService, ProjectsService, CollegeService) {
+function FindTalentCtrl($scope, UsersService, localStorageService, ProjectsService, CollegeService, $log, $uibModal) {
 
     var vm = this;
 
@@ -163,5 +163,18 @@ function FindTalentCtrl($scope, UsersService, localStorageService, ProjectsServi
             });
         }
     }
+    $scope.open = open;
+    function open(user) {
+        console.log("open modal");
+        var modalInstance = $uibModal.open({
+            templateUrl: 'selfStarted/features/components/directives/userProfile/userProfile.html',
+            controller: UserProfileCtrl,
+            resolve: {
+                userData: function() {
+                    return user;
+                }
+            }
+        });
+    };
 
 }
