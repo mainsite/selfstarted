@@ -49,15 +49,15 @@ router.post('/messages/newMessage', function(req, res, next) {
         messageText: req.body.messageText,
     });
 
-    newMessage1.save(function (error, result) {
-        if (error) {
-            console.log('first message error', error);
-            res.send(error);
+    newMessage1.save(function (error1, result1) {
+        if (error1) {
+            console.log('first message error', error1);
+            res.send(error1);
         } else {
-            newMessage2.save(function (err, res) {
-                if (err) {
-                    console.log('second message error', err);
-                    res.send(err);
+            newMessage2.save(function (error2, result2) {
+                if (error2) {
+                    console.log('second message error', error2);
+                    res.send(error2);
                 } else {
                     console.log('messages posted');
                     res.send('messages posted');
