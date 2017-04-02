@@ -88,7 +88,7 @@
                                     <tr>
                                         <th>Pending Members</th>
                                         <td>
-                                            <ul ng-repeat="invited in project._usersInvited">
+                                            <ul ng-repeat="invited in project._usersRequesting">
                                                 <li>
                                                     {{invited.firstName}} |
                                                     <button ng-click="ProjectsPageVM.acceptUserInvite(project._id, invited._id)" class="btn btn-primary" type="">Accept</button>
