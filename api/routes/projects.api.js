@@ -220,7 +220,7 @@ router.post('/projects/denyProjectJoin', function(req, res, next) {
     console.log(req.body);
 
     Projects.findByIdAndUpdate(req.body._id, {
-        $pull: {_usersRequesting: req.body._usersRequesting}
+        $pullAll: {_usersRequesting: [req.body._usersRequesting]}
     }, {
         'new': true
         })
@@ -245,7 +245,7 @@ router.post('/projects/acceptProjectJoin', function(req, res, next) {
 
     Projects.findByIdAndUpdate(req.body._id, {
         $addToSet: {_usersAssigned: req.body._usersRequesting},
-        $pullAll: {_usersRequesting: req.body._usersRequesting}
+        $pullAll: {_usersRequesting: [req.body._usersRequesting]}
     }, {
         'new': true
         })
@@ -292,7 +292,7 @@ router.post('/projects/denyProjectInvite', function(req, res, next) {
     console.log(req.body);
 
     Projects.findByIdAndUpdate(req.body._id, {
-        $pull: {_usersInvited: req.body._usersInvited}
+        $pullAll: {_usersInvited: [req.body._usersInvited]}
     }, {
         'new': true
         })
@@ -317,7 +317,7 @@ router.post('/projects/acceptProjectInvite', function(req, res, next) {
 
     Projects.findByIdAndUpdate(req.body._id, {
         $addToSet: {_usersAssigned: req.body._usersInvited},
-        $pullAll: {_usersInvited: req.body._usersInvited}
+        $pullAll: {_usersInvited: [req.body._usersInvited]}
     }, {
         'new': true
         })

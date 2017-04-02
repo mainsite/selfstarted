@@ -179,7 +179,7 @@ function ProjectsService($http) {
                 _usersInvited: userID
             };
 
-            $http.post('/api/projects/denyProjectInvite', projectRequest)
+            $http.post('/api/projects/acceptProjectInvite', projectRequest)
                 .then(function (response) {
                     var err;
                     callback(err, "accepted Invitation");

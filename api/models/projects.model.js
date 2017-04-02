@@ -44,7 +44,7 @@ var ProjectsSchema = new Schema({
 	projectCreateDate: {
 		type: Date,
 		default: Date.now
-	}
+	},
 
 	// projectStartDate is estimated start date per the project owner
 	projectStartDate: {
