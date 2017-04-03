@@ -17,7 +17,7 @@ function FindTalent() {
 }
 
 
-function FindTalentCtrl($scope, UsersService, localStorageService, ProjectsService, CollegeService, $log, $uibModal) {
+function FindTalentCtrl($scope, UsersService, localStorageService, ProjectsService, CollegeService, $uibModal) {
 
     var vm = this;
 
@@ -31,7 +31,7 @@ function FindTalentCtrl($scope, UsersService, localStorageService, ProjectsServi
     var users = UsersService;
 
     // Using ProjectsService
-    var projects = ProjectsService
+    var projects = ProjectsService;
     // Setting submit() function in the form to scope.submit
     $scope.submit = submit;
 

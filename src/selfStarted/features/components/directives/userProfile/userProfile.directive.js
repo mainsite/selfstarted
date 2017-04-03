@@ -47,19 +47,16 @@ function UserProfileCtrl($scope, $uibModalInstance, localStorageService, UsersSe
             _subject   : $scope.subjectUser,
             _textBody  : $scope.messageUser
 
-        }
+        };
 
         console.log(messageInfo);
 
         messagesService.postMessage(messageInfo , function (err , res){
 
             if (err) return console.log(err);
+            $uibModalInstance.close();
+        });
 
-
-
-        })
-
-        $uibModalInstance.close();
     };
 
     $scope.cancel = function () {
