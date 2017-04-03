@@ -9,7 +9,7 @@
     function MessagesService($http) {
         return {
             getMessages: function (userID, callback) {
-                $http.get('/api/messages/searchMessages?_messageOwner=' + userID)
+                $http.get('/api/messages/searchMessages?_messageOwner=' + userID + '&_toUser=' + userID)
                     .then(function (res) {
                         var err = false;
                         callback(err, res.data);
