@@ -34,8 +34,6 @@ function ProfilePageCtrl($scope, localStorageService, UsersService, CollegeServi
 
         let key = vm.countryUser;
 
-        
-
         let userCountry = Object.keys(userLocation[key]);
 
         $scope.states = userCountry;
@@ -130,6 +128,9 @@ function setCurrentUser(user) {
         firstName: user.firstName,
         lastName: user.lastName,
         location: user.userLocation,
+        userCountry: user.userCountry,
+        userState: user.userState,
+        userCity: user.userCity,
         description: user.aboutMe,
         url: user.linkedInURL,
         photo: user.userPhotoLink,
@@ -138,6 +139,7 @@ function setCurrentUser(user) {
         signUpDate: user.signUpDate,
         college: user.defaultSkillByCollege,
         major: user.defaultSkillByProgram,
-        schoolName: user.userSchoolName
+        schoolName: user.userSchoolName,
+        additionalSkills: user.additionalSkills,
     };
 }

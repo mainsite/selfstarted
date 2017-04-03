@@ -46,7 +46,7 @@
                                         <!--<tr>-->
                                         <tr>
                                             <td>Location:</td>
-                                            <td>{{ProfilePageVM.user.location}}</td>
+                                            <td>{{ProfilePageVM.user.userCountry}}, {{ProfilePageVM.user.userState}}, {{ProfilePageVM.user.userCity}}</td>
                                         </tr>
                                         <tr ng-if="ProfilePageVM.edit">
                                             <td>(Edit) Location:</td>
@@ -156,6 +156,9 @@
                                         <tr>
                                             <td>
                                                 Skills:
+                                            </td>
+                                            <td>
+                                                <span ng-repeat="skill in ProfilePageVM.user.additionalSkills">{{skill}}, </span>
                                             </td>
                                         </tr>
                                         <!-- Drop menu that only shows up once user hits edit -->
