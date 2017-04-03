@@ -245,7 +245,7 @@
                         <a ng-click="ProfilePageVM.toggleEdit()" type="button" class="btn btn-sm btn-warning">
                             <i class="glyphicon glyphicon-check"></i> Edit Profile</a>
                         <span class="pull-right">
-                        <button type="submit" class="btn btn-sm btn-success">
+                        <button ng-if="ProfilePageVM.edit" type="submit" class="btn btn-sm btn-success">
                             <i class="glyphicon glyphicon-edit"></i> Save Changes
                         </button>
                     </span>
