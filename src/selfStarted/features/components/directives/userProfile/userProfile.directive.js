@@ -42,10 +42,10 @@ function UserProfileCtrl($scope, $uibModalInstance, localStorageService, UsersSe
 
         var messageInfo = {
 
-            _fromUser      : userDBid,
-            _toUser        : users._id,
-            messageSubject : $scope.subjectUser,
-            messageText    : $scope.messageUser
+            _from      : userDBid,
+            _to        : users._id,
+            _subject   : $scope.subjectUser,
+            _textBody  : $scope.messageUser
 
         }
 
