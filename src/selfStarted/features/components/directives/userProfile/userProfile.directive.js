@@ -14,17 +14,17 @@ function UserProfile() {
     };
 }
 
-function UserProfileCtrl($scope, $uibModalInstance, localStorageService, UsersService, userData , MessagesService) {
+function UserProfileCtrl($scope, $uibModalInstance, localStorageService, userData , MessagesService) {
 
     var vm = this;
 
-    var users = userData;
+    var selectedUser = userData;
 
-    console.log(users);
+    console.log(selectedUser);
 
     var messagesService = MessagesService;
 
-    $scope.user = setCurrentUser(users);
+    $scope.user = setCurrentUser(selectedUser);
  
     $scope.ok = function () {
         console.log("you clicked ok");
