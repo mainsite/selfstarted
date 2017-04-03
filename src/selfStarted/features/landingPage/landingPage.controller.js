@@ -84,4 +84,109 @@ function LandingPageCtrl($scope) {
 
         return array;
     }
+
+    angular.element( document ).ready(function() {
+
+        scaleVideoContainer();
+
+        initBannerVideoSize('.video-container .poster img');
+        initBannerVideoSize('.video-container .filter');
+        initBannerVideoSize('.video-container video');
+
+        angular.element(window).on('resize', function() {
+            scaleVideoContainer();
+            scaleBannerVideoSize('.video-container .poster img');
+            scaleBannerVideoSize('.video-container .filter');
+            scaleBannerVideoSize('.video-container video');
+        });
+
+    });
+
+    function scaleVideoContainer() {
+
+        var height = angular.element(window).height() + 5;
+        var unitHeight = parseInt(height) + 'px';
+        angular.element('.homepage-hero-module').css('height',unitHeight);
+
+    }
+
+    function initBannerVideoSize(element){
+
+        angular.element(element).each(function(){
+            angular.element(this).data('height', angular.element(this).height());
+            angular.element(this).data('width', angular.element(this).width());
+        });
+
+        scaleBannerVideoSize(element);
+
+    }
+
+    function scaleBannerVideoSize(element){
+
+        var windowWidth = angular.element(window).width(),
+        windowHeight = angular.element(window).height() + 5,
+        videoWidth,
+        videoHeight;
+
+        // console.log(windowHeight);
+
+        angular.element(element).each(function(){
+            var videoAspectRatio = angular.element(this).data('height')/angular.element(this).data('width');
+
+            angular.element(this).width(windowWidth);
+
+            if(windowWidth < 1000){
+                videoHeight = windowHeight;
+                videoWidth = videoHeight / videoAspectRatio;
+                angular.element(this).css({'margin-top' : 0, 'margin-left' : -(videoWidth - windowWidth) / 2 + 'px'});
+
+                angular.element(this).width(videoWidth).height(videoHeight);
+            }
+
+            angular.element('.homepage-hero-module .video-container video').addClass('fadeIn animated');
+
+        });
+
+
+
+    }
+
+    /*!
+     * Start Bootstrap - Grayscale Bootstrap Theme (http://startbootstrap.com)
+     * Code licensed under the Apache License v2.0.
+     * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+     */
+
+    // jQuery to collapse the navbar on scroll
+    function collapseNavbar() {
+        if (angular.element(".navbar").offset().top > 50) {
+            angular.element(".navbar-fixed-top").addClass("top-nav-collapse");
+        } else {
+            angular.element(".navbar-fixed-top").removeClass("top-nav-collapse");
+        }
+    }
+
+    angular.element(window).scroll(collapseNavbar);
+    angular.element(document).ready(collapseNavbar);
+
+    // jQuery for page scrolling feature - requires jQuery Easing plugin
+    angular.element(function() {
+        angular.element('a.page-scroll').bind('click', function(event) {
+            var $anchor = angular.element(this);
+            angular.element('html, body').stop().animate({
+                scrollTop: angular.element($anchor.attr('href')).offset().top
+            }, 1500, 'easeInOutExpo');
+            event.preventDefault();
+        });
+    });
+
+    // Closes the Responsive Menu on Menu Item Click
+    angular.element('.navbar-collapse ul li a').click(function() {
+        angular.element(".navbar-collapse").collapse('hide');
+    });
+
+
+
+
+
 }
