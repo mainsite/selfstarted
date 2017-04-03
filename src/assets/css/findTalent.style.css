@@ -98,3 +98,7 @@
 .tooltip.customClass .tooltip-arrow {
     display: none;
 }
+
+#closeX {
+    float: right;
+}

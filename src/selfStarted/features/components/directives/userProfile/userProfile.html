@@ -1,6 +1,6 @@
-<div modal="showModal" close="cancel()">
+<div modal="showModal">
     <div class="modal-header">
-        <h4>{{user.firstName}} {{user.lastName}}'s Profile</h4>
+        <h4 class="col-sm-6">{{user.firstName}} {{user.lastName}}'s Profile</h4> <a class="col-sm-1" id="closeX" ng-click="cancel()"><i class="fa fa-times fa-2x" aria-hidden="true"></i></a>
     </div>
     <div class="modal-body">
         <div class="row container-fluid">
@@ -81,9 +81,6 @@
         </button>
       </div>
     </form>
-        <div class="col-sm-6 ">
-            <button class="btn" ng-click="cancel()">Cancel</button>
-        </div>
     </div>
     
 

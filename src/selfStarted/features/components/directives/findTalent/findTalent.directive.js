@@ -17,7 +17,7 @@ function FindTalent() {
 }
 
 
-function FindTalentCtrl($scope, UsersService, localStorageService, ProjectsService, CollegeService, $uibModal) {
+function FindTalentCtrl($scope, UsersService, localStorageService, ProjectsService, CollegeService, $uibModal, $log) {
 
     var vm = this;
 
@@ -175,6 +175,11 @@ function FindTalentCtrl($scope, UsersService, localStorageService, ProjectsServi
                 }
             }
         });
-    };
+
+        modalInstance.result.then(function() {
+        }, function () {
+            $log.info('modal closed by outside click: ');
+        });
+    }
 
 }
