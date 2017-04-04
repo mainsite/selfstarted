@@ -1,3 +1,5 @@
+<div class="projectsWrapper">
+
 <nav class="navbar navbar-inverse navbar-fixed-top row">
     <div class="container">
         <div class="navbar-header">
@@ -20,32 +22,24 @@
         <!--/.nav-collapse -->
     </div>
 </nav>
-<div class="container">
+<div class="container projectForm">
     <div class="projectsContent">
-        <h1>Projects</h1>
-
-        <br>
-
         <uib-tabset active="activeJustified" justified="true">
             <uib-tab index="0" heading="My Projects">
                 <div class="row projectsList">
                     <div>
-                        <button ng-click="ProjectsPageVM.filterDeleted()" class="btn btn-primary btn-lg">Deleted</button>
+                        <!--<button ng-click="ProjectsPageVM.filterDeleted()" class="btn btn-primary btn-lg">Deleted</button>-->
+                        <input class="" type="checkbox" ng-click="ProjectsPageVM.filterDeleted()" name="deletedCheckbox" value="">
+                        <label class="label label-default checkbox" for="deletedCheckbox">View Deleted projects</label>
+                        <hr>
                     </div>
                     <br>
                     <div class="col-md-12">
-                        <uib-accordion ng-repeat="project in ProjectsPageVM.projects[0] | filter:ProjectsPageVM.filter">
-                            <div uib-accordion-group class="panel-default" is-open="status.open">
+                        <uib-accordion>
+                            <div ng-repeat="project in ProjectsPageVM.projects[0] | filter:ProjectsPageVM.filter" uib-accordion-group class="panel-info" is-open="status.open">
                                 <uib-accordion-heading>
                                     {{project.projectName}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
                                 </uib-accordion-heading>
-                                <!--                                 <p>Project Description: {{project.projectDescription}}</p>
-                                <p>Start date: {{project.projectStartDate | date}}</p>
-                                <p>End date: {{project.projectEndDate | date}}</p>
-                                <p>Location: {{project.projectLocation}}</p>
-                                <p>Main College: {{project.projectCategoryByCollege}}</p>
-                                <p>Sub College: {{project.projectCategoryByProgram}}</p>
-                                <p>Project Skills: {{project.otherSkillsDesired}}</p> -->
                                 <table class="table table-bordered">
                                     <tr class="success">
                                         <th>Project Description</th>
@@ -105,8 +99,9 @@
                 </div>
             </uib-tab>
             <uib-tab index="1" heading="Member of Projects">
-                <uib-accordion ng-repeat="project in ProjectsPageVM.projects[1]">
-                    <div uib-accordion-group class="panel-default" is-open="status.open">
+                <uib-accordion>
+                    <br>
+                    <div ng-repeat="project in ProjectsPageVM.projects[1]" uib-accordion-group class="panel-info" is-open="status.open">
                         <uib-accordion-heading>
                             {{project.projectName}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
                         </uib-accordion-heading>
@@ -151,9 +146,10 @@
                     </div>
                 </uib-accordion>
             </uib-tab>
-            <uib-tab index="2" heading="Pending membership Projects">
-                <uib-accordion ng-repeat="project in ProjectsPageVM.projects[2]">
-                    <div uib-accordion-group class="panel-default" is-open="status.open">
+            <uib-tab index="2" heading="Pending memberships">
+                <uib-accordion>
+                    <br>
+                    <div ng-repeat="project in ProjectsPageVM.projects[2]" uib-accordion-group class="panel-info" is-open="status.open">
                         <uib-accordion-heading>
                             {{project.projectName}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
                         </uib-accordion-heading>
@@ -199,8 +195,9 @@
                 </uib-accordion>
             </uib-tab>
             <uib-tab index="3" heading="Project invites">
-                <uib-accordion ng-repeat="project in ProjectsPageVM.projects[3]">
-                    <div uib-accordion-group class="panel-default" is-open="status.open">
+                <uib-accordion>
+                    <br>
+                    <div ng-repeat="project in ProjectsPageVM.projects[3]"> uib-accordion-group class="panel-info" is-open="status.open">
                         <uib-accordion-heading>
                             {{project.projectName}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
                         </uib-accordion-heading>
@@ -249,3 +246,5 @@
         </uib-tabset>
     </div>
 </div>
+</div>
+<!-- end of projects wrapper-->

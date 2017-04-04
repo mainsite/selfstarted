@@ -59,7 +59,7 @@
     
     .dashWrapper {
         background-image: url('../images/carousel/l.jpg');
-        background-size: 90% auto;
+        background-size: 100% auto;
         background-repeat: no-repeat;
         background-attachment: fixed;
         min-height: 100%;
@@ -87,7 +87,7 @@
         }
         .dashWrapper {
             background-image: url('../images/carousel/l.jpg');
-            background-size: 90% auto;
+            background-size: 95% 100%;
             background-repeat: no-repeat;
             background-attachment: fixed;
             min-height: 100%;
@@ -141,7 +141,7 @@
     /* ----------------------------------------------- */
     
     .main {
-        margin-top: 6%;
+        margin-top: 3%;
         padding: 20px;
     }
     
@@ -163,7 +163,7 @@
         padding-bottom: 1.5em !important;
         background-color: #24323d;
         margin: 0 auto;
-        margin-top: 5%;
+        margin-top: 2%;
     }
     /*.projectForm form {
         margin: 0 auto;

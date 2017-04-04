@@ -1,8 +1,20 @@
+.projectsWrapper {
+    background-image: url('../images/carousel/g.jpg');
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    height: 100%;
+}
 
 .projectsContent {
-    margin-top: 10%;
+    margin-top: 5%;
 }
 
-.projectsList {
-    padding-top: 5% !important;
+.checkbox {
+    margin-left: 10px;
+    font-size: 1em;
 }
+
+/*.projectsList {
+    padding-top: 5% !important;
+}*/

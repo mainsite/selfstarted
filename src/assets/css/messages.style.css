@@ -1,5 +1,10 @@
 .messageWrapper {
     height: 100%;
+    background-image: url('../images/carousel/p.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100%;
 }
 
 
@@ -37,10 +42,6 @@
 
 
 /*---------------------------------------------*/
-
-.messagePanel .panel-body {
-    height: 80vh;
-}
 
 .messageList {
     height: 100%;

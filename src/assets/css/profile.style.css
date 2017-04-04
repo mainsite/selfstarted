@@ -1,6 +1,6 @@
-.wrapper {
-    background-image: url('../images/carousel/l.jpg');
-    background-size: 100% auto;
+.profileWrapper {
+    background-image: url('../images/carousel/m.jpg');
+    background-size: 100% 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
     min-height: 100%;
