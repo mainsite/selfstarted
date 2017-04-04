@@ -197,7 +197,7 @@
             <uib-tab index="3" heading="Project invites">
                 <uib-accordion>
                     <br>
-                    <div ng-repeat="project in ProjectsPageVM.projects[3]"> uib-accordion-group class="panel-info" is-open="status.open">
+                    <div ng-repeat="project in ProjectsPageVM.projects[3]" uib-accordion-group class="panel-info" is-open="status.open">
                         <uib-accordion-heading>
                             {{project.projectName}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
                         </uib-accordion-heading>
