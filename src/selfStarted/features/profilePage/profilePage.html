@@ -56,9 +56,9 @@
                                                 <select 
 
                                                   class="styled-select dropBoxClear semi-square" 
-                                                  data-ng-model="ProfilePageVM.countryUser" 
+                                                  data-ng-model="ProfilePageVM.country" 
                                                   data-ng-change="ProfilePageVM.changeState()" 
-                                                  data-ng-options="country as country for country in countries">
+                                                  data-ng-options="country for country in ProfilePageVM.userCountries">
 
                                                     <option value="">Country</option>
 
@@ -67,9 +67,9 @@
                                                 <select 
 
                                                   class="styled-select dropBoxClear semi-square" 
-                                                  data-ng-model="ProfilePageVM.stateUser"
+                                                  data-ng-model="ProfilePageVM.state"
                                                   data-ng-change="ProfilePageVM.changeCity()" 
-                                                  data-ng-options="state for state in states">
+                                                  data-ng-options="state for state in ProfilePageVM.userStates">
 
                                                     <option value="">State</option>
 
@@ -78,8 +78,9 @@
                                                 <select 
 
                                                   class="styled-select dropBoxClear semi-square" 
-                                                  data-ng-model="ProfilePageVM.cityUser" 
-                                                  data-ng-options="city for city in cities">
+                                                  data-ng-model="ProfilePageVM.city"
+                                                  data-ng-change="ProfilePageVM.changeCity()"
+                                                  data-ng-options="city for city in ProfilePageVM.userCities">
 
                                                     <option value="">Major City</option>
 
@@ -176,7 +177,7 @@
                                                    aria-placeholder="Skills needed" 
                                                    type="text" 
                                                    class="form-control" 
-                                                   ng-model="ProfilePageVM.skills1"/>
+                                                   ng-model="ProfilePageVM.user.additionalSkills[0]"/>
 
                                                </div>
 
@@ -188,7 +189,7 @@
                                                    aria-placeholder="Skills needed" 
                                                    type="text" 
                                                    class="form-control" 
-                                                   ng-model="ProfilePageVM.skills2"/>
+                                                   ng-model="ProfilePageVM.user.additionalSkills[1]"/>
 
                                                </div>
 
@@ -200,7 +201,7 @@
                                                     aria-placeholder="Skills needed" 
                                                     type="text" 
                                                     class="form-control" 
-                                                     ng-model="ProfilePageVM.skills3"/>
+                                                     ng-model="ProfilePageVM.user.additionalSkills[2]"/>
 
                                                </div>
 
@@ -212,7 +213,7 @@
                                                    aria-placeholder="Skills needed" 
                                                    type="text" 
                                                    class="form-control" 
-                                                    ng-model="ProfilePageVM.skills4"/>
+                                                    ng-model="ProfilePageVM.user.additionalSkills[3]"/>
 
                                                </div> 
 

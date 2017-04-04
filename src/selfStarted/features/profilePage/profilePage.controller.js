@@ -5,7 +5,9 @@ angular
 function ProfilePageCtrl($scope, localStorageService, UsersService, CollegeService, UserLocation) {
     var vm = this;
     var college = CollegeService;
+    var userLocation = UserLocation;
     var mainCollegeField = Object.keys(college);
+    var country = Object.keys(userLocation);
     var users = UsersService;
     var userID = {_id: getItem('userDBid')};
     vm.user = {};
@@ -15,41 +17,15 @@ function ProfilePageCtrl($scope, localStorageService, UsersService, CollegeServi
     vm.subcolleges = [];
     vm.changeSubCollege = changeSubCollege;
 
+    //location drop menu init
+    vm.userCountries = country;
+    vm.changeState = changeState;
+    vm.changeCity = changeCity;
+
     //edit/save button configs
     vm.edit = false;
     vm.toggleEdit = toggleEdit;
     vm.saveChanges = saveChanges;
-    
-
-    vm.changeState = changeState;
-    vm.changeCity = changeCity;
-
-    var userLocation = UserLocation;
-
-    var country = Object.keys(userLocation);
-
-    $scope.countries = country;
-
-    function changeState(){
-
-        let key = vm.countryUser;
-
-        let userCountry = Object.keys(userLocation[key]);
-
-        $scope.states = userCountry;
-
-    }
-
-    function changeCity() {
-
-        let keyCountry = vm.countryUser;
-        let keyState = vm.stateUser;
-
-        let userState = userLocation[keyCountry][keyState];
-
-        $scope.cities = userState
-
-    }
 
     users.getUsers(userID, function (err, response) {
         if (err) console.error(err);
@@ -74,7 +50,7 @@ function ProfilePageCtrl($scope, localStorageService, UsersService, CollegeServi
     function saveChanges() {
  // userCountry, userState, userCityArea
 
-        let theSkills = [vm.skills1,vm.skills2,vm.skills3,vm.skills4]
+        let theSkills = [vm.skills1,vm.skills2,vm.skills3,vm.skills4];
 
         let skillsHolder = [];
 
@@ -93,14 +69,14 @@ function ProfilePageCtrl($scope, localStorageService, UsersService, CollegeServi
 
         var updatedInfo = {
             _id: userID._id,
-            userCountry : vm.countryUser,
-            userState : vm.stateUser,
-            userCity : vm.cityUser,
+            userCountry : vm.user.userCountry,
+            userState : vm.user.userState,
+            userCity : vm.user.userCity,
             willDoRemoteProjects: vm.user.remote,
             willDoLocalProjects: vm.user.local,
             aboutMe: vm.user.description,
             userSchoolName: vm.user.schoolName,
-            additionalSkills: skillsHolder,
+            additionalSkills: vm.user.additionalSkills,
             defaultSkillByCollege: vm.user.college,
             defaultSkillByProgram: vm.user.major
         };
@@ -112,6 +88,27 @@ function ProfilePageCtrl($scope, localStorageService, UsersService, CollegeServi
             users.updateUser(updatedInfo);
             vm.edit = false;
         }
+    }
+
+    function changeState() {
+
+        var key = vm.country;
+        vm.user.userCountry = key;
+        var userCountry = Object.keys(userLocation[key]);
+        var userState = userCountry;
+        vm.userStates = userState;
+    }
+
+    function changeCity() {
+
+        let keyCountry = vm.country;
+        let keyState = vm.state;
+        vm.user.userState = vm.state;
+        let userState = userLocation[keyCountry][keyState];
+
+        vm.userCities = userState;
+        vm.user.userCity = vm.city;
+
     }
 
     function changeSubCollege() {
@@ -127,7 +124,6 @@ function setCurrentUser(user) {
     return {
         firstName: user.firstName,
         lastName: user.lastName,
-        location: user.userLocation,
         userCountry: user.userCountry,
         userState: user.userState,
         userCity: user.userCity,
